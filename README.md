@@ -12,6 +12,6 @@ If the enum is showing up as an error, make sure your Compiler compliance is at 
 
 2. Use Git Issues! Seriously, it's so important that we use and are on-top of Git issues. 
 
-3. Be creative, comment often. Let's not play the "What were...they... trying to do...?" game. 
+3. Be creative, comment often.
 
 4. Code Review. Code review is so important! Spend the first part of your proramming session integrating the suggestions made to you through code review into your project. At the end of your session, spend some time with the code that you *didn't* write, and make sure to flag any issues and make suggestions. 
