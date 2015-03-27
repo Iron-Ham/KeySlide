@@ -4,6 +4,11 @@ import misc.UnsupportedStatusTransitionException;
 import contracts.InstructionStatus;
 import contracts.InstructionStatusOperations;
 
+/**
+ * The concrete implementation of InstructionStatusOperation. This state is "REVERSE"
+ * @author heshamsalman
+ *
+ */
 public class ReverseISO implements InstructionStatusOperations {
 
 	@Override

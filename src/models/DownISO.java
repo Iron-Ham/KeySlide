@@ -4,6 +4,11 @@ import misc.UnsupportedStatusTransitionException;
 import contracts.InstructionStatus;
 import contracts.InstructionStatusOperations;
 
+/**
+ * The concrete implementation of InstructionStatusOperation. This state is "DOWN"
+ * @author heshamsalman
+ *
+ */
 public class DownISO implements InstructionStatusOperations {
 
 	@Override
