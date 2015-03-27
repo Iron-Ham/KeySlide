@@ -9,6 +9,4 @@ This is a standard Eclipse project. However, there are a few things that must be
 
 3. Be creative, comment often. Let's not play the "What were...they... trying to do...?" game. 
 
-## Code Review?
-Do y'all want to do code review? I think it's a good idea. At my co., we spend the first part of each development cycle integrating and improving code, as suggested by code review, and the final part of each cycle reviewing the cycle's submissions. I suggest we do something similar, as it will help us catch issues quickly. 
-
+4. Code Review. Code review is so important! Spend the first part of your proramming session integrating the suggestions made to you through code review into your project. At the end of your session, spend some time with the code that you *didn't* write, and make sure to flag any issues and make suggestions. 
