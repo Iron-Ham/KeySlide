@@ -1,6 +1,11 @@
 # KeySlide
 ## Setting Up The Project
-This is a standard Eclipse project. However, there are a few things that must be done in order to be able to compile this project. Make sure that your compiler Compliance level is at least 1.7 (but you should really be using 1.8). 
+Import the project into eclipse. Do this by going to:
+File --> Import --> General --> Existing Projects
+Select the directory of the KeySlide project and import the project. 
+
+### Troubleshooting Set-up
+If the enum is showing up as an error, make sure your Compiler compliance is at 1.8 
 
 ## Contributing
 1. In every class that needs it, make sure you have a *static* logger, and make sure to log every method upon entry and exit (if applicable)! This is especially important for event-listeners and controllers. You can look at the example of how I've used logger in the starter code. Make sure to read the documentation on the Logger object. 
