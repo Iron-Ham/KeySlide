@@ -32,11 +32,6 @@ public class StopISO implements InstructionStatusOperations {
 	}
 
 	@Override
-	public InstructionStatus reverse(Instruction instruction) {
-		 return InstructionStatus.REVERSE;
-	}
-
-	@Override
 	public InstructionStatus stop(Instruction instruction) throws UnsupportedStatusTransitionException {
 		throw new UnsupportedStatusTransitionException("stop");
 	}

@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Random;
+
 import contracts.InstructionStatus;
 import misc.UnsupportedStatusTransitionException;
 import models.Instruction;
@@ -10,17 +12,36 @@ import models.Instruction;
  *
  */
 public class InstructionController {
-	private Instruction instr;
-	
-	InstructionController() {
+	private static Instruction instr;
+	private static final InstructionController instance = new InstructionController();
+	boolean reverse = false;
+	Random r = new Random();
+	private InstructionController() {
 		InstructionStatus p = InstructionStatus.getRandomStatus();
 		instr = new Instruction(p);
+	}
+	
+	public static synchronized InstructionController getInstance() {
+		return instance;
+	}
+	
+	public Instruction getInstr() {
+		return instr;
+	}
+	
+	public InstructionStatus getStatus() {
+		return instr.getStatus();
+	}
+	
+	public boolean isReversed() {
+		return reverse;
 	}
 	
 	public void nextInstruction() {
 		InstructionStatus p = InstructionStatus.getRandomStatus();
 		if (p != instr.getStatus()) {
 			instr.setStatus(p);
+			reverse = r.nextBoolean();
 		}
 	}
 }

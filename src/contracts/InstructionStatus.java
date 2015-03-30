@@ -10,7 +10,6 @@ import models.DownISO;
 import models.LeftISO;
 import models.RightISO;
 import models.UpISO;
-import models.ReverseISO;
 import models.StopISO;
 
 /**
@@ -27,7 +26,6 @@ public enum InstructionStatus implements InstructionStatusOperations {
 	RIGHT(new RightISO()),
 	UP(new UpISO()),
 	DOWN(new DownISO()),
-	REVERSE(new ReverseISO()),
 	STOP(new StopISO());
 	
 	private static Logger logger =  Logger.getLogger(InstructionStatus.class.getName());
@@ -66,12 +64,6 @@ public enum InstructionStatus implements InstructionStatusOperations {
 	public InstructionStatus down(Instruction instruction) throws UnsupportedStatusTransitionException {
 		logger.entering(getClass().getName(), "success");
 		return operations.down(instruction);
-	}
-
-	@Override
-	public InstructionStatus reverse(Instruction instruction) throws UnsupportedStatusTransitionException {
-		logger.entering(getClass().getName(), "success");
-		return operations.reverse(instruction);
 	}
 
 	@Override

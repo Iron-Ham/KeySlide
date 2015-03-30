@@ -31,11 +31,6 @@ public class LeftISO implements InstructionStatusOperations {
 	}
 
 	@Override
-	public InstructionStatus reverse(Instruction instruction) {
-		 return InstructionStatus.REVERSE;
-	}
-
-	@Override
 	public InstructionStatus stop(Instruction instruction) {
 		 return InstructionStatus.STOP;
 	}
