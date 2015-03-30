@@ -3,6 +3,7 @@ package contracts;
 import misc.UnsupportedStatusTransitionException;
 import models.Instruction;
 
+import java.util.Random;
 import java.util.logging.*;
 
 import models.DownISO;
@@ -31,7 +32,13 @@ public enum InstructionStatus implements InstructionStatusOperations {
 	
 	private static Logger logger =  Logger.getLogger(InstructionStatus.class.getName());
 	
-
+	
+	public static InstructionStatus getRandomStatus() {
+		Random r = new Random();
+		return values()[r.nextInt(values().length)];
+	}
+	
+	
 	private final InstructionStatusOperations operations;
 	 InstructionStatus(InstructionStatusOperations operations) {
 	  this.operations = operations;

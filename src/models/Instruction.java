@@ -1,9 +1,11 @@
 package models;
 
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.Logger.*;
 
+import misc.UnsupportedStatusTransitionException;
 import contracts.InstructionStatus;
 
 /**
@@ -13,9 +15,18 @@ import contracts.InstructionStatus;
  */
 public class Instruction {
 	private InstructionStatus status;
-	private int id;
+	private UUID id;
 	private int expectedKey;
 	private static final Logger logger = Logger.getLogger(Instruction.class.getName());
+	
+	public Instruction(InstructionStatus status) {
+		this.status = status;
+		id = UUID.randomUUID();
+	}
+	
+	public InstructionStatus getStatus() {
+		return status;
+	}
 	
 	
 	public void setStatus(InstructionStatus status) {
