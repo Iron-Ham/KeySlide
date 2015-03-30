@@ -6,8 +6,6 @@ import models.Instruction;
 
 /**
  * Handles generating the next instruction. 
- * TODO: Set listener to keys
- * TODO: Set "game over"
  * @author heshamsalman
  *
  */
