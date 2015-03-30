@@ -2,6 +2,8 @@ package handlers;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import contracts.InstructionStatus;
 import controllers.InstructionController;
@@ -16,6 +18,7 @@ import controllers.InstructionController;
  */
 public class KeyHandler implements KeyListener {	
 	InstructionController instructions = InstructionController.getInstance();
+	private static Logger logger =  Logger.getLogger(InstructionStatus.class.getName());
 	
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -25,7 +28,9 @@ public class KeyHandler implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		logger.entering(getClass().getName(), "keyPressed");
 		int key = e.getKeyCode();
+		logger.log(Level.FINE, "Key Pressed: " + key);
 		boolean reverse = instructions.isReversed();
 		InstructionStatus status = instructions.getStatus();
 		switch (status) {

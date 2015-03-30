@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.Random;
+import java.util.logging.Logger;
 
 import contracts.InstructionStatus;
 import misc.UnsupportedStatusTransitionException;
@@ -15,6 +16,7 @@ public class InstructionController {
 	private static Instruction instr;
 	private static final InstructionController instance = new InstructionController();
 	boolean reverse = false;
+	private static Logger logger =  Logger.getLogger(InstructionStatus.class.getName());
 	Random r = new Random();
 	private InstructionController() {
 		InstructionStatus p = InstructionStatus.getRandomStatus();
@@ -38,6 +40,7 @@ public class InstructionController {
 	}
 	
 	public void nextInstruction() {
+		logger.entering(getClass().getName(), "nextInstruction");
 		InstructionStatus p = InstructionStatus.getRandomStatus();
 		if (p != instr.getStatus()) {
 			instr.setStatus(p);
