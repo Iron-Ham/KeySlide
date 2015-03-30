@@ -35,7 +35,7 @@ public class KeyHandler implements KeyListener {
 		InstructionStatus status = instructions.getStatus();
 		switch (status) {
 		case LEFT:
-			if (key == KeyEvent.VK_LEFT) {
+			if (key == KeyEvent.VK_LEFT || (key == KeyEvent.VK_RIGHT && reverse)) {
 				instructions.nextInstruction();
 				//Animations, etc...
 			}
@@ -44,7 +44,7 @@ public class KeyHandler implements KeyListener {
 			}
 			break;
 		case DOWN:
-			if (key == KeyEvent.VK_DOWN) {
+			if (key == KeyEvent.VK_DOWN || (key == KeyEvent.VK_UP && reverse)) {
 				instructions.nextInstruction();
 
 			}
@@ -53,7 +53,7 @@ public class KeyHandler implements KeyListener {
 			}
 			break;
 		case RIGHT:
-			if (key == KeyEvent.VK_RIGHT) {
+			if (key == KeyEvent.VK_RIGHT || (key == KeyEvent.VK_LEFT && reverse)) {
 				instructions.nextInstruction();
 
 			}
@@ -62,7 +62,7 @@ public class KeyHandler implements KeyListener {
 			}
 			break;
 		case UP:
-			if (key == KeyEvent.VK_UP) {
+			if (key == KeyEvent.VK_UP || (key == KeyEvent.VK_DOWN && reverse)) {
 				instructions.nextInstruction();
 
 			}

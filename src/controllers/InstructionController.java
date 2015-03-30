@@ -44,7 +44,10 @@ public class InstructionController {
 		InstructionStatus p = InstructionStatus.getRandomStatus();
 		if (p != instr.getStatus()) {
 			instr.setStatus(p);
-			reverse = r.nextBoolean();
+			if (p == InstructionStatus.STOP) 
+				reverse = false;
+			else
+				reverse = r.nextBoolean();
 		}
 	}
 }
