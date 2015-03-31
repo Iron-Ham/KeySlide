@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import utilities.Colors;
@@ -13,9 +14,9 @@ import utilities.Colors;
  * @author heshamsalman
  *
  */
-public class MenuItem extends JLabel{
+public class MenuItem extends JButton{
 	public MenuItem(String text) {
 		this.setText(text);
-		this.setForeground(new Color(Colors.unselected()));
+//		this.setForeground(new Color(Colors.unselected()));
 	}
 }

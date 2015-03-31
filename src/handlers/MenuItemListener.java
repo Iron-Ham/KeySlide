@@ -3,9 +3,12 @@ package handlers;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
+import contracts.InstructionStatus;
 import utilities.Colors;
 import views.GamePanel;
 import views.InstructionPanel;
@@ -20,9 +23,11 @@ import views.Window;
  */
 public class MenuItemListener implements MouseListener {
 	Window window = Window.getInstance();
+	private static Logger logger =  Logger.getLogger(InstructionStatus.class.getName());
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		logger.entering(getClass().getName(), "mouseClicked");
 		Object source = e.getSource();
 		if (source instanceof MenuItem) {
 			MenuItem m = (MenuItem) source;
@@ -55,6 +60,7 @@ public class MenuItemListener implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
+		logger.entering(getClass().getName(), "mouseEntered");
 		//change color
 		Object source = e.getSource();
 		if (source instanceof MenuItem) {
@@ -66,6 +72,7 @@ public class MenuItemListener implements MouseListener {
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+		logger.entering(getClass().getName(), "mouseExited");
 		Object source = e.getSource();
 		if (source instanceof MenuItem) {
 			MenuItem m = (MenuItem) source;

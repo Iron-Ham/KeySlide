@@ -32,7 +32,7 @@ public class Instruction {
 	public void setStatus(InstructionStatus status) {
 		logger.entering(getClass().getName(), "setStatus");
 		if (status != null && status != this.status) {
-			logger.log(Level.FINER, "Instruction#" + id + ": cahnging status from " + this.status + " to " + status);
+			logger.log(Level.INFO, "Instruction#" + id + ": cahnging status from " + this.status + " to " + status);
 			this.status = status;
 		}
 		logger.exiting(getClass().getName(), "setStatus");

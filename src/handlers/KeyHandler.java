@@ -30,7 +30,7 @@ public class KeyHandler implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		logger.entering(getClass().getName(), "keyPressed");
 		int key = e.getKeyCode();
-		logger.log(Level.FINE, "Key Pressed: " + key);
+		logger.log(Level.INFO, "Key Pressed: " + key);
 		boolean reverse = instructions.isReversed();
 		InstructionStatus status = instructions.getStatus();
 		switch (status) {

@@ -22,13 +22,15 @@ public class Menu extends JPanel {
 		hiScores = new MenuItem("Hi-Scores");
 		instructions = new MenuItem("Instructions");
 		attachListeners();
-		this.
 		add(start);
 		add(hiScores);
 		add(instructions);
 	}
 	
 	private void attachListeners() {
+//		start.setFocusable(true);
+//		hiScores.setFocusable(true);
+//		instructions.setFocusable(true);
 		start.addMouseListener(itemListener);
 		hiScores.addMouseListener(itemListener);
 		instructions.addMouseListener(itemListener);
