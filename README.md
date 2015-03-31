@@ -12,4 +12,4 @@ If the enum is showing up as an error, make sure your Compiler compliance is at 
 2. Use Git Issues! Seriously, it's so important that we use and are on-top of Git issues. 
 3. Document your code.
 4. Code Review. Spend part of your proramming session integrating the suggestions made to you through code review into your project and part of your time with the code that you *didn't* write -- make sure to flag any issues and make suggestions. 
-5. Each new feature should have its own branch! If you are planning on building something like a specific panel or set of GUI elements, please branch the repository, and then submit a merge request! 
+5. Each new feature should have its own branch! If you are planning on building something like a specific panel or set of GUI elements, please branch the repository, and then submit a merge request! This can minimize conflicts and unexpected things happening with the code. In other words: don't work directly on the Master branch.
