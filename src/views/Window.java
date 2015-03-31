@@ -1,7 +1,6 @@
 package views;
 
 import java.awt.GridBagLayout;
-
 import javax.swing.JFrame;
 
 /**

@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import utilities.Colors;
 
 /**
- * Menu Items are labels that allow the user to go to different panels of the game. 
+ * Menu Items are JButtons that allow the user to go to different panels of the game. 
  * @author heshamsalman
  *
  */
@@ -30,22 +30,13 @@ public class MenuItem extends JButton implements MouseListener{
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mouseClicked(MouseEvent e) {}
 
 	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mousePressed(MouseEvent e) {}
 
 	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mouseReleased(MouseEvent e) {}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
