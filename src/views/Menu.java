@@ -28,11 +28,8 @@ public class Menu extends JPanel {
 	}
 	
 	private void attachListeners() {
-//		start.setFocusable(true);
-//		hiScores.setFocusable(true);
-//		instructions.setFocusable(true);
-		start.addMouseListener(itemListener);
-		hiScores.addMouseListener(itemListener);
-		instructions.addMouseListener(itemListener);
+		start.addActionListener(itemListener);
+		hiScores.addActionListener(itemListener);
+		instructions.addActionListener(itemListener);
 	}
 }
