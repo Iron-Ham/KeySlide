@@ -2,6 +2,7 @@ package views;
 
 import handlers.MenuItemListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 /**
@@ -16,10 +17,15 @@ public class Menu extends JPanel {
 	private MenuItemListener itemListener;
 	
 	public Menu() {
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		start = new MenuItem("Start");
 		hiScores = new MenuItem("Hi-Scores");
 		instructions = new MenuItem("Instructions");
 		attachListeners();
+		this.
+		add(start);
+		add(hiScores);
+		add(instructions);
 	}
 	
 	private void attachListeners() {
