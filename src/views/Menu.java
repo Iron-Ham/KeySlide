@@ -1,7 +1,10 @@
 package views;
 
+import java.awt.Dimension;
+
 import handlers.MenuItemListener;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
@@ -19,11 +22,14 @@ public class Menu extends JPanel {
 	public Menu() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		start = new MenuItem("Start");
+		start.setSize(150, 120);
 		hiScores = new MenuItem("Hi-Scores");
 		instructions = new MenuItem("Instructions");
 		attachListeners();
 		add(start);
+		add(Box.createRigidArea(new Dimension(5, 25)));
 		add(hiScores);
+		add(Box.createRigidArea(new Dimension(5, 25)));
 		add(instructions);
 	}
 	

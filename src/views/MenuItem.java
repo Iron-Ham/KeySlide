@@ -1,9 +1,12 @@
 package views;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -17,6 +20,11 @@ import utilities.Colors;
 public class MenuItem extends JButton implements MouseListener{
 	public MenuItem(String text) {
 		this.setText(text);
+		this.setFont(new Font("Arial", Font.PLAIN, 40));
+		this.setMaximumSize(new Dimension(400, 100));
+		this.setContentAreaFilled(false);
+		this.setFocusPainted(false);
+		this.setBorder(BorderFactory.createEmptyBorder());
 		this.setForeground(new Color(Colors.unselected()));
 		addMouseListener(this);
 	}
