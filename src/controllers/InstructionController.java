@@ -9,6 +9,7 @@ import models.Instruction;
 
 /**
  * Handles generating the next instruction. 
+ * Singleton. 
  * @author heshamsalman
  *
  */
