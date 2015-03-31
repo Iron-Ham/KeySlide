@@ -4,8 +4,14 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JPanel;
+
 import utilities.Colors;
+import views.GamePanel;
+import views.InstructionPanel;
 import views.MenuItem;
+import views.ScorePanel;
+import views.Window;
 
 /**
  * Listens for mouse over and mouse click events on the menu items. 
@@ -13,11 +19,28 @@ import views.MenuItem;
  *
  */
 public class MenuItemListener implements MouseListener {
+	Window window = Window.getInstance();
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		//Return panel
-		//TODO
+		Object source = e.getSource();
+		if (source instanceof MenuItem) {
+			MenuItem m = (MenuItem) source;
+			switch (m.getText()) {
+			case "Start":
+				JPanel game = new GamePanel();
+				window.setContentPane(game);
+				break;
+			case "Hi-Scores":
+				JPanel score = new ScorePanel();
+				window.setContentPane(score);
+				break;
+			case "Instructions":
+				JPanel instructions = new InstructionPanel();
+				window.setContentPane(instructions);
+				break;
+			}
+		}
 	}
 
 	@Override
