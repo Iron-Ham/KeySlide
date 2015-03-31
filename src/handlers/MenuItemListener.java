@@ -7,11 +7,17 @@ import java.awt.event.MouseListener;
 import utilities.Colors;
 import views.MenuItem;
 
+/**
+ * Listens for mouse over and mouse click events on the menu items. 
+ * @author heshamsalman
+ *
+ */
 public class MenuItemListener implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		//Return panel
+		//TODO
 	}
 
 	@Override

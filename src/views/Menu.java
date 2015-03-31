@@ -4,6 +4,11 @@ import handlers.MenuItemListener;
 
 import javax.swing.JPanel;
 
+/**
+ * The Menu. This houses all menu items. 
+ * @author heshamsalman
+ *
+ */
 public class Menu extends JPanel {
 	private MenuItem start;
 	private MenuItem hiScores;
