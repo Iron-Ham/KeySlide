@@ -16,7 +16,6 @@ import contracts.InstructionStatus;
 public class Instruction {
 	private InstructionStatus status;
 	private UUID id;
-	private int expectedKey;
 	private static final Logger logger = Logger.getLogger(Instruction.class.getName());
 	
 	public Instruction(InstructionStatus status) {

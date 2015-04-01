@@ -14,6 +14,7 @@ import javax.swing.JPanel;
  *
  */
 public class Menu extends JPanel {
+	private static final long serialVersionUID = -6758351920150177724L;
 	private MenuItem start;
 	private MenuItem hiScores;
 	private MenuItem instructions;

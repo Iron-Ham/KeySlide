@@ -7,6 +7,8 @@ package misc;
  *
  */
 public class UnsupportedStatusTransitionException extends Exception{
+	private static final long serialVersionUID = -1671801597417239034L;
+
 	public UnsupportedStatusTransitionException() {
 		super();
 	}

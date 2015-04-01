@@ -9,6 +9,7 @@ import javax.swing.JFrame;
  *
  */
 public class Window extends JFrame {
+	private static final long serialVersionUID = -8731966412182953292L;
 	private static final Window instance = new Window();
 	private Menu menu;
 	

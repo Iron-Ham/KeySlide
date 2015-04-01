@@ -2,9 +2,7 @@ package controllers;
 
 import java.util.Random;
 import java.util.logging.Logger;
-
 import contracts.InstructionStatus;
-import misc.UnsupportedStatusTransitionException;
 import models.Instruction;
 
 /**

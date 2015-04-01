@@ -1,14 +1,11 @@
 package views;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 
 import utilities.Colors;
 
@@ -18,6 +15,7 @@ import utilities.Colors;
  *
  */
 public class MenuItem extends JButton implements MouseListener{
+	private static final long serialVersionUID = 3699142395262583263L;
 	public MenuItem(String text) {
 		this.setText(text);
 		this.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -25,7 +23,7 @@ public class MenuItem extends JButton implements MouseListener{
 		this.setContentAreaFilled(false);
 		this.setFocusPainted(false);
 		this.setBorder(BorderFactory.createEmptyBorder());
-		this.setForeground(new Color(Colors.unselected()));
+		this.setForeground(Colors.unselected());
 		addMouseListener(this);
 	}
 
@@ -41,7 +39,7 @@ public class MenuItem extends JButton implements MouseListener{
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == this) {
-			this.setForeground(new Color(Colors.selected()));
+			this.setForeground(Colors.selected());
 		}
 		this.updateUI();
 	}
@@ -49,7 +47,7 @@ public class MenuItem extends JButton implements MouseListener{
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == this) {
-			this.setForeground(new Color(Colors.unselected()));
+			this.setForeground(Colors.unselected());
 		}
 		this.updateUI();
 	}
