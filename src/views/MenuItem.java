@@ -4,8 +4,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+
+import com.sun.java.swing.plaf.windows.resources.windows;
 
 import utilities.Colors;
 
@@ -16,6 +19,7 @@ import utilities.Colors;
  */
 public class MenuItem extends JButton implements MouseListener{
 	private static final long serialVersionUID = 3699142395262583263L;
+	Window window = Window.getInstance();
 	public MenuItem(String text) {
 		this.setText(text);
 		this.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -28,7 +32,20 @@ public class MenuItem extends JButton implements MouseListener{
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {
+		Object source = e.getSource();
+		if (source instanceof MenuItem) {
+			MenuItem m = (MenuItem) source;
+			if (m.getActionCommand().equals("Start")) {
+				window.setContentPane(new GamePanel());
+			} else if (m.getActionCommand().equals("Hi-Scores")) {
+				window.setContentPane(new ScorePanel());
+			} else if (m.getActionCommand().equals("Instructions")) {
+				window.setContentPane(new InstructionPanel());
+			}
+		}
+
+	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {}
