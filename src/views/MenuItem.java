@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 import com.sun.java.swing.plaf.windows.resources.windows;
 
@@ -37,11 +38,19 @@ public class MenuItem extends JButton implements MouseListener{
 		if (source instanceof MenuItem) {
 			MenuItem m = (MenuItem) source;
 			if (m.getActionCommand().equals("Start")) {
+				window.removeAll();
 				window.setContentPane(new GamePanel());
+				window.pack();
 			} else if (m.getActionCommand().equals("Hi-Scores")) {
+				window.removeAll();
 				window.setContentPane(new ScorePanel());
+				window.pack();
 			} else if (m.getActionCommand().equals("Instructions")) {
+				window.removeAll();
 				window.setContentPane(new InstructionPanel());
+				window.pack();
+				window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+				window.setVisible(true);
 			}
 		}
 
