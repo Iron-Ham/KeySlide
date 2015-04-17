@@ -14,7 +14,6 @@ public class InstructionFrame extends JFrame{
 			JLabel label = new JLabel();
 			JTextArea area=new JTextArea(4,2);
 			
-			
 		public InstructionFrame(String title){
 				int width = 1000;
 				int height =1200;
@@ -65,6 +64,8 @@ public class InstructionFrame extends JFrame{
 			    c.anchor = GridBagConstraints.FIRST_LINE_START;
 			    area=new JTextArea(k1);
 			    area.setText(k1);
+			    area.setBackground(Color.ALICEBLUE);
+			    area.setEditable(false); 
 			    area.setFont(new Font("Tahoma",Font.PLAIN,18));
 			    panel.add(area, c);
 			  
@@ -87,11 +88,11 @@ public class InstructionFrame extends JFrame{
 			    c.gridwidth = 0;
 			//	c.fill = GridBagConstraints.HORIZONTAL;
 			    c.anchor = GridBagConstraints.FIRST_LINE_START;
-			    icon[0] = new ImageIcon("U:/510/images/1.png");
+			    icon[0] = new ImageIcon("images/1.png");
 				Image img = icon[0].getImage();
 				img = img.getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 				buttons[1] = new JButton(new ImageIcon(img));
-				buttons[1].setActionCommand("U:/510/images/1.png");
+				buttons[1].setActionCommand("images/1.png");
 			    panel.add(buttons[1], c);
 			  
 			    //setting the first game rule-press the right direction
@@ -103,6 +104,8 @@ public class InstructionFrame extends JFrame{
 			    c.gridwidth =1;
 			    area=new JTextArea(k2);
 			    area.setText(k2);
+			    area.setBackground(Color.ALICEBLUE);
+			    area.setEditable(false);
 			    area.setFont(new Font("Tahoma",Font.PLAIN, 18));
 			    panel.add(area, c); 
 			   
@@ -113,11 +116,11 @@ public class InstructionFrame extends JFrame{
 			    c.weightx =0.0;
 			    c.gridwidth= 1;
 			    c.anchor = GridBagConstraints.FIRST_LINE_START;
-			    icon[1] = new ImageIcon("U:/510/images/7.png");
+			    icon[1] = new ImageIcon("images/7.png");
 				Image img1 = icon[1].getImage();
 				img = img1.getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 				buttons[2] = new JButton(new ImageIcon(img));
-				buttons[2].setActionCommand("U:/510/images/7.png");
+				buttons[2].setActionCommand("images/7.png");
 			    panel.add(buttons[2], c);
 			   
 			    
@@ -142,6 +145,8 @@ public class InstructionFrame extends JFrame{
 			    c.gridwidth = 1;
 			    area=new JTextArea(k3);
 			    area.setText(k3);
+			    area.setBackground(Color.ALICEBLUE);
+			    area.setEditable(false);
 			    area.setFont(new Font("Tahoma",Font.PLAIN, 18));
 			    panel.add(area, c);
 		
@@ -152,11 +157,11 @@ public class InstructionFrame extends JFrame{
 			    c.weightx =0.0;
 			    c.gridwidth= 1;		
 			    c.anchor = GridBagConstraints.FIRST_LINE_START;
-			    icon[1] = new ImageIcon("U:/510/images/.png");
+			    icon[1] = new ImageIcon("images/refresh.png");
 				Image img2 = icon[1].getImage();
 				img = img2.getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 				buttons[2] = new JButton(new ImageIcon(img));
-				buttons[2].setActionCommand("U:/510/images/.png");
+				buttons[2].setActionCommand("images/refresh.png");
 			    panel.add(buttons[2], c);
 			  
 			    //setting the previous action title
@@ -177,7 +182,11 @@ public class InstructionFrame extends JFrame{
 			    c.weightx = 0.0;
 			    c.gridwidth = 1;
 			    area=new JTextArea(k4);
+			    area.setBackground(Color.ALICEBLUE);
+			    area.setEditable(false);    // import place to change 
 			    area.setText(k4);
+			    area.setBackground(Color.ALICEBLUE);
+			    area.setEditable(false);
 			    area.setFont(new Font("Tahoma",Font.PLAIN, 18));
 			    panel.add(area, c);
 			   
@@ -188,11 +197,11 @@ public class InstructionFrame extends JFrame{
 			    c.weightx =0.0;
 			    c.gridwidth= 1;		
 			    c.anchor = GridBagConstraints.FIRST_LINE_START;
-			    icon[1] = new ImageIcon("U:/510/images/stop.png");
+			    icon[1] = new ImageIcon("images/stop.png");
 				img2 = icon[1].getImage();
 				img = img2.getScaledInstance(90, 90, Image.SCALE_SMOOTH);
 				buttons[2] = new JButton(new ImageIcon(img));
-				buttons[2].setActionCommand("U:/510/images/stop.png");
+				buttons[2].setActionCommand("images/stop.png");
 			    panel.add(buttons[2], c);
 			   
 			    //setting the title of no action
@@ -214,6 +223,8 @@ public class InstructionFrame extends JFrame{
 			    c.gridwidth = 1;
 			    area=new JTextArea(k5);
 			    area.setText(k5);
+			    area.setBackground(Color.ALICEBLUE);
+			    area.setEditable(false);
 			    area.setFont(new Font("Tahoma",Font.PLAIN, 18));
 			    panel.add(area, c);
 			    
