@@ -1,5 +1,4 @@
-package associate;
-
+package gameScreen.src.associate;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;

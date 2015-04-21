@@ -8,16 +8,21 @@ import java.util.ArrayList;
 
 import misc.Person;
 
-public class DataBaseUtility {
+public class DBUtility {
 
 	static Connection c = null;
 
 	/**
 	 * Inserts record into database of user how achieved a high score
-	 * @param name Username of user who achieved high score
-	 * @param date Date high score was achieved
-	 * @param score Score user achieved
-	 * @param time Total time user lasted (another measure of high score?)
+	 * 
+	 * @param name
+	 *            Username of user who achieved high score
+	 * @param date
+	 *            Date high score was achieved
+	 * @param score
+	 *            Score user achieved
+	 * @param time
+	 *            Total time user lasted (another measure of high score?)
 	 */
 	public static void insertNewHighScore(String name, String date, int score, int time) {
 		if (connectToDb()) { // Change in case connection to db fails
@@ -52,7 +57,8 @@ public class DataBaseUtility {
 				rs = stmt.executeQuery(sql);
 
 				while (rs.next()) {
-					people.add(new Person(rs.getString("name"), rs.getInt("score")));
+					people.add(new Person(rs.getString("name"), rs.getInt("score"), rs.getInt("time"), rs
+							.getString("date")));
 				}
 			} catch (Exception e) {
 				System.out.println("Error retrieving high scores from database!");
@@ -64,9 +70,11 @@ public class DataBaseUtility {
 	}
 
 	/**
-	 * Attempts to connects to the sqlite lite database called hiscores.db that contains
-	 * information on the hi score.
-	 * @return Returns true if successfully connects to the database, false otherwise.
+	 * Attempts to connects to the sqlite lite database called hiscores.db that
+	 * contains information on the hi score.
+	 * 
+	 * @return Returns true if successfully connects to the database, false
+	 *         otherwise.
 	 */
 	public static boolean connectToDb() {
 		try {
@@ -78,5 +86,34 @@ public class DataBaseUtility {
 			return false;
 		}
 
+	}
+
+	/**
+	 * Checks score value passed in against database to see if score is within
+	 * the top 10 highest scores so far obtained for the game.
+	 * 
+	 * @return Returns true score is a high score, false returned otherwise.
+	 */
+
+	public static boolean isHighScore(int score) {
+		if (connectToDb()) { // Change in case connection to db fails
+			String sql = "SELECT DISTINCT score FROM hiscores ORDER BY score DESC LIMIT 1 OFFSET 0";
+			Statement stmt = null;
+			try {
+				ResultSet rs = null;
+				stmt = c.createStatement();
+				rs = stmt.executeQuery(sql);
+
+				while (rs.next()) {
+					System.out.println(rs.getInt("score"));
+				}
+			} catch (Exception e) {
+				System.out.println("Error retrieving high scores from database!");
+			}
+		} else {
+			System.out.println("Error connecting to database");
+			return false;
+		}
+		return false;
 	}
 }

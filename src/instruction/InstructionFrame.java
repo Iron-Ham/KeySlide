@@ -64,7 +64,7 @@ public class InstructionFrame extends JFrame{
 			    c.anchor = GridBagConstraints.FIRST_LINE_START;
 			    area=new JTextArea(k1);
 			    area.setText(k1);
-			    area.setBackground(Color.ALICEBLUE);
+			    area.setBackground(Color.BLUE);
 			    area.setEditable(false); 
 			    area.setFont(new Font("Tahoma",Font.PLAIN,18));
 			    panel.add(area, c);
@@ -104,7 +104,7 @@ public class InstructionFrame extends JFrame{
 			    c.gridwidth =1;
 			    area=new JTextArea(k2);
 			    area.setText(k2);
-			    area.setBackground(Color.ALICEBLUE);
+			    area.setBackground(Color.BLUE);
 			    area.setEditable(false);
 			    area.setFont(new Font("Tahoma",Font.PLAIN, 18));
 			    panel.add(area, c); 
@@ -145,7 +145,7 @@ public class InstructionFrame extends JFrame{
 			    c.gridwidth = 1;
 			    area=new JTextArea(k3);
 			    area.setText(k3);
-			    area.setBackground(Color.ALICEBLUE);
+			    area.setBackground(Color.BLUE);
 			    area.setEditable(false);
 			    area.setFont(new Font("Tahoma",Font.PLAIN, 18));
 			    panel.add(area, c);
@@ -182,10 +182,10 @@ public class InstructionFrame extends JFrame{
 			    c.weightx = 0.0;
 			    c.gridwidth = 1;
 			    area=new JTextArea(k4);
-			    area.setBackground(Color.ALICEBLUE);
+			    area.setBackground(Color.BLUE);
 			    area.setEditable(false);    // import place to change 
 			    area.setText(k4);
-			    area.setBackground(Color.ALICEBLUE);
+			    area.setBackground(Color.BLUE);
 			    area.setEditable(false);
 			    area.setFont(new Font("Tahoma",Font.PLAIN, 18));
 			    panel.add(area, c);
@@ -223,7 +223,7 @@ public class InstructionFrame extends JFrame{
 			    c.gridwidth = 1;
 			    area=new JTextArea(k5);
 			    area.setText(k5);
-			    area.setBackground(Color.ALICEBLUE);
+			    area.setBackground(Color.BLUE);
 			    area.setEditable(false);
 			    area.setFont(new Font("Tahoma",Font.PLAIN, 18));
 			    panel.add(area, c);
