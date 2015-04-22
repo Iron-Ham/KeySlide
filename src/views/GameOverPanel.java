@@ -1,31 +1,23 @@
-package game_over.src;
+package views;
 
-import javax.swing.*;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-import java.awt.*;
-
-public class gameOver extends JFrame {
+public class GameOverPanel extends JPanel {
 	JButton[] buttons = new JButton[3];
-	JFrame frame = new JFrame();
-	JPanel panel;
 	JLabel label = new JLabel();
-
-	public gameOver(String title) {
-		int width = 1000;
-		int height = 1200;
-
-		// Setting the JFrame format.
-		setTitle(title);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	
+	public GameOverPanel() {
+		int width = 1280;
+		int height = 720;
+		
 		setSize(width, height);
-		setResizable(true);
-		setLocationRelativeTo(null);
 		setLayout(new GridBagLayout());
-
-		// Setting one panels to display the interface of game over.
-		panel = new JPanel(new GridBagLayout());
-		panel.setSize(width, height);
-		add(panel);
 		GridBagConstraints c = new GridBagConstraints();
 		c.insets = new Insets(15, 15, 15, 5);
 
@@ -37,7 +29,7 @@ public class gameOver extends JFrame {
 		c.anchor = GridBagConstraints.CENTER;
 		JLabel label = new JLabel("Game Over");
 		label.setFont(new Font("Tahoma", Font.BOLD, 60));
-		panel.add(label, c);
+		add(label, c);
 
 		// setting label of score
 		String k1 = "Score: ";
@@ -52,7 +44,7 @@ public class gameOver extends JFrame {
 		// c.fill = GridBagConstraints.VERTICAL;
 		label = new JLabel(k1);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		panel.add(label, c);
+		add(label, c);
 
 		// setting the score area
 		String k21 = " score value";// score come here
@@ -62,7 +54,7 @@ public class gameOver extends JFrame {
 		c.anchor = GridBagConstraints.FIRST_LINE_START;
 		label = new JLabel(k21);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		panel.add(label, c);
+		add(label, c);
 
 		// setting replay button and add listenner
 		JButton button = new JButton("Replay");
@@ -72,7 +64,7 @@ public class gameOver extends JFrame {
 		c.gridy = 27;
 		c.ipady = 15;
 		button.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		panel.add(button, c);
+		add(button, c);
 		// button.addActionListener("replayfuction");
 
 		// setting go back to main page button and add listenner
@@ -83,9 +75,9 @@ public class gameOver extends JFrame {
 		c.gridy = 43;
 		c.ipady = 15;
 		button1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		panel.add(button1, c);
+		add(button1, c);
 		// button.addActionListener("go back fuction");
 
+		
 	}
-
 }

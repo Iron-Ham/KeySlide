@@ -1,9 +1,8 @@
 package views;
 
 import java.awt.Dimension;
-
-import handlers.MenuItemListener;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -18,14 +17,21 @@ public class Menu extends JPanel {
 	private MenuItem start;
 	private MenuItem hiScores;
 	private MenuItem instructions;
-	private MenuItemListener itemListener;
-	
-	public Menu() {
+	Window window;
+
+	public Menu(Window window) {
+		this.window = window;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		start = new MenuItem("Start");
+		this.setAlignmentY(0.3f);
+		start = new MenuItem(window, "Start");
 		start.setSize(150, 120);
-		hiScores = new MenuItem("Hi-Scores");
-		instructions = new MenuItem("Instructions");
+		start.setAlignmentX(0.5f);
+		hiScores = new MenuItem(window, "Hi-Scores");
+		hiScores.setSize(150, 120);
+		hiScores.setAlignmentX(0.5f);
+		instructions = new MenuItem(window, "Instructions");
+		instructions.setSize(150, 120);
+		instructions.setAlignmentX(0.5f);
 		attachListeners();
 		add(start);
 		add(Box.createRigidArea(new Dimension(5, 25)));
@@ -34,9 +40,33 @@ public class Menu extends JPanel {
 		add(instructions);
 	}
 	
+	/**
+	 * Attaches action listeners to buttons.
+	 * This is what allows switching from panel to panel on click.
+	 */
 	private void attachListeners() {
-		start.addActionListener(itemListener);
-		hiScores.addActionListener(itemListener);
-		instructions.addActionListener(itemListener);
+		start.addActionListener(new ActionListener() {
+
+			@Override
+            public void actionPerformed(ActionEvent e) {
+				System.out.println("Start");
+                window.switchToGame();
+            }
+        });
+		
+		hiScores.addActionListener(new ActionListener() {
+			
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				window.switchToInstructions();
+			}
+		});
+		hiScores.addActionListener(new ActionListener() {
+			
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				window.switchToHiScores();
+			}
+		});
 	}
 }

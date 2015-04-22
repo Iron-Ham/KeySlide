@@ -14,10 +14,11 @@ import utilities.Colors;
  *
  */
 public class BackButton extends JButton implements ActionListener {
-	Window window = Window.getInstance();
+	Window window;
 
-	public BackButton() {
+	public BackButton(Window window) {
 		super("<");
+		this.window = window;
 		this.setFont(new Font("Arial", Font.PLAIN, 64));
 		this.addActionListener(this);
 		this.setContentAreaFilled(false);
@@ -28,10 +29,7 @@ public class BackButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		window.removeAll();
-		window.setContentPane(new Menu());
-		window.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		window.setVisible(true);
+		window.switchToHome();
 	}
 	
 	

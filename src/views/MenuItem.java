@@ -20,9 +20,11 @@ import utilities.Colors;
  */
 public class MenuItem extends JButton implements MouseListener{
 	private static final long serialVersionUID = 3699142395262583263L;
-	Window window = Window.getInstance();
-	public MenuItem(String text) {
+	Window window;
+	public MenuItem(Window window, String text) {
+		this.window = window;
 		this.setText(text);
+		this.setActionCommand(text);
 		this.setFont(new Font("Arial", Font.PLAIN, 40));
 		this.setMaximumSize(new Dimension(400, 100));
 		this.setContentAreaFilled(false);
@@ -32,29 +34,27 @@ public class MenuItem extends JButton implements MouseListener{
 		addMouseListener(this);
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		Object source = e.getSource();
-		if (source instanceof MenuItem) {
-			MenuItem m = (MenuItem) source;
-			if (m.getActionCommand().equals("Start")) {
-				window.removeAll();
-				window.setContentPane(new GamePanel());
-				window.pack();
-			} else if (m.getActionCommand().equals("Hi-Scores")) {
-				window.removeAll();
-				window.setContentPane(new ScorePanel());
-				window.pack();
-			} else if (m.getActionCommand().equals("Instructions")) {
-				window.removeAll();
-				window.setContentPane(new InstructionPanel());
-				window.pack();
-				window.setExtendedState(JFrame.MAXIMIZED_BOTH);
-				window.setVisible(true);
-			}
-		}
-
-	}
+//	@Override
+//	public void mouseClicked(MouseEvent e) {
+//		Object source = e.getSource();
+//		if (source instanceof MenuItem) {
+//			MenuItem m = (MenuItem) source;
+//			if (m.getActionCommand().equals("Start")) {
+//				
+//			} else if (m.getActionCommand().equals("Hi-Scores")) {
+//				window.removeAll();
+//				window.setContentPane(new ScorePanel());
+//				window.pack();
+//			} else if (m.getActionCommand().equals("Instructions")) {
+//				window.removeAll();
+//				window.setContentPane(new InstructionPanel());
+//				window.pack();
+//				window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//				window.setVisible(true);
+//			}
+//		}
+//
+//	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {}
@@ -76,5 +76,11 @@ public class MenuItem extends JButton implements MouseListener{
 			this.setForeground(Colors.unselected());
 		}
 		this.updateUI();
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
