@@ -1,5 +1,7 @@
 package views;
 
+import java.awt.event.KeyEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,12 +13,18 @@ import controllers.InstructionController;
 public class DirectionPanel extends JPanel {
 	InstructionController instrControl = InstructionController.getInstance();
 	private JLabel image;
+	private int internalKey;
 	
 	
 	public DirectionPanel() {
 		resolveInstructions();
 		add(image);
 	}
+	
+	public int getInternalKey() {
+		return internalKey;
+	}
+	
 	
 	public void updateDirection() {
 		instrControl.nextInstruction();
@@ -26,9 +34,8 @@ public class DirectionPanel extends JPanel {
 	
 	private void resolveInstructions() {
 		InstructionStatus status = instrControl.getStatus();
-		if (status == status.values()[0])  {
-			//left
-			System.out.println("left");
+		if (status == InstructionStatus.LEFT)  {
+			internalKey = KeyEvent.VK_LEFT;
 			ImageIcon icon;
 			if (instrControl.isReversed()) {
 				icon = new ImageIcon("images/8.png");
@@ -37,9 +44,8 @@ public class DirectionPanel extends JPanel {
 			}
 			image = new JLabel(icon);
 		}
-		else if (status == status.values()[1]) {
-			//right
-			System.out.println("right");
+		else if (status == InstructionStatus.RIGHT) {
+			internalKey = KeyEvent.VK_RIGHT;
 			ImageIcon icon;
 			if (instrControl.isReversed()) {
 				icon = new ImageIcon("images/7.png");
@@ -48,9 +54,8 @@ public class DirectionPanel extends JPanel {
 			}
 			image = new JLabel(icon);
 		}
-		else if (status == status.values()[2]) {
-			//up
-			System.out.println("up");
+		else if (status == InstructionStatus.UP) {
+			internalKey = KeyEvent.VK_UP;
 			ImageIcon icon;
 			if (instrControl.isReversed()) {
 				icon = new ImageIcon("images/5.png");
@@ -59,8 +64,7 @@ public class DirectionPanel extends JPanel {
 			}
 			image = new JLabel(icon);
 		} else {
-			//down
-			System.out.println("down");
+			internalKey = KeyEvent.VK_DOWN;
 			ImageIcon icon;
 			if (instrControl.isReversed()) {
 				icon = new ImageIcon("images/6.png");
@@ -69,6 +73,11 @@ public class DirectionPanel extends JPanel {
 			}
 			image = new JLabel(icon);
 		}
-		
 	}
+	public void addNotify() {
+		super.addNotify();
+		requestFocus();
+	}
+	
+	
 }
