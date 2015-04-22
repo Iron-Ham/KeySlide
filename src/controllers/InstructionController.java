@@ -37,18 +37,17 @@ public class InstructionController {
 	}
 
 	public boolean isReversed() {
+		reverse = r.nextBoolean();
 		return reverse;
 	}
 
 	public void nextInstruction() {
 		logger.entering(getClass().getName(), "nextInstruction");
 		InstructionStatus p = InstructionStatus.getRandomStatus();
-		if (p != instr.getStatus()) {
-			instr.setStatus(p);
-			if (p == InstructionStatus.STOP)
-				reverse = false;
-			else
-				reverse = r.nextBoolean();
+		while (p == instr.getStatus()) {
+			p = InstructionStatus.getRandomStatus();
 		}
+			instr.setStatus(p);
+			reverse = r.nextBoolean();
 	}
 }

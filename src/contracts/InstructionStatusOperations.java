@@ -14,5 +14,4 @@ public interface InstructionStatusOperations {
 	InstructionStatus right(Instruction instruction) throws UnsupportedStatusTransitionException;
 	InstructionStatus up(Instruction instruction) throws UnsupportedStatusTransitionException;
 	InstructionStatus down(Instruction instruction) throws UnsupportedStatusTransitionException;
-	InstructionStatus stop(Instruction instruction) throws UnsupportedStatusTransitionException;
 }

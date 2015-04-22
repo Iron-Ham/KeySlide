@@ -30,11 +30,6 @@ public class DownISO implements InstructionStatusOperations {
 	public InstructionStatus down(Instruction instruction) throws UnsupportedStatusTransitionException {
 		throw new UnsupportedStatusTransitionException("down");
 	}
-
-	@Override
-	public InstructionStatus stop(Instruction instruction) {
-		 return InstructionStatus.STOP;
-	}
 	
 
 }
