@@ -34,16 +34,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private int score = 0;
 	Timer timer;
 	JButton scoreLabel;
-	private final Object lock = new Object();
-	private boolean isSlideInProgress = false;
 	private final ArrayList<Component> jPanels = new ArrayList<Component>();
-	private Random randomGenerator = new Random();
-	private final int RIGHT = 0x01;
-	private final int LEFT = 0x02;
-	private final int TOP = 0x03;
-	private final int BOTTOM = 0x04;
-	private JLabel[] labels = new JLabel[20];
-
 
 	
 	public GamePanel(final Window window) {

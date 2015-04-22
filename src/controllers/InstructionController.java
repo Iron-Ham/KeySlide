@@ -47,7 +47,8 @@ public class InstructionController {
 		while (p == instr.getStatus()) {
 			p = InstructionStatus.getRandomStatus();
 		}
-			instr.setStatus(p);
-			reverse = r.nextBoolean();
+		instr.setStatus(p);
+		reverse = r.nextBoolean();
+		logger.exiting(getClass().getName(), "nextInstruction");
 	}
 }

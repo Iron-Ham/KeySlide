@@ -3,9 +3,6 @@ package models;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.Logger.*;
-
-import misc.UnsupportedStatusTransitionException;
 import contracts.InstructionStatus;
 
 /**
@@ -31,7 +28,7 @@ public class Instruction {
 	public void setStatus(InstructionStatus status) {
 		logger.entering(getClass().getName(), "setStatus");
 		if (status != null && status != this.status) {
-			logger.log(Level.INFO, "Instruction#" + id + ": cahnging status from " + this.status + " to " + status);
+			logger.log(Level.INFO, "Instruction" + ": changing status from " + this.status + " to " + status);
 			this.status = status;
 		}
 		logger.exiting(getClass().getName(), "setStatus");
