@@ -34,28 +34,6 @@ public class MenuItem extends JButton implements MouseListener{
 		addMouseListener(this);
 	}
 
-//	@Override
-//	public void mouseClicked(MouseEvent e) {
-//		Object source = e.getSource();
-//		if (source instanceof MenuItem) {
-//			MenuItem m = (MenuItem) source;
-//			if (m.getActionCommand().equals("Start")) {
-//				
-//			} else if (m.getActionCommand().equals("Hi-Scores")) {
-//				window.removeAll();
-//				window.setContentPane(new ScorePanel());
-//				window.pack();
-//			} else if (m.getActionCommand().equals("Instructions")) {
-//				window.removeAll();
-//				window.setContentPane(new InstructionPanel());
-//				window.pack();
-//				window.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//				window.setVisible(true);
-//			}
-//		}
-//
-//	}
-
 	@Override
 	public void mousePressed(MouseEvent e) {}
 
@@ -79,8 +57,5 @@ public class MenuItem extends JButton implements MouseListener{
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mouseClicked(MouseEvent e) {}
 }

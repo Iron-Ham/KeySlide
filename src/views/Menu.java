@@ -54,14 +54,14 @@ public class Menu extends JPanel {
 			
 			@Override 
 			public void actionPerformed(ActionEvent e) {
-				window.switchToInstructions();
+				window.switchToHiScores();
 			}
 		});
-		hiScores.addActionListener(new ActionListener() {
+		instructions.addActionListener(new ActionListener() {
 			
 			@Override 
 			public void actionPerformed(ActionEvent e) {
-				window.switchToHiScores();
+				window.switchToInstructions();
 			}
 		});
 	}

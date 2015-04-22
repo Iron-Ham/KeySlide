@@ -38,23 +38,16 @@ public class Window extends JFrame {
 		homePanel = new HomePanel(this);
 		gameOverPanel = new GameOverPanel(this);	
 		basePanel = new JPanel();
-//		instructionPanel = new InstructionPanel();
+		instructionPanel = new InstructionPanel(this);
 //		gamePanel = new GamePanel();
 //		scorePanel = new HighScoresPanel();
-		
-		
-		
 		basePanel.setLayout(cardLayout);
 		basePanel.add(homePanel, "home");
 		basePanel.add(gameOverPanel, "game over");
-//		basePanel.add(instructionPanel, "instructions");
+		basePanel.add(instructionPanel, "instructions");
 //		basePanel.add(gamePanel, "game");
 //		basePanel.add(scorePanel, "scores");
-		
-		
 		add(basePanel);
-		
-		
 	}
 	
 	/**
@@ -75,6 +68,7 @@ public class Window extends JFrame {
 	 * Switches to instruction panel
 	 */
 	public void switchToInstructions() {
+		System.out.println("Switch called");
 		cardLayout.show(basePanel, "instructions");
 	}
 	
