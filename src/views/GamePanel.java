@@ -14,7 +14,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
+
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
@@ -30,7 +33,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private int delay = 10;
 	private int timePosition = 0;
 	Timer timer;
-	JLabel scoreLabel;
+	JButton scoreLabel;
 	private final Object lock = new Object();
 	private boolean isSlideInProgress = false;
 	private final ArrayList<Component> jPanels = new ArrayList<Component>();
@@ -69,8 +72,11 @@ public class GamePanel extends JPanel implements KeyListener {
 			}
 	    });
 	    timer.start();
-	    scoreLabel = new JLabel("Score: " + score);
+	    scoreLabel = new JButton("Score: " + score);
 	    scoreLabel.setFont(new Font("Arial", Font.PLAIN, 40));
+	    scoreLabel.setContentAreaFilled(false);
+	    scoreLabel.setFocusPainted(false);
+		scoreLabel.setBorder(BorderFactory.createEmptyBorder());
 	    timePanel.add(timebar);
 	    basePanel.add(scoreLabel, BorderLayout.NORTH);
 	    basePanel.add(timePanel, BorderLayout.SOUTH);
