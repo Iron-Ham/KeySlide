@@ -21,6 +21,7 @@ import javax.swing.Timer;
  *
  */
 public class GamePanel extends JPanel implements KeyListener {
+	private static final long serialVersionUID = 1L;
 	DirectionPanel dp;
 	Window window;
 	private JPanel timePanel;
@@ -41,11 +42,12 @@ public class GamePanel extends JPanel implements KeyListener {
 		timeBar.setPreferredSize(new Dimension(1280, 50));
 	    timeBar.setMaximum(maxTime());
 	    timeBar.setMinimum(0);
-	    timer = new Timer(10, new ActionListener() {
+	    timer = new Timer(20, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+			    timeBar.setMaximum(maxTime());
 				timeBar.setValue(timePosition);
-				timePosition += 10;
+				timePosition += 20;
 				if (timeBar.getValue() >= maxTime()) {
 					gameOver();
 					window.switchToGameOver();
@@ -81,7 +83,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	public void restartTimer() {
 		timePosition = 0;
 		timeBar.setValue(timePosition);
-		timer.start();
+		timer.restart();
 	}
 	
 	
@@ -107,7 +109,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	    	dp.updateDirection();
 	    	restartTimer();
 	    	score+=1;
-	    	updateUI();
+	    	scoreLabel.setText("Score: " + score);
 	    }
 	    else {
 	    	gameOver();
@@ -124,6 +126,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	/**
 	 * Required if we add a key listener to this class. 
 	 */
+	@Override
 	public void addNotify() {
 		super.addNotify();
 		requestFocus();

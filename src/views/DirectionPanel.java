@@ -25,7 +25,6 @@ public class DirectionPanel extends JPanel {
 	 */
 	public DirectionPanel() {
 		resolveInstructions();
-		add(image);
 	}
 	
 	/**
