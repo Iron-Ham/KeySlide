@@ -3,3 +3,9 @@
 *.iml
 Assets/PSD
 Assets/PXM
+
+*.prefs_
+
+*.prefs
+
+.settings/org.eclipse.jdt.core.prefs
