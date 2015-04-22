@@ -8,10 +8,12 @@ public class HighScoreDialogFrame extends JFrame {
 	
 	
 	public HighScoreDialogFrame(int score) {
-		prompt = new HighScoresPromptPanel(this, score);
-		add(prompt);
+		setVisible(false);
+		if (prompt == null) {
+			prompt = new HighScoresPromptPanel(this, score);
+			add(prompt);
+		}
 		setSize(420,420);
-		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 }
