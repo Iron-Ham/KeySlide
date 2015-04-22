@@ -10,7 +10,6 @@ import models.DownISO;
 import models.LeftISO;
 import models.RightISO;
 import models.UpISO;
-import models.StopISO;
 
 /**
  * This class is an enumerable interface for the InstructionStatus. This is a really cool design pattern that is a modified version 
@@ -25,8 +24,7 @@ public enum InstructionStatus implements InstructionStatusOperations {
 	LEFT(new LeftISO()),
 	RIGHT(new RightISO()),
 	UP(new UpISO()),
-	DOWN(new DownISO()),
-	STOP(new StopISO());
+	DOWN(new DownISO());
 	
 	private static Logger logger =  Logger.getLogger(InstructionStatus.class.getName());
 	
@@ -64,11 +62,5 @@ public enum InstructionStatus implements InstructionStatusOperations {
 	public InstructionStatus down(Instruction instruction) throws UnsupportedStatusTransitionException {
 		logger.entering(getClass().getName(), "success");
 		return operations.down(instruction);
-	}
-
-	@Override
-	public InstructionStatus stop(Instruction instruction) throws UnsupportedStatusTransitionException {
-		logger.entering(getClass().getName(), "success");
-		return operations.stop(instruction);
 	}
 }

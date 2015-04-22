@@ -31,9 +31,4 @@ public class RightISO implements InstructionStatusOperations {
 		return InstructionStatus.DOWN;
 	}
 
-	@Override
-	public InstructionStatus stop(Instruction instruction) {
-		 return InstructionStatus.STOP;
-	}
-
 }

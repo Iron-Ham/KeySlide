@@ -38,6 +38,7 @@ public class Window extends JFrame {
 		homePanel = new HomePanel(this);
 		gameOverPanel = new GameOverPanel(this);	
 		basePanel = new JPanel();
+		DirectionPanel d = new DirectionPanel();
 		instructionPanel = new InstructionPanel(this);
 		gamePanel = new GamePanel(this);
 		gamePanel.setFocusable(true);
