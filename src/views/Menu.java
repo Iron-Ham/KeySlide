@@ -49,22 +49,18 @@ public class Menu extends JPanel {
 	 */
 	private void attachListeners() {
 		start.addActionListener(new ActionListener() {
-
 			@Override
             public void actionPerformed(ActionEvent e) {
                 window.switchToGame();
             }
         });
-		
 		hiScores.addActionListener(new ActionListener() {
-			
 			@Override 
 			public void actionPerformed(ActionEvent e) {
 				window.switchToHiScores();
 			}
 		});
 		instructions.addActionListener(new ActionListener() {
-			
 			@Override 
 			public void actionPerformed(ActionEvent e) {
 				window.switchToInstructions();

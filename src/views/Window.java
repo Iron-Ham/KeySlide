@@ -62,6 +62,8 @@ public class Window extends JFrame {
 	 * Switches to game over panel
 	 */
 	public void switchToGameOver() {
+		int score = gamePanel.getScore();
+		gameOverPanel.setScore(score);
 		cardLayout.show(basePanel, "game over");
 	}
 	

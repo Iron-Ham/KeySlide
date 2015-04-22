@@ -129,6 +129,10 @@ public class GamePanel extends JPanel implements KeyListener {
 		timebar.setValue(timePosition);
 	}
 	
+	public int getScore() {
+		return score;
+	}
+	
 	
 	@Override
 	public void keyTyped(KeyEvent e) {}
