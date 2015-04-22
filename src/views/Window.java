@@ -40,6 +40,7 @@ public class Window extends JFrame {
 		basePanel = new JPanel();
 		instructionPanel = new InstructionPanel(this);
 		gamePanel = new GamePanel(this);
+		gamePanel.setFocusable(true);
 //		scorePanel = new HighScoresPanel();
 		basePanel.setLayout(cardLayout);
 		basePanel.add(homePanel, "home");
@@ -56,6 +57,7 @@ public class Window extends JFrame {
 	public void switchToGame() {
 		gamePanel.start();
 		cardLayout.show(basePanel, "game");
+		gamePanel.requestFocusInWindow();
 	}
 	
 	/**

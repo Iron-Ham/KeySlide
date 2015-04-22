@@ -49,7 +49,6 @@ public class GamePanel extends JPanel implements KeyListener {
 		this.window = window;
 	    this.setSize(1280, 720);       // this is the main panel
 	    this.setLayout(new BorderLayout());
-	    this.addKeyListener(this);
 	    this.setFocusable(true);
 	    this.setFocusTraversalKeysEnabled(false);
 	    
@@ -86,8 +85,7 @@ public class GamePanel extends JPanel implements KeyListener {
 			labels[i].setName(imageNames[i]);
 			addComponent(labels[i]);
 		}
-	    
-	    
+	    addKeyListener(this);
 	}
 	
 	private int maxTime() {
@@ -101,6 +99,11 @@ public class GamePanel extends JPanel implements KeyListener {
 			return 1000;
 		}
 		return 800;
+	}
+	
+	public void addNotify() {
+		super.addNotify();
+		requestFocus();
 	}
 	
 	public void start() {
@@ -133,6 +136,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		System.out.println("Key Pressed");
 	    if(e.getKeyCode() == KeyEvent.VK_LEFT){
 	    	slideLeft();       
 	    }
