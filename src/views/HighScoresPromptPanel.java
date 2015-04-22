@@ -4,6 +4,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.Calendar;
 
 import javax.swing.JButton;
@@ -15,11 +16,11 @@ import utilities.DBUtility;
 
 public class HighScoresPromptPanel extends JPanel {
 	private JTextField txtName;
-	private Window window;
+	private HighScoreDialogFrame window;
 	
-	public HighScoresPromptPanel(Window window, final int score){
+	public HighScoresPromptPanel(HighScoreDialogFrame highScoreDialogFrame, final int score){
 		
-		this.window = window;
+		this.window = highScoreDialogFrame;
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -57,6 +58,7 @@ public class HighScoresPromptPanel extends JPanel {
             public void actionPerformed(ActionEvent e)
             {
                 DBUtility.insertNewHighScore(txtName.getText(), Calendar.getInstance().getTime().toString(), score);
+                window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
             }
         }); 
 		GridBagConstraints gbc_btnSubmitHighScore = new GridBagConstraints();

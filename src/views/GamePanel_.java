@@ -43,7 +43,7 @@ public class GamePanel_ extends JPanel implements KeyListener {
 	
 	
 	
-	public GamePanel_(Window window) {
+	public GamePanel_(final Window window) {
 		this.window = window;
 	    this.setSize(1100, 660);       // this is the main panel
 	    this.setLayout(new BorderLayout());
