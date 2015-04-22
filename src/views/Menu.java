@@ -35,7 +35,7 @@ public class Menu extends JPanel {
 		JLabel title = new JLabel("Key Slide");
 		title.setFont(new Font("Arial", Font.BOLD, 64));
 		add(title);
-		add(Box.createRigidArea(new Dimension(10, 50)));
+		add(Box.createRigidArea(new Dimension(10, 150)));
 		add(start);
 		add(Box.createRigidArea(new Dimension(5, 25)));
 		add(hiScores);

@@ -26,7 +26,6 @@ import javax.swing.Timer;
 public class GamePanel extends JPanel implements KeyListener {
 	private static final long serialVersionUID = 1L;
 	Window window;
-	private JPanel basePanel = new JPanel();
 	private JPanel timePanel = new JPanel();
 	private JProgressBar timebar;
 	private int score =0;
@@ -48,11 +47,11 @@ public class GamePanel extends JPanel implements KeyListener {
 	
 	public GamePanel(Window window) {
 		this.window = window;
-	    basePanel.setSize(1280, 720);       // basePanel is the main panel
-	    basePanel.setLayout(new BorderLayout());
-	    basePanel.addKeyListener(this);
-	    basePanel.setFocusable(true);
-	    basePanel.setFocusTraversalKeysEnabled(false);
+	    this.setSize(1280, 720);       // this is the main panel
+	    this.setLayout(new BorderLayout());
+	    this.addKeyListener(this);
+	    this.setFocusable(true);
+	    this.setFocusTraversalKeysEnabled(false);
 	    
 	    timePanel = new JPanel();
 	    timePanel.setBackground(Color.WHITE);
@@ -77,23 +76,18 @@ public class GamePanel extends JPanel implements KeyListener {
 	    scoreLabel.setFocusPainted(false);
 		scoreLabel.setBorder(BorderFactory.createEmptyBorder());
 	    timePanel.add(timebar);
-	    basePanel.add(scoreLabel, BorderLayout.NORTH);
-	    basePanel.add(timePanel, BorderLayout.SOUTH);
+	    this.add(scoreLabel, BorderLayout.NORTH);
+	    this.add(timePanel, BorderLayout.SOUTH);
         String[] imageNames = {"1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png"};	
 		String imageFolder = "images/";
 		for (int i = 0; i < imageNames.length; i++) {
 			ImageIcon icon = new ImageIcon(imageFolder + imageNames[i]);
-			Image img = icon.getImage();
-			labels[i] = new JLabel(new ImageIcon(img));
+			labels[i] = new JLabel(icon);
 			labels[i].setName(imageNames[i]);
-			labels[i].setSize(1280, 720);
-			
 			addComponent(labels[i]);
 		}
 	    
 	    
-	    
-	    add(basePanel);
 	}
 	
 	private int maxTime() {
@@ -178,9 +172,9 @@ public class GamePanel extends JPanel implements KeyListener {
 	    else {
 	        jPanels.add(component);
 	        if (jPanels.size() == 1) {
-	            basePanel.add(component);   
+	            this.add(component);   
 	        }
-	        component.setSize(basePanel.getSize());
+	        component.setSize(this.getSize());
 	        component.setLocation(0, 0);
 	    }
 	}
@@ -275,8 +269,8 @@ public class GamePanel extends JPanel implements KeyListener {
 	            step = (int) ((720 / (float) Toolkit.getDefaultToolkit().getScreenSize().height) * 30.f);
 	        }
 	        step = step < 5 ? 5 : step;
-	        basePanel.add(componentNew);
-	        basePanel.revalidate();
+	        this.add(componentNew);
+	        this.revalidate();
 	        if (useLoop) {
 	            final int max = (slideType == LEFT) || (slideType == RIGHT) ? w : h;
 	            final long t0 = System.currentTimeMillis();
