@@ -2,16 +2,7 @@ package misc;
 public class Person {
 	private String name;
 	private int score;
-	private int time;
 	private String date;
-
-	public int getTime() {
-		return time;
-	}
-
-	public void setTime(int time) {
-		this.time = time;
-	}
 
 	public String getDate() {
 		return date;
@@ -21,9 +12,10 @@ public class Person {
 		this.date = date;
 	}
 
-	public Person(String name, int score, int time, String date) {
+	public Person(String name, int score, String date) {
 		this.name = name;
 		this.score = score;
+		this.date = date;
 	}
 
 	public String getName() {

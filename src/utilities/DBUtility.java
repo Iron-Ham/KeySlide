@@ -1,4 +1,5 @@
 package utilities;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,14 +25,14 @@ public class DBUtility {
 	 * @param time
 	 *            Total time user lasted (another measure of high score?)
 	 */
-	public static void insertNewHighScore(String name, String date, int score, int time) {
+	public static void insertNewHighScore(String name, String date, int score) {
 		if (connectToDb()) { // Change in case connection to db fails
 
 			Statement stmt = null;
 			try {
 				stmt = c.createStatement();
 				String sql = "INSERT INTO hiscores (name,date,score,time) VALUES('" + name + "','" + date + "',"
-						+ Integer.toString(score) + "," + Integer.toString(time) + ");";
+						+ Integer.toString(score) + ");";
 				stmt.execute(sql);
 				stmt.close();
 				c.close();
@@ -47,8 +48,8 @@ public class DBUtility {
 	public static ArrayList<Person> getHighScores() {
 		ArrayList<Person> people = new ArrayList<Person>();
 
-		if (connectToDb()) { // Change in case connection to db fails
-			String sql = "SELECT * FROM hiscores ORDER BY score DESC LIMIT 5;";
+		if (connectToDb()) {
+			String sql = "SELECT * FROM hiscores ORDER BY score DESC LIMIT 10;";
 			Statement stmt = null;
 
 			try {
@@ -57,8 +58,7 @@ public class DBUtility {
 				rs = stmt.executeQuery(sql);
 
 				while (rs.next()) {
-					people.add(new Person(rs.getString("name"), rs.getInt("score"), rs.getInt("time"), rs
-							.getString("date")));
+					people.add(new Person(rs.getString("name"), rs.getInt("score"), rs.getString("date")));
 				}
 			} catch (Exception e) {
 				System.out.println("Error retrieving high scores from database!");
@@ -105,7 +105,8 @@ public class DBUtility {
 				rs = stmt.executeQuery(sql);
 
 				while (rs.next()) {
-					System.out.println(rs.getInt("score"));
+					if (score > rs.getInt("score"))
+						return true;
 				}
 			} catch (Exception e) {
 				System.out.println("Error retrieving high scores from database!");

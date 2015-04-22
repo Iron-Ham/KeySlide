@@ -41,13 +41,13 @@ public class Window extends JFrame {
 		instructionPanel = new InstructionPanel(this);
 		gamePanel = new GamePanel(this);
 		gamePanel.setFocusable(true);
-//		scorePanel = new HighScoresPanel();
+		scorePanel = new HighScoresPanel(this);
 		basePanel.setLayout(cardLayout);
 		basePanel.add(homePanel, "home");
 		basePanel.add(gameOverPanel, "game over");
 		basePanel.add(instructionPanel, "instructions");
 		basePanel.add(gamePanel, "game");
-//		basePanel.add(scorePanel, "scores");
+		basePanel.add(scorePanel, "scores");
 		add(basePanel);
 	}
 	
