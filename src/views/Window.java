@@ -54,6 +54,7 @@ public class Window extends JFrame {
 	 * Switches to game panel
 	 */
 	public void switchToGame() {
+		gamePanel.start();
 		cardLayout.show(basePanel, "game");
 	}
 	

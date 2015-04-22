@@ -71,7 +71,6 @@ public class GamePanel extends JPanel implements KeyListener {
 				}
 			}
 	    });
-	    timer.start();
 	    scoreLabel = new JButton("Score: " + score);
 	    scoreLabel.setFont(new Font("Arial", Font.PLAIN, 40));
 	    scoreLabel.setContentAreaFilled(false);
@@ -108,6 +107,13 @@ public class GamePanel extends JPanel implements KeyListener {
 			return 1000;
 		}
 		return 800;
+	}
+	
+	public void start() {
+		score = 0;
+		scoreLabel.setText("Score: " + score);
+		timePosition = 0;
+		timer.start();
 	}
 	
 	public void restartTimer() {
