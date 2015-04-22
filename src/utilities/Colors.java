@@ -9,10 +9,14 @@ import java.awt.Color;
  */
 public class Colors {
 	public static Color unselected() {
-		return new Color(0xD7D7D7);
+		return new Color(0x454951);
 	}
 	
 	public static Color selected() {
-		return new Color(0x000000);
+		return new Color(0xB5CCF2);
+	}
+	
+	public static Color orange() {
+		return new Color(0xFF6F00);
 	}
 }
