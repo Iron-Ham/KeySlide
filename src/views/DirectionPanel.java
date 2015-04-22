@@ -95,15 +95,9 @@ public class DirectionPanel extends JPanel {
 			}
 			image = new JLabel(icon);
 		}
+		removeAll();
+		add(image);
 	}
-	
-	/**
-	 * Required if we add a key listener to this class. 
-	 */
-//	public void addNotify() {
-//		super.addNotify();
-//		requestFocus();
-//	}
 	
 	
 }

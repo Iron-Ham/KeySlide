@@ -23,7 +23,6 @@ public class Window extends JFrame {
 	private InstructionPanel instructionPanel;
 	private HighScoresPanel scorePanel;
 	
-	
 	/**
 	 * Constructor for window. 
 	 * Adds all sub-panels to the base panel. 
@@ -45,10 +44,11 @@ public class Window extends JFrame {
 //		scorePanel = new HighScoresPanel();
 		basePanel.setLayout(cardLayout);
 		basePanel.add(homePanel, "home");
-		basePanel.add(gameOverPanel, "game over");
 		basePanel.add(instructionPanel, "instructions");
 		basePanel.add(gamePanel, "game");
 //		basePanel.add(scorePanel, "scores");
+		basePanel.add(gameOverPanel, "game over");
+
 		add(basePanel);
 	}
 	
