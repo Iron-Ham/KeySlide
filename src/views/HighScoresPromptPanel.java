@@ -5,6 +5,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.swing.JButton;
@@ -57,7 +58,8 @@ public class HighScoresPromptPanel extends JPanel {
 			 
             public void actionPerformed(ActionEvent e)
             {
-                DBUtility.insertNewHighScore(txtName.getText(), Calendar.getInstance().getTime().toString(), score);
+            	SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
+                DBUtility.insertNewHighScore(txtName.getText(), DATE_FORMAT.format(Calendar.getInstance().getTime()), score);
                 window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
             }
         }); 

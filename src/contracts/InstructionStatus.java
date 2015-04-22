@@ -42,25 +42,25 @@ public enum InstructionStatus implements InstructionStatusOperations {
 
 
 	public InstructionStatus left(Instruction instruction) throws UnsupportedStatusTransitionException {
-		logger.entering(getClass().getName(), "success");
+		logger.entering(getClass().getName(), "left");
 		return operations.left(instruction);
 	}
 
 	@Override
 	public InstructionStatus right(Instruction instruction) throws UnsupportedStatusTransitionException {
-		logger.entering(getClass().getName(), "success");
+		logger.entering(getClass().getName(), "right");
 		return operations.right(instruction);
 	}
 
 	@Override
 	public InstructionStatus up(Instruction instruction) throws UnsupportedStatusTransitionException {
-		logger.entering(getClass().getName(), "success");
+		logger.entering(getClass().getName(), "up");
 		return operations.up(instruction);
 	}
 
 	@Override
 	public InstructionStatus down(Instruction instruction) throws UnsupportedStatusTransitionException {
-		logger.entering(getClass().getName(), "success");
+		logger.entering(getClass().getName(), "down");
 		return operations.down(instruction);
 	}
 }
