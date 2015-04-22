@@ -1,6 +1,7 @@
 package views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.io.File;
 
@@ -19,6 +20,7 @@ public class InstructionPanel extends JPanel {
 	
 	public InstructionPanel(Window window) {
 		setLayout(new BorderLayout());
+		setBackground(Color.WHITE);
 		this.window = window;
 		image = new JLabel(new ImageIcon(new File("Assets/PNG/Instructions.png").toString()));
 		imageView = new JScrollPane();
@@ -28,7 +30,6 @@ public class InstructionPanel extends JPanel {
 		imageView.setSize(1280, 720);		
 		imageView.setPreferredSize(new Dimension(1280, 720));
 		BackButton back = new BackButton(window);
-//		back.setLocation(50, 100);
 		add(imageView, BorderLayout.CENTER);
 		add(back, BorderLayout.NORTH);
 	}

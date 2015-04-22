@@ -13,6 +13,6 @@ public class Colors {
 	}
 	
 	public static Color selected() {
-		return new Color(0xFFFFFF);
+		return new Color(0x000000);
 	}
 }
