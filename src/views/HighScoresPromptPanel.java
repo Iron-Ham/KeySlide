@@ -15,8 +15,11 @@ import utilities.DBUtility;
 
 public class HighScoresPromptPanel extends JPanel {
 	private JTextField txtName;
-
-	public HighScoresPromptPanel(){
+	private Window window;
+	
+	public HighScoresPromptPanel(Window window, final int score){
+		
+		this.window = window;
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -53,7 +56,7 @@ public class HighScoresPromptPanel extends JPanel {
 			 
             public void actionPerformed(ActionEvent e)
             {
-                DBUtility.insertNewHighScore(txtName.getText(), Calendar.getInstance().getTime().toString(), 23, 50);
+                DBUtility.insertNewHighScore(txtName.getText(), Calendar.getInstance().getTime().toString(), score);
             }
         }); 
 		GridBagConstraints gbc_btnSubmitHighScore = new GridBagConstraints();

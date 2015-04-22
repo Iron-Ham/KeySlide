@@ -16,7 +16,7 @@ import javax.swing.JProgressBar;
 import javax.swing.Timer;
 
 /**
- * GamePanel 
+ * GamePanel
  * @author heshamsalman
  *
  */
@@ -30,12 +30,24 @@ public class GamePanel extends JPanel implements KeyListener {
 	private int score = 0;
 	Timer timer;
 	JButton scoreLabel;
+	private final Object lock = new Object();
+	private boolean isSlideInProgress = false;
+	private final ArrayList<Component> jPanels = new ArrayList<Component>();
+	private Random randomGenerator = new Random();
+	private final int RIGHT = 0x01;
+	private final int LEFT = 0x02;
+	private final int TOP = 0x03;
+	private final int BOTTOM = 0x04;
+	private JLabel[] labels = new JLabel[20];
+
+
+	
 	public GamePanel(Window window) {
 		this.window = window;
 		setSize(1280, 720);
 		setFocusable(true);
 		setLayout(new BorderLayout());
-		
+
 		timePanel = new JPanel();
 		timePanel.setBackground(Color.WHITE);
 		timeBar = new JProgressBar();
@@ -66,27 +78,27 @@ public class GamePanel extends JPanel implements KeyListener {
 	    addKeyListener(this);
 	    add(dp, BorderLayout.CENTER);
 	}
-	
+
 	public void start() {
 		score = 0;
 		timePosition = 0;
 		timer.start();
 	}
-	
+
 	public void gameOver() {
 		timePosition = 0;
 		timer.stop();
 		timeBar.setValue(timePosition);
 		window.switchToGameOver();
 	}
-	
+
 	public void restartTimer() {
 		timePosition = 0;
 		timeBar.setValue(timePosition);
 		timer.restart();
 	}
-	
-	
+
+
 	private int maxTime() {
 		if (score < 5) {
 			return 2000;
@@ -115,16 +127,16 @@ public class GamePanel extends JPanel implements KeyListener {
 	    	gameOver();
 	    }
 	}
-	
+
 	public int getScore() {
 		return score;
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {}
-	
+
 	/**
-	 * Required if we add a key listener to this class. 
+	 * Required if we add a key listener to this class.
 	 */
 	@Override
 	public void addNotify() {
