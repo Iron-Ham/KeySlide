@@ -81,7 +81,6 @@ public class Window extends JFrame {
 	 * Switches to instruction panel
 	 */
 	public void switchToInstructions() {
-		System.out.println("Switch called");
 		cardLayout.show(basePanel, "instructions");
 	}
 
