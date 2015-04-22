@@ -22,6 +22,7 @@ public class Window extends JFrame {
 	private CardLayout cardLayout = new CardLayout();
 	private Menu menu;
 	private HomePanel homePanel;
+	private HighScoreDialogFrame highScoreDialog;
 	private GameOverPanel gameOverPanel;
 	private GamePanel gamePanel;
 	private InstructionPanel instructionPanel;
@@ -71,7 +72,8 @@ public class Window extends JFrame {
 	public void switchToGameOver() {
 		int score = gamePanel.getScore();
 		if(DBUtility.isHighScore(score)){
-			HighScoreDialogFrame f = new HighScoreDialogFrame(score);
+			highScoreDialog = new HighScoreDialogFrame(score);
+			highScoreDialog.setVisible(true);
 		}
 		gameOverPanel.setScore(score);
 		cardLayout.show(basePanel, "game over");
