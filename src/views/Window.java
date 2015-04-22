@@ -21,6 +21,7 @@ public class Window extends JFrame {
 	private GameOverPanel gameOverPanel;
 	private GamePanel gamePanel;
 	private InstructionPanel instructionPanel;
+	private HighScoresPanel scorePanel;
 	
 	
 	/**
@@ -34,14 +35,23 @@ public class Window extends JFrame {
 		setSize(1280, 720);		
 		setResizable(false);
 		setTitle("KeySlide");
-		
 		homePanel = new HomePanel(this);
-		gameOverPanel = new GameOverPanel();	
-		
+		gameOverPanel = new GameOverPanel(this);	
 		basePanel = new JPanel();
+//		instructionPanel = new InstructionPanel();
+//		gamePanel = new GamePanel();
+//		scorePanel = new HighScoresPanel();
+		
+		
+		
 		basePanel.setLayout(cardLayout);
 		basePanel.add(homePanel, "home");
 		basePanel.add(gameOverPanel, "game over");
+//		basePanel.add(instructionPanel, "instructions");
+//		basePanel.add(gamePanel, "game");
+//		basePanel.add(scorePanel, "scores");
+		
+		
 		add(basePanel);
 		
 		
@@ -79,7 +89,7 @@ public class Window extends JFrame {
 	 * Switches to high-score panel;
 	 */
 	public void switchToHiScores() {
-		cardLayout.show(basePanel, "hiscores");
+		cardLayout.show(basePanel, "scores");
 	}
 	
 	

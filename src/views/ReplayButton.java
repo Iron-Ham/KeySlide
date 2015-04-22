@@ -8,35 +8,30 @@ import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
 import utilities.Colors;
 
-/**
- * Back Button allows user to go back to home page when clicked. 
- * @author heshamsalman
- *
- */
-public class BackButton extends JButton implements ActionListener, MouseListener {
+public class ReplayButton extends JButton implements ActionListener, MouseListener{
 	Window window;
-
-	public BackButton(Window window) {
-		super("Home");
+	
+	public ReplayButton(Window window) {
+		super("Replay");
 		this.window = window;
-		this.setFont(new Font("Arial", Font.PLAIN, 40));
 		this.addActionListener(this);
-		this.addMouseListener(this);
+		this.setFont(new Font("Arial", Font.PLAIN, 40));
 		this.setContentAreaFilled(false);
+		this.addMouseListener(this);
 		this.setFocusPainted(false);
 		this.setBorder(BorderFactory.createEmptyBorder());
 		this.setForeground(Colors.unselected());
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		window.switchToHome();
+		window.switchToGame();
 	}
-	
+
 	@Override
 	public void mouseClicked(MouseEvent e) {}
 
@@ -61,5 +56,4 @@ public class BackButton extends JButton implements ActionListener, MouseListener
 		}
 		this.updateUI();
 	}
-	
 }

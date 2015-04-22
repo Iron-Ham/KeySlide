@@ -22,16 +22,12 @@ public class Menu extends JPanel {
 	public Menu(Window window) {
 		this.window = window;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		this.setAlignmentY(0.3f);
 		start = new MenuItem(window, "Start");
 		start.setSize(150, 120);
-		start.setAlignmentX(0.5f);
 		hiScores = new MenuItem(window, "Hi-Scores");
 		hiScores.setSize(150, 120);
-		hiScores.setAlignmentX(0.5f);
 		instructions = new MenuItem(window, "Instructions");
 		instructions.setSize(150, 120);
-		instructions.setAlignmentX(0.5f);
 		attachListeners();
 		add(start);
 		add(Box.createRigidArea(new Dimension(5, 25)));
