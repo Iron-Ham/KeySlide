@@ -31,7 +31,7 @@ public class DBUtility {
 			Statement stmt = null;
 			try {
 				stmt = c.createStatement();
-				String sql = "INSERT INTO hiscores (name,date,score,time) VALUES('" + name + "','" + date + "',"
+				String sql = "INSERT INTO hiscores (name,date,score) VALUES('" + name + "','" + date + "',"
 						+ Integer.toString(score) + ");";
 				stmt.execute(sql);
 				stmt.close();
@@ -42,6 +42,11 @@ public class DBUtility {
 			}
 		} else {
 			System.out.println("Error connecting to database");
+		}
+		try {
+			c.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -65,6 +70,11 @@ public class DBUtility {
 			}
 		} else {
 			System.out.println("Error connecting to database");
+		}
+		try {
+			c.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return people;
 	}
@@ -96,8 +106,9 @@ public class DBUtility {
 	 */
 
 	public static boolean isHighScore(int score) {
+		int tenthScore = -1;
 		if (connectToDb()) { // Change in case connection to db fails
-			String sql = "SELECT DISTINCT score FROM hiscores ORDER BY score DESC LIMIT 1 OFFSET 0";
+			String sql = "SELECT DISTINCT score FROM hiscores ORDER BY score DESC LIMIT 1 OFFSET 9";
 			Statement stmt = null;
 			try {
 				ResultSet rs = null;
@@ -105,8 +116,7 @@ public class DBUtility {
 				rs = stmt.executeQuery(sql);
 
 				while (rs.next()) {
-					if (score > rs.getInt("score"))
-						return true;
+					tenthScore = rs.getInt("score");
 				}
 			} catch (Exception e) {
 				System.out.println("Error retrieving high scores from database!");
@@ -115,6 +125,13 @@ public class DBUtility {
 			System.out.println("Error connecting to database");
 			return false;
 		}
+		try {
+			c.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if (score > tenthScore)
+			return true;
 		return false;
 	}
 }

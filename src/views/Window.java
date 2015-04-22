@@ -7,6 +7,8 @@ import java.awt.GridBagLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import utilities.DBUtility;
+
 /**
  * The window for the program. This is the *only* JFrame for our program.
  * @author heshamsalman
@@ -68,6 +70,9 @@ public class Window extends JFrame {
 	 */
 	public void switchToGameOver() {
 		int score = gamePanel.getScore();
+		if(DBUtility.isHighScore(score)){
+			HighScoreDialogFrame f = new HighScoreDialogFrame(score);
+		}
 		gameOverPanel.setScore(score);
 		cardLayout.show(basePanel, "game over");
 	}
@@ -91,6 +96,7 @@ public class Window extends JFrame {
 	 * Switches to high-score panel;
 	 */
 	public void switchToHiScores() {
+		scorePanel.updateSelf();
 		cardLayout.show(basePanel, "scores");
 	}
 

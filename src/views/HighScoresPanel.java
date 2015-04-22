@@ -20,14 +20,20 @@ public class HighScoresPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	Window window;
-
+	ArrayList<Person> people;
 	public HighScoresPanel(Window window) {
 		this.window = window;
-		ArrayList<Person> people = DBUtility.getHighScores();
+		people = DBUtility.getHighScores();
 		setUpGui(people);
 
 	}
 
+	public void updateSelf() {
+		people = DBUtility.getHighScores();
+		removeAll();
+		setUpGui(people);
+	}
+	
 	private void setUpGui(ArrayList<Person> people) {
 		ArrayList<String> names = new ArrayList<>();
 		ArrayList<Integer> scores = new ArrayList<>();
