@@ -9,6 +9,10 @@ public class HomePanel extends JPanel {
 	private Menu menu;
 	Window window;
 	
+	/**
+	 * The panel which the program starts with. Contains the navigation menu.
+	 * @param window
+	 */
 	public HomePanel(Window window) {
 		this.window = window;
 		setLayout(new GridBagLayout());

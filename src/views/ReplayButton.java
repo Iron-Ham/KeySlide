@@ -11,6 +11,11 @@ import javax.swing.JButton;
 
 import utilities.Colors;
 
+/**
+ * Replay Button allows user to replay game
+ * @author heshamsalman
+ *
+ */
 public class ReplayButton extends JButton implements ActionListener, MouseListener{
 	Window window;
 	

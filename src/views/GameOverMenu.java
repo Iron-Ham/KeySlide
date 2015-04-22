@@ -9,7 +9,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+/**
+ * Game over screen. 
+ * @author heshamsalman
+ *
+ */
 public class GameOverMenu extends JPanel {
 
 	private JLabel gameOver;

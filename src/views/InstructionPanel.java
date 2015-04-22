@@ -13,6 +13,11 @@ import javax.swing.JScrollPane;
 
 import utilities.ImageHelper;
 
+/**
+ * The panel which contains instructions for the user.
+ * @author heshamsalman
+ *
+ */
 public class InstructionPanel extends JPanel {
 	private JLabel image;
 	private JScrollPane imageView;
