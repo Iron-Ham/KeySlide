@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -14,7 +13,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
-
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -136,7 +134,6 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("Key Pressed");
 	    if(e.getKeyCode() == KeyEvent.VK_LEFT){
 	    	slideLeft();       
 	    }
@@ -180,12 +177,6 @@ public class GamePanel extends JPanel implements KeyListener {
 	        }
 	        component.setSize(this.getSize());
 	        component.setLocation(0, 0);
-	    }
-	}
-	
-	public void removeComponent(final Component component) {
-	    if (jPanels.contains(component)) {
-	        jPanels.remove(component);
 	    }
 	}
 	
