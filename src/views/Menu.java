@@ -1,10 +1,13 @@
 package views;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -29,6 +32,10 @@ public class Menu extends JPanel {
 		instructions = new MenuItem(window, "Instructions");
 		instructions.setSize(150, 120);
 		attachListeners();
+		JLabel title = new JLabel("Key Slide");
+		title.setFont(new Font("Arial", Font.BOLD, 64));
+		add(title);
+		add(Box.createRigidArea(new Dimension(10, 50)));
 		add(start);
 		add(Box.createRigidArea(new Dimension(5, 25)));
 		add(hiScores);
