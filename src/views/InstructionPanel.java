@@ -23,6 +23,7 @@ public class InstructionPanel extends JPanel {
 		image = new JLabel(new ImageIcon(new File("Assets/PNG/Instructions.png").toString()));
 		imageView = new JScrollPane();
 		imageView.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		imageView.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		imageView.setViewportView(image);
 		imageView.setSize(1280, 720);		
 		imageView.setPreferredSize(new Dimension(1280, 720));
