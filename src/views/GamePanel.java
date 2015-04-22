@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	
 	public GamePanel(Window window) {
 		this.window = window;
-	    this.setSize(1280, 720);       // this is the main panel
+	    this.setSize(1100, 660);       // this is the main panel
 	    this.setLayout(new BorderLayout());
 	    this.setFocusable(true);
 	    this.setFocusTraversalKeysEnabled(false);
@@ -216,25 +216,37 @@ public class GamePanel extends JPanel implements KeyListener {
 	       
 	        if (slideType == LEFT) {
 	           if (i != 4 && i!=8)
+	           {
 	        	   gameOver();
+	               window.switchToGameOver();
+	           }
 	          else
 	        	   restartTimer();  	   	   
 	         }
 	        if (slideType == TOP) {            
 	            if (i != 1 && i!=5)
-	            	gameOver();
+	            {
+		        	   gameOver();
+		               window.switchToGameOver();
+		           }
 	            else
 	            	restartTimer();
 	        }
 	        if (slideType == RIGHT) {
 	            if (i != 3 && i!=7)
-	            	gameOver();
+	            {
+		        	   gameOver();
+		               window.switchToGameOver();
+		           }
 	            else
 	            	restartTimer();
 	        }
 	        if (slideType == BOTTOM) {
 	            if (i != 2 && i!=6)
-	            	gameOver();
+	            {
+		        	   gameOver();
+		               window.switchToGameOver();
+		           }
 	            
 	            else
 	            	restartTimer();
