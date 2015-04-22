@@ -25,6 +25,10 @@ public class DirectionPanel extends JPanel {
 		return internalKey;
 	}
 	
+	public InstructionStatus getStatus() {
+		return instrControl.getStatus();
+	}
+	
 	
 	public void updateDirection() {
 		instrControl.nextInstruction();
