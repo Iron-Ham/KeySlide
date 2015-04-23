@@ -88,16 +88,12 @@ public class GamePanel extends JPanel implements KeyListener {
 
 
 	private int maxTime() {
-		if (score < 5) {
-			return 2000;
-		} else if (score < 10) {
-			return 1600;
-		} else if (score < 15) {
-			return 1200;
-		} else if (score < 20) {
-			return 1000;
+		int time = 2000 - (30 * score);
+		if (time < 500) {
+			return 500;
+		} else {
+			return time;
 		}
-		return 800;
 	}
 
 	@Override
