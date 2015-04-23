@@ -8,7 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -23,6 +26,7 @@ import javax.swing.Timer;
 public class GamePanel extends JPanel implements KeyListener {
 	private static final long serialVersionUID = 1L;
 	DirectionPanel dp;
+	Clip clip;
 	Window window;
 	private JPanel timePanel;
 	private JProgressBar timeBar;
@@ -30,7 +34,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private int score = 0;
 	Timer timer;
 	JButton scoreLabel;
-	
+
 	public GamePanel(final Window window) {
 		this.window = window;
 		setSize(1280, 720);
@@ -68,12 +72,37 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 	public void start() {
+		doPlay(new File("Assets/Audio/Chiptune.wav"));
 		score = 0;
 		timePosition = 0;
 		timer.start();
 	}
 
+	private void doPlay(final File url) {
+	    try {
+	        stopPlay();
+	        AudioInputStream inputStream = AudioSystem
+	                .getAudioInputStream(url);
+	        clip = AudioSystem.getClip();
+	        clip.open(inputStream);
+	        clip.start();
+	    } catch (Exception e) {
+	        stopPlay();
+	        System.err.println(e.getMessage());
+	    }
+	}
+
+	private void stopPlay() {
+	    if (clip != null) {
+	        clip.stop();
+	        clip.close();
+	        clip = null;
+	    }
+	}
+
+
 	public void gameOver() {
+		stopPlay();
 		timePosition = 0;
 		timer.stop();
 		timeBar.setValue(timePosition);
@@ -88,7 +117,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
 
 	private int maxTime() {
-		int time = 2000 - (30 * score);
+		int time = 1500 - (30 * score);
 		if (time < 500) {
 			return 500;
 		} else {
@@ -111,7 +140,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	    	gameOver();
 	    }
 	}
-	
+
 	public int getScore() {
 		return score;
 	}
