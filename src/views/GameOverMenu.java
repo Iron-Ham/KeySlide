@@ -23,6 +23,7 @@ public class GameOverMenu extends JPanel {
 	
 	public GameOverMenu(Window window, int points) {
 		gameOver = new JLabel("Game Over");
+		setOpaque(false);
 		gameOver.setFont(new Font("Arial", Font.PLAIN, 40));
 		gameOver.setForeground(Color.WHITE);
 		score = new JLabel("Score: " + points); //TODO: Connect with database for actual score, or pass score to menu.

@@ -1,8 +1,11 @@
 package views;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class HomePanel extends JPanel {
@@ -23,5 +26,12 @@ public class HomePanel extends JPanel {
 		menu.setAlignmentX(0.5f);
 		setSize(1280, 720);
 		add(menu);
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		ImageIcon icon = new ImageIcon("Assets/PNG/Blue_Abstract.png");
+		g.drawImage(utilities.ImageHelper.PrepareFullScreenImageIcon(icon).getImage(), 0, 0, null);
 	}
 }

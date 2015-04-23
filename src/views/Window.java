@@ -14,8 +14,6 @@ import utilities.DBUtility;
  * @author heshamsalman
  *
  */
-
-//Hi
 public class Window extends JFrame {
 	private static final long serialVersionUID = -8731966412182953292L;
 	private JPanel basePanel;

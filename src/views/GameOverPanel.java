@@ -1,6 +1,9 @@
 package views;
 
+import java.awt.Graphics;
 import java.awt.GridBagLayout;
+
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class GameOverPanel extends JPanel {
@@ -22,5 +25,12 @@ public class GameOverPanel extends JPanel {
 	public void setScore(int score) {
 		this.score = score;
 		menu.setScore(score);
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		ImageIcon icon = new ImageIcon("Assets/PNG/bg.jpg");
+		g.drawImage(utilities.ImageHelper.PrepareFullScreenImageIcon(icon).getImage(), 0, 0, null);
 	}
 }
