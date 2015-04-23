@@ -2,19 +2,15 @@ package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.Random;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
@@ -34,15 +30,12 @@ public class GamePanel extends JPanel implements KeyListener {
 	private int score = 0;
 	Timer timer;
 	JButton scoreLabel;
-	private final ArrayList<Component> jPanels = new ArrayList<Component>();
-
 	
 	public GamePanel(final Window window) {
 		this.window = window;
 		setSize(1280, 720);
 		setFocusable(true);
 		setLayout(new BorderLayout());
-
 		timePanel = new JPanel();
 		timePanel.setBackground(Color.WHITE);
 		timeBar = new JProgressBar();
@@ -95,16 +88,12 @@ public class GamePanel extends JPanel implements KeyListener {
 
 
 	private int maxTime() {
-		if (score < 5) {
-			return 2000;
-		} else if (score < 10) {
-			return 1600;
-		} else if (score < 15) {
-			return 1200;
-		} else if (score < 20) {
-			return 1000;
+		int time = 2000 - (30 * score);
+		if (time < 500) {
+			return 500;
+		} else {
+			return time;
 		}
-		return 800;
 	}
 
 	@Override
@@ -122,7 +111,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	    	gameOver();
 	    }
 	}
-
+	
 	public int getScore() {
 		return score;
 	}

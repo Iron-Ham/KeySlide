@@ -1,5 +1,6 @@
 package views;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -23,6 +24,7 @@ public class Menu extends JPanel {
 	Window window;
 
 	public Menu(Window window) {
+		setOpaque(false);
 		this.window = window;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		start = new MenuItem(window, "Start");
@@ -34,6 +36,7 @@ public class Menu extends JPanel {
 		attachListeners();
 		JLabel title = new JLabel("Key Slide");
 		title.setFont(new Font("Arial", Font.BOLD, 64));
+		title.setForeground(Color.WHITE);
 		add(title);
 		add(Box.createRigidArea(new Dimension(10, 150)));
 		add(start);

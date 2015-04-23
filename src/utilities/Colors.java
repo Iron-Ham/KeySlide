@@ -13,10 +13,10 @@ public class Colors {
 	}
 	
 	public static Color selected() {
-		return new Color(0xB5CCF2);
+		return new Color(0xFFFFFF);
 	}
 	
 	public static Color orange() {
-		return new Color(0xFF6F00);
+		return new Color(0xEB5D00);
 	}
 }
