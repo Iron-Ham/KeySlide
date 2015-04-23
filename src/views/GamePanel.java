@@ -30,7 +30,7 @@ import contracts.InstructionStatus;
  */
 public class GamePanel extends JPanel implements KeyListener {
 	private static final long serialVersionUID = 1L;
-	DirectionPanel dp;
+	DirectionPanel directionPanel;
 	private static Logger logger = Logger.getLogger(InstructionStatus.class
 			.getName());
 	Clip clip;
@@ -73,9 +73,9 @@ public class GamePanel extends JPanel implements KeyListener {
 	    timePanel.add(timeBar);
 	    add(scoreLabel, BorderLayout.NORTH);
 	    add(timePanel, BorderLayout.SOUTH);
-	    dp = new DirectionPanel();
+	    directionPanel = new DirectionPanel();
 	    addKeyListener(this);
-	    add(dp, BorderLayout.CENTER);
+	    add(directionPanel, BorderLayout.CENTER);
 	}
 
 	public void start() {
@@ -115,6 +115,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
 
 	public void gameOver() {
+		directionPanel.getInstructionController().nextInstruction();
 		logger.entering(getClass().getName(), "gameOver");
 		stopPlay();
 		timePosition = 0;
@@ -148,8 +149,11 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		logger.entering(getClass().getName(), "keyPressed");
-	    if(e.getKeyCode() == dp.getInternalKey()){
-	    	dp.updateDirection();
+		if (e.getKeyCode() == KeyEvent.VK_F24) {
+			
+		}
+		else if(e.getKeyCode() == directionPanel.getInternalKey()){
+	    	directionPanel.updateDirection();
 	    	restartTimer();
 	    	score+=1;
 	    	scoreLabel.setText("Score: " + score);

@@ -35,6 +35,13 @@ public class DirectionPanel extends JPanel {
 	}
 	
 	/**
+	 * @return instrControl is the controller for the instruction.
+	 */
+	public InstructionController getInstructionController() {
+		return instrControl;
+	}
+	
+	/**
 	 * @return returns instructionstatus type
 	 */
 	public InstructionStatus getStatus() {
