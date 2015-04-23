@@ -3,11 +3,14 @@ package views;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.MouseEvent;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import utilities.Colors;
 
 /**
  * Game over screen. 
@@ -30,7 +33,15 @@ public class GameOverMenu extends JPanel {
 		score.setFont(new Font("Arial", Font.PLAIN, 40));
 		score.setForeground(Color.WHITE);
 		replayButton = new ReplayButton(window);
-		backButton = new BackButton(window);
+		backButton = new BackButton(window) {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				if (e.getSource() == this) {
+					this.setForeground(Color.WHITE);
+				}
+				this.updateUI();
+			}
+		};
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		gameOver.setSize(512, 256);
 		add(gameOver);
