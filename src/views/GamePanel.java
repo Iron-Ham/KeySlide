@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -18,6 +21,8 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
 
+import contracts.InstructionStatus;
+
 /**
  * GamePanel
  * @author heshamsalman
@@ -26,6 +31,8 @@ import javax.swing.Timer;
 public class GamePanel extends JPanel implements KeyListener {
 	private static final long serialVersionUID = 1L;
 	DirectionPanel dp;
+	private static Logger logger = Logger.getLogger(InstructionStatus.class
+			.getName());
 	Clip clip;
 	Window window;
 	private JPanel timePanel;
@@ -79,10 +86,12 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 	private void doPlay(final File url) {
+		logger.entering(getClass().getName(), "doPlay");
 	    try {
 	        stopPlay();
 	        AudioInputStream inputStream = AudioSystem
 	                .getAudioInputStream(url);
+			logger.log(Level.INFO, "Playing Audio");
 	        clip = AudioSystem.getClip();
 	        clip.open(inputStream);
 	        clip.start();
@@ -90,29 +99,37 @@ public class GamePanel extends JPanel implements KeyListener {
 	        stopPlay();
 	        System.err.println(e.getMessage());
 	    }
+		logger.exiting(getClass().getName(), "doPlay");
 	}
 
 	private void stopPlay() {
+		logger.entering(getClass().getName(), "stopPlay");
 	    if (clip != null) {
 	        clip.stop();
 	        clip.close();
+			logger.log(Level.INFO, "Stopping Audio");
 	        clip = null;
 	    }
+		logger.exiting(getClass().getName(), "doPlay");
 	}
 
 
 	public void gameOver() {
+		logger.entering(getClass().getName(), "gameOver");
 		stopPlay();
 		timePosition = 0;
 		timer.stop();
 		timeBar.setValue(timePosition);
 		window.switchToGameOver();
+		logger.exiting(getClass().getName(), "gameOver");
 	}
 
 	public void restartTimer() {
+		logger.entering(getClass().getName(), "restartTimer");
 		timePosition = 0;
 		timeBar.setValue(timePosition);
 		timer.restart();
+		logger.exiting(getClass().getName(), "restartTimer");
 	}
 
 
@@ -130,6 +147,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		logger.entering(getClass().getName(), "keyPressed");
 	    if(e.getKeyCode() == dp.getInternalKey()){
 	    	dp.updateDirection();
 	    	restartTimer();
@@ -139,6 +157,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	    else {
 	    	gameOver();
 	    }
+		logger.exiting(getClass().getName(), "keyPressed");
 	}
 
 	public int getScore() {
