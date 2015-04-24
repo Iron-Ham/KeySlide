@@ -4,8 +4,8 @@ import misc.UnsupportedStatusTransitionException;
 import models.Instruction;
 
 /**
- * The currently defined InstructionStatus states. As we add more "rules", we should add more states. 
- * TODO: Add compound states. 
+ * The defined operations for an instruction status. This interface defines state transitions. 
+ * Contains default implementations of state transitions. 
  * @author heshamsalman
  *
  */

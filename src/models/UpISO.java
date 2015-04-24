@@ -10,25 +10,8 @@ import contracts.InstructionStatusOperations;
  *
  */
 public class UpISO implements InstructionStatusOperations {
-
-	@Override
-	public InstructionStatus left(Instruction instruction) {
-		return InstructionStatus.LEFT;
-	}
-
-	@Override
-	public InstructionStatus right(Instruction instruction) {
-		 return InstructionStatus.RIGHT;
-	}
-
 	@Override
 	public InstructionStatus up(Instruction instruction) throws UnsupportedStatusTransitionException {
 		throw new UnsupportedStatusTransitionException("up");
 	}
-
-	@Override
-	public InstructionStatus down(Instruction instruction) {
-		return InstructionStatus.DOWN;
-	}
-
 }

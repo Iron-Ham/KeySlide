@@ -14,20 +14,4 @@ public class LeftISO implements InstructionStatusOperations {
 	public InstructionStatus left(Instruction instruction) throws UnsupportedStatusTransitionException {
 		throw new UnsupportedStatusTransitionException("left");
 	}
-
-	@Override
-	public InstructionStatus right(Instruction instruction) {
-		 return InstructionStatus.RIGHT;
-	}
-
-	@Override
-	public InstructionStatus up(Instruction instruction) {
-		 return InstructionStatus.UP;
-	}
-
-	@Override
-	public InstructionStatus down(Instruction instruction) {
-		return InstructionStatus.DOWN;
-	}
-
 }

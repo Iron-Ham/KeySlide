@@ -23,14 +23,13 @@ public class ReplayButton extends JButton implements ActionListener, MouseListen
 	public ReplayButton(Window window) {
 		super("Replay");
 		this.window = window;
-		this.addActionListener(this);
-		this.setFont(new Font("Arial", Font.PLAIN, 40));
-		this.setContentAreaFilled(false);
-		this.addMouseListener(this);
-		this.setFocusPainted(false);
-		this.setBorder(BorderFactory.createEmptyBorder());
-		this.setForeground(Colors.unselected());
-		
+		addActionListener(this);
+		setFont(new Font("Arial", Font.PLAIN, 40));
+		setContentAreaFilled(false);
+		addMouseListener(this);
+		setFocusPainted(false);
+		setBorder(BorderFactory.createEmptyBorder());
+		setForeground(Colors.unselected());
 	}
 
 	@Override
@@ -50,16 +49,16 @@ public class ReplayButton extends JButton implements ActionListener, MouseListen
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == this) {
-			this.setForeground(Colors.selected());
+			setForeground(Colors.selected());
 		}
-		this.updateUI();
+		updateUI();
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == this) {
-			this.setForeground(Colors.unselected());
+			setForeground(Colors.unselected());
 		}
-		this.updateUI();
+		updateUI();
 	}
 }

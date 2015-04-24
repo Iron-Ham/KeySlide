@@ -8,14 +8,18 @@ import java.awt.Color;
  *
  */
 public class Colors {
+	
+	//Blue (V. Dark)
 	public static Color unselected() {
 		return new Color(0x454951);
 	}
 	
+	//White
 	public static Color selected() {
 		return new Color(0xFFFFFF);
 	}
 	
+	//Orange
 	public static Color orange() {
 		return new Color(0xEB5D00);
 	}

@@ -11,6 +11,7 @@ import utilities.Colors;
 
 /**
  * Back Button allows user to go back to home page when clicked. 
+ * Reacts to mouse hover.
  * @author heshamsalman
  *
  */
@@ -43,7 +44,7 @@ public class BackButton extends JButton implements ActionListener, MouseListener
 
 	@Override
 	public void mouseReleased(MouseEvent e) {}
-
+	
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == this) {

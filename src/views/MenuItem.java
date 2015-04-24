@@ -18,15 +18,19 @@ public class MenuItem extends JButton implements MouseListener{
 	Window window;
 	public MenuItem(Window window, String text) {
 		this.window = window;
-		this.setText(text);
-		this.setActionCommand(text);
-		this.setFont(new Font("Arial", Font.PLAIN, 40));
-		this.setMaximumSize(new Dimension(400, 100));
-		this.setContentAreaFilled(false);
-		this.setFocusPainted(false);
-		this.setBorder(BorderFactory.createEmptyBorder());
-		this.setForeground(Colors.orange());
+		setText(text);
+		setActionCommand(text);
 		addMouseListener(this);
+		setupGui();
+	}
+	
+	private void setupGui() {
+		setFont(new Font("Arial", Font.PLAIN, 40));
+		setMaximumSize(new Dimension(400, 100));
+		setContentAreaFilled(false);
+		setFocusPainted(false);
+		setBorder(BorderFactory.createEmptyBorder());
+		setForeground(Colors.orange());
 	}
 
 	@Override
@@ -38,17 +42,17 @@ public class MenuItem extends JButton implements MouseListener{
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == this) {
-			this.setForeground(Colors.selected());
+			setForeground(Colors.selected());
 		}
-		this.updateUI();
+		updateUI();
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == this) {
-			this.setForeground(Colors.orange());
+			setForeground(Colors.orange());
 		}
-		this.updateUI();
+		updateUI();
 	}
 
 	@Override
