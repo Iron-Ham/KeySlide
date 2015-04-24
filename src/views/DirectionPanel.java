@@ -1,12 +1,9 @@
 package views;
 
 import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import models.*;
 import contracts.InstructionStatus;
 import controllers.InstructionController;
 
@@ -105,6 +102,4 @@ public class DirectionPanel extends JPanel {
 		removeAll();
 		add(image);
 	}
-	
-	
 }

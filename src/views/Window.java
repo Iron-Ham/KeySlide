@@ -8,7 +8,7 @@ import utilities.DBUtility;
 import utilities.GameLog;
 
 /**
- * The window for the program. This is the *only* JFrame for our program.
+ * The main window for the program
  * @author heshamsalman
  *
  */
@@ -35,6 +35,10 @@ public class Window extends JFrame {
 		setSize(1280, 720);
 		setResizable(false);
 		setTitle("KeySlide");
+		setupGui();
+	}
+	
+	private void setupGui() {
 		homePanel = new HomePanel(this);
 		gameOverPanel = new GameOverPanel(this);
 		basePanel = new JPanel();
@@ -48,7 +52,6 @@ public class Window extends JFrame {
 		basePanel.add(gamePanel, "game");
 		basePanel.add(scorePanel, "scores");
 		basePanel.add(gameOverPanel, "game over");
-
 		add(basePanel);
 	}
 
@@ -106,7 +109,4 @@ public class Window extends JFrame {
 		cardLayout.show(basePanel, "scores");
 		GameLog.log.exiting(getClass().getName(), "switchToHiScores");
 	}
-
-
-
 }

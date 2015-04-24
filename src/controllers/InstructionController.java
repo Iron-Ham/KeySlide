@@ -1,17 +1,23 @@
 package controllers;
 
 import java.util.Random;
-import java.util.logging.Logger;
-
 import utilities.GameLog;
 import contracts.InstructionStatus;
 import models.Instruction;
 
 /**
- * Handles generating the next instruction. Singleton.
+ * A developer-friendly wrapper of an instruction.
+ * Allows generation of the next instruction state, provides access to the instruction instance, 
+ * gets the status of the current instruction, and can define a "reversed" state to allow for 
+ * reverse input images. 
+ * 
+ * TODO: 
+ * 	- Add more instructions?
+ * 		- Rewind: Perform the last instruction
+ * 		- Stop: Let the timer run out.
+ * 
  * 
  * @author heshamsalman
- *
  */
 public class InstructionController {
 	private static Instruction instr;
@@ -23,7 +29,7 @@ public class InstructionController {
 		InstructionStatus p = InstructionStatus.getRandomStatus();
 		instr = new Instruction(p);
 	}
-
+	
 	public static synchronized InstructionController getInstance() {
 		return instance;
 	}
@@ -41,6 +47,10 @@ public class InstructionController {
 		return reverse;
 	}
 
+	/**
+	 * Generates next instruction by switching the instruction state. 
+	 * Currently does not support getting the same instruction twice.
+	 */
 	public void nextInstruction() {
 		GameLog.log.entering(getClass().getName(), "nextInstruction");
 		InstructionStatus p = InstructionStatus.getRandomStatus();

@@ -21,9 +21,13 @@ public class InstructionPanel extends JPanel {
 	Window window;
 	
 	public InstructionPanel(Window window) {
+		this.window = window;
+		setupGui();
+	}
+	
+	private void setupGui() {
 		setLayout(new BorderLayout());
 		setBackground(Color.WHITE);
-		this.window = window;
 		image = new JLabel(new ImageIcon(new File("Assets/PNG/Instructions.png").toString()));
 		imageView = new JScrollPane();
 		imageView.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);

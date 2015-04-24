@@ -8,19 +8,16 @@ package misc;
  */
 public class UnsupportedStatusTransitionException extends Exception{
 	private static final long serialVersionUID = -1671801597417239034L;
-
+	
 	public UnsupportedStatusTransitionException() {
 		super();
 	}
-
 	public UnsupportedStatusTransitionException(String message) {
 		super(message);
 	}
-
 	public UnsupportedStatusTransitionException(Throwable cause) {
 		super(cause);
 	}
-
 	public UnsupportedStatusTransitionException(String message, Throwable cause) { 
 		super(message, cause);
 	}

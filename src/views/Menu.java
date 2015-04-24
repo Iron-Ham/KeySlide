@@ -19,15 +19,20 @@ import utilities.GameLog;
 public class Menu extends JPanel {
 	private static final long serialVersionUID = -6758351920150177724L;
 	private MenuItem start;
-	
-
 	private MenuItem hiScores;
 	private MenuItem instructions;
 	Window window;
 
 	public Menu(Window window) {
-		setOpaque(false);
 		this.window = window;
+		setupGui();
+	}
+	
+	/**
+	 * Sets up GUI elements.
+	 */
+	private void setupGui() {
+		setOpaque(false);
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		start = new MenuItem(window, "Start");
 		start.setSize(150, 120);

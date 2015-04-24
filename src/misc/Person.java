@@ -1,9 +1,12 @@
 package misc;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+/**
+ * Java representation of model for "Person"
+ * Allows for easy data entry into the database. 
+ * @author troyjohnson
+ * Refactored & Documented: heshamsalman 04/23/15
+ * 
+ */
 public class Person {
 	private String name;
 	private int score;

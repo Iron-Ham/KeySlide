@@ -21,7 +21,7 @@ import javax.swing.Timer;
 import utilities.GameLog;
 
 /**
- * GamePanel
+ * GamePanel class: Contains all game elements
  * @author heshamsalman
  *
  */
@@ -35,13 +35,16 @@ public class GamePanel extends JPanel implements KeyListener {
 	private int timePosition = 0;
 	private int score = 0;
 	Timer timer;
-	JButton scoreLabel;
-
+	JButton scoreButton;
+	
 	public GamePanel(final Window window) {
 		this.window = window;
 		setupGui();
 	}
 
+	/**
+	 * Sets up GUI
+	 */
 	private void setupGui() {
 		setSize(1280, 720);
 		setFocusable(true);
@@ -64,13 +67,13 @@ public class GamePanel extends JPanel implements KeyListener {
 				}
 			}
 	    });
-	    scoreLabel = new JButton("Score: " + score);
-	    scoreLabel.setFont(new Font("Arial", Font.PLAIN, 40));
-	    scoreLabel.setContentAreaFilled(false);
-	    scoreLabel.setFocusPainted(false);
-		scoreLabel.setBorder(BorderFactory.createEmptyBorder());
+	    scoreButton = new JButton("Score: " + score);
+	    scoreButton.setFont(new Font("Arial", Font.PLAIN, 40));
+	    scoreButton.setBackground(Color.WHITE);
+	    scoreButton.setOpaque(true);
+		scoreButton.setBorder(BorderFactory.createEmptyBorder());
 	    timePanel.add(timeBar);
-	    add(scoreLabel, BorderLayout.NORTH);
+	    add(scoreButton, BorderLayout.NORTH);
 	    add(timePanel, BorderLayout.SOUTH);
 	    directionPanel = new DirectionPanel();
 		directionPanel.setBackground(Color.WHITE);
@@ -78,6 +81,9 @@ public class GamePanel extends JPanel implements KeyListener {
 	    add(directionPanel, BorderLayout.CENTER);
 	}
 
+	/**
+	 * Starts instance of game
+	 */
 	public void start() {
 		doPlay(new File("Assets/Audio/Chiptune.wav"));
 		score = 0;
@@ -85,6 +91,11 @@ public class GamePanel extends JPanel implements KeyListener {
 		timer.start();
 	}
 
+	/**
+	 * Plays audio.
+	 * @param url
+	 * TODO: Clean up this code. Shouldn't have to re-instantiate
+	 */
 	private void doPlay(final File url) {
 		GameLog.log.entering(getClass().getName(), "doPlay");
 	    try {
@@ -102,6 +113,9 @@ public class GamePanel extends JPanel implements KeyListener {
 		GameLog.log.exiting(getClass().getName(), "doPlay");
 	}
 
+	/**
+	 * Stops audio.
+	 */
 	private void stopPlay() {
 		GameLog.log.entering(getClass().getName(), "stopPlay");
 	    if (clip != null) {
@@ -114,7 +128,10 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 
-	public void gameOver() {
+	/**
+	 * Ends game. Disposes of all game resources & performs operations to setup for next game.
+	 */
+	private void gameOver() {
 		directionPanel.getInstructionController().nextInstruction();
 		GameLog.log.entering(getClass().getName(), "gameOver");
 		stopPlay();
@@ -125,7 +142,10 @@ public class GamePanel extends JPanel implements KeyListener {
 		GameLog.log.exiting(getClass().getName(), "gameOver");
 	}
 
-	public void restartTimer() {
+	/**
+	 * Restarts timer.
+	 */
+	private void restartTimer() {
 		GameLog.log.entering(getClass().getName(), "restartTimer");
 		timePosition = 0;
 		timeBar.setValue(timePosition);
@@ -156,7 +176,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	    	directionPanel.updateDirection();
 	    	restartTimer();
 	    	score+=1;
-	    	scoreLabel.setText("Score: " + score);
+	    	scoreButton.setText("Score: " + score);
 	    }
 	    else {
 	    	gameOver();
@@ -171,9 +191,6 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {}
 
-	/**
-	 * Required if we add a key listener to this class.
-	 */
 	@Override
 	public void addNotify() {
 		super.addNotify();

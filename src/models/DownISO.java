@@ -10,7 +10,6 @@ import contracts.InstructionStatusOperations;
  *
  */
 public class DownISO implements InstructionStatusOperations {
-	
 	@Override
 	public InstructionStatus down(Instruction instruction) throws UnsupportedStatusTransitionException {
 		throw new UnsupportedStatusTransitionException("down");
