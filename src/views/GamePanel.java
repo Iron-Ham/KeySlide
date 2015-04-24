@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private int timePosition = 0;
 	private int score = 0;
 	Timer timer;
-	JButton scoreLabel;
+	JButton scoreButton;
 	
 	public GamePanel(final Window window) {
 		this.window = window;
@@ -67,13 +67,13 @@ public class GamePanel extends JPanel implements KeyListener {
 				}
 			}
 	    });
-	    scoreLabel = new JButton("Score: " + score);
-	    scoreLabel.setFont(new Font("Arial", Font.PLAIN, 40));
-	    scoreLabel.setContentAreaFilled(false);
-	    scoreLabel.setFocusPainted(false);
-		scoreLabel.setBorder(BorderFactory.createEmptyBorder());
+	    scoreButton = new JButton("Score: " + score);
+	    scoreButton.setFont(new Font("Arial", Font.PLAIN, 40));
+	    scoreButton.setBackground(Color.WHITE);
+	    scoreButton.setOpaque(true);
+		scoreButton.setBorder(BorderFactory.createEmptyBorder());
 	    timePanel.add(timeBar);
-	    add(scoreLabel, BorderLayout.NORTH);
+	    add(scoreButton, BorderLayout.NORTH);
 	    add(timePanel, BorderLayout.SOUTH);
 	    directionPanel = new DirectionPanel();
 		directionPanel.setBackground(Color.WHITE);
@@ -176,7 +176,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	    	directionPanel.updateDirection();
 	    	restartTimer();
 	    	score+=1;
-	    	scoreLabel.setText("Score: " + score);
+	    	scoreButton.setText("Score: " + score);
 	    }
 	    else {
 	    	gameOver();
