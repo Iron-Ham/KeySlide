@@ -16,6 +16,7 @@ import controllers.InstructionController;
  *
  */
 public class DirectionPanel extends JPanel {
+	private static final long serialVersionUID = -2473781340553160448L;
 	InstructionController instrControl = InstructionController.getInstance();
 	private JLabel image;
 	private int internalKey;

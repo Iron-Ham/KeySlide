@@ -10,8 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -20,8 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
-
-import contracts.InstructionStatus;
+import utilities.GameLog;
 
 /**
  * GamePanel
@@ -31,8 +28,6 @@ import contracts.InstructionStatus;
 public class GamePanel extends JPanel implements KeyListener {
 	private static final long serialVersionUID = 1L;
 	DirectionPanel directionPanel;
-	private static Logger logger = Logger.getLogger(InstructionStatus.class
-			.getName());
 	Clip clip;
 	Window window;
 	private JPanel timePanel;
@@ -44,6 +39,10 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	public GamePanel(final Window window) {
 		this.window = window;
+		setupGui();
+	}
+
+	private void setupGui() {
 		setSize(1280, 720);
 		setFocusable(true);
 		setLayout(new BorderLayout());
@@ -74,6 +73,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	    add(scoreLabel, BorderLayout.NORTH);
 	    add(timePanel, BorderLayout.SOUTH);
 	    directionPanel = new DirectionPanel();
+		directionPanel.setBackground(Color.WHITE);
 	    addKeyListener(this);
 	    add(directionPanel, BorderLayout.CENTER);
 	}
@@ -86,12 +86,12 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 	private void doPlay(final File url) {
-		logger.entering(getClass().getName(), "doPlay");
+		GameLog.log.entering(getClass().getName(), "doPlay");
 	    try {
 	        stopPlay();
 	        AudioInputStream inputStream = AudioSystem
 	                .getAudioInputStream(url);
-			logger.log(Level.INFO, "Playing Audio");
+			GameLog.log.log(Level.INFO, "Playing Audio");
 	        clip = AudioSystem.getClip();
 	        clip.open(inputStream);
 	        clip.start();
@@ -99,38 +99,38 @@ public class GamePanel extends JPanel implements KeyListener {
 	        stopPlay();
 	        System.err.println(e.getMessage());
 	    }
-		logger.exiting(getClass().getName(), "doPlay");
+		GameLog.log.exiting(getClass().getName(), "doPlay");
 	}
 
 	private void stopPlay() {
-		logger.entering(getClass().getName(), "stopPlay");
+		GameLog.log.entering(getClass().getName(), "stopPlay");
 	    if (clip != null) {
 	        clip.stop();
 	        clip.close();
-			logger.log(Level.INFO, "Stopping Audio");
+			GameLog.log.log(Level.INFO, "Stopping Audio");
 	        clip = null;
 	    }
-		logger.exiting(getClass().getName(), "doPlay");
+		GameLog.log.exiting(getClass().getName(), "doPlay");
 	}
 
 
 	public void gameOver() {
 		directionPanel.getInstructionController().nextInstruction();
-		logger.entering(getClass().getName(), "gameOver");
+		GameLog.log.entering(getClass().getName(), "gameOver");
 		stopPlay();
 		timePosition = 0;
 		timer.stop();
 		timeBar.setValue(timePosition);
 		window.switchToGameOver();
-		logger.exiting(getClass().getName(), "gameOver");
+		GameLog.log.exiting(getClass().getName(), "gameOver");
 	}
 
 	public void restartTimer() {
-		logger.entering(getClass().getName(), "restartTimer");
+		GameLog.log.entering(getClass().getName(), "restartTimer");
 		timePosition = 0;
 		timeBar.setValue(timePosition);
 		timer.restart();
-		logger.exiting(getClass().getName(), "restartTimer");
+		GameLog.log.exiting(getClass().getName(), "restartTimer");
 	}
 
 
@@ -148,9 +148,9 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		logger.entering(getClass().getName(), "keyPressed");
+		GameLog.log.entering(getClass().getName(), "keyPressed");
 		if (e.getKeyCode() == KeyEvent.VK_F24) {
-			
+
 		}
 		else if(e.getKeyCode() == directionPanel.getInternalKey()){
 	    	directionPanel.updateDirection();
@@ -161,7 +161,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	    else {
 	    	gameOver();
 	    }
-		logger.exiting(getClass().getName(), "keyPressed");
+		GameLog.log.exiting(getClass().getName(), "keyPressed");
 	}
 
 	public int getScore() {

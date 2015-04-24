@@ -1,8 +1,7 @@
 package models;
 
-import java.util.UUID;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import utilities.GameLog;
 import contracts.InstructionStatus;
 
 /**
@@ -12,25 +11,22 @@ import contracts.InstructionStatus;
  */
 public class Instruction {
 	private InstructionStatus status;
-	private UUID id;
-	private static final Logger logger = Logger.getLogger(Instruction.class.getName());
-	
+
 	public Instruction(InstructionStatus status) {
 		this.status = status;
-		id = UUID.randomUUID();
 	}
-	
+
 	public InstructionStatus getStatus() {
 		return status;
 	}
-	
-	
+
+
 	public void setStatus(InstructionStatus status) {
-		logger.entering(getClass().getName(), "setStatus");
+		GameLog.log.entering(getClass().getName(), "setStatus");
 		if (status != null && status != this.status) {
-			logger.log(Level.INFO, "Instruction" + ": changing status from " + this.status + " to " + status);
+			GameLog.log.log(Level.INFO, "Instruction" + ": changing status from " + this.status + " to " + status);
 			this.status = status;
 		}
-		logger.exiting(getClass().getName(), "setStatus");
+		GameLog.log.exiting(getClass().getName(), "setStatus");
 	}
 }

@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.Random;
 import java.util.logging.Logger;
+
+import utilities.GameLog;
 import contracts.InstructionStatus;
 import models.Instruction;
 
@@ -15,8 +17,6 @@ public class InstructionController {
 	private static Instruction instr;
 	private static final InstructionController instance = new InstructionController();
 	boolean reverse = false;
-	private static Logger logger = Logger.getLogger(InstructionStatus.class
-			.getName());
 	Random r = new Random();
 
 	private InstructionController() {
@@ -42,13 +42,13 @@ public class InstructionController {
 	}
 
 	public void nextInstruction() {
-		logger.entering(getClass().getName(), "nextInstruction");
+		GameLog.log.entering(getClass().getName(), "nextInstruction");
 		InstructionStatus p = InstructionStatus.getRandomStatus();
 		while (p == instr.getStatus()) {
 			p = InstructionStatus.getRandomStatus();
 		}
 		instr.setStatus(p);
 		reverse = r.nextBoolean();
-		logger.exiting(getClass().getName(), "nextInstruction");
+		GameLog.log.exiting(getClass().getName(), "nextInstruction");
 	}
 }

@@ -3,7 +3,7 @@ package views;
 import javax.swing.JFrame;
 
 public class HighScoreDialogFrame extends JFrame {
-
+	private static final long serialVersionUID = 6925482381491363120L;
 	HighScoresPromptPanel prompt;
 	
 	

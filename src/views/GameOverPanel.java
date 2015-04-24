@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class GameOverPanel extends JPanel {
+	private static final long serialVersionUID = 3157367815312662841L;
 	private GameOverMenu menu;
 	Window window;
 	int score;

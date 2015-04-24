@@ -5,14 +5,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Logger;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import models.Instruction;
+import utilities.GameLog;
 
 /**
  * The Menu. This houses all menu items. 
@@ -22,7 +19,7 @@ import models.Instruction;
 public class Menu extends JPanel {
 	private static final long serialVersionUID = -6758351920150177724L;
 	private MenuItem start;
-	private static final Logger logger = Logger.getLogger(Instruction.class.getName());
+	
 
 	private MenuItem hiScores;
 	private MenuItem instructions;
@@ -56,7 +53,7 @@ public class Menu extends JPanel {
 	 * This is what allows switching from panel to panel on click.
 	 */
 	private void attachListeners() {
-		logger.entering(getClass().getName(), "attachListeners");
+		GameLog.log.entering(getClass().getName(), "attachListeners");
 		start.addActionListener(new ActionListener() {
 			@Override
             public void actionPerformed(ActionEvent e) {
@@ -75,7 +72,7 @@ public class Menu extends JPanel {
 				window.switchToInstructions();
 			}
 		});
-		logger.exiting(getClass().getName(), "attachListeners");
+		GameLog.log.exiting(getClass().getName(), "attachListeners");
 
 	}
 }

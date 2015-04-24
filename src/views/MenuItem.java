@@ -4,13 +4,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JFrame;
-
-import com.sun.java.swing.plaf.windows.resources.windows;
-
 import utilities.Colors;
 
 /**

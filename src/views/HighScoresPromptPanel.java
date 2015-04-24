@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,6 +15,7 @@ import javax.swing.JTextField;
 import utilities.DBUtility;
 
 public class HighScoresPromptPanel extends JPanel {
+	private static final long serialVersionUID = -5350150586551425338L;
 	private JTextField txtName;
 	private HighScoreDialogFrame window;
 	

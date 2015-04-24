@@ -4,14 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.io.File;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import utilities.ImageHelper;
 
 /**
  * The panel which contains instructions for the user.
@@ -19,6 +15,7 @@ import utilities.ImageHelper;
  *
  */
 public class InstructionPanel extends JPanel {
+	private static final long serialVersionUID = 8337054250198837572L;
 	private JLabel image;
 	private JScrollPane imageView;
 	Window window;

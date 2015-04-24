@@ -4,13 +4,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import utilities.Colors;
 
 /**
  * Game over screen. 
@@ -18,7 +15,7 @@ import utilities.Colors;
  *
  */
 public class GameOverMenu extends JPanel {
-
+	private static final long serialVersionUID = 3752554785961368904L;
 	private JLabel gameOver;
 	private JLabel score;
 	private ReplayButton replayButton;
@@ -34,6 +31,7 @@ public class GameOverMenu extends JPanel {
 		score.setForeground(Color.WHITE);
 		replayButton = new ReplayButton(window);
 		backButton = new BackButton(window) {
+			private static final long serialVersionUID = 6516006810869991726L;
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				if (e.getSource() == this) {

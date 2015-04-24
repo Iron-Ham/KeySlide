@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class HomePanel extends JPanel {
+	private static final long serialVersionUID = -137351898919773110L;
 	private Menu menu;
 	Window window;
 	

@@ -1,24 +1,14 @@
 package views;
 
 import javax.swing.JPanel;
-import javax.swing.JList;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
-
 import utilities.DBUtility;
 import misc.Person;
-
 import java.awt.Font;
-
-import javax.swing.table.DefaultTableModel;
 import javax.swing.BoxLayout;
 import java.awt.Component;
 

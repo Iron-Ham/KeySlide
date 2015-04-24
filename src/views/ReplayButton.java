@@ -17,6 +17,7 @@ import utilities.Colors;
  *
  */
 public class ReplayButton extends JButton implements ActionListener, MouseListener{
+	private static final long serialVersionUID = -8928983203121047464L;
 	Window window;
 	
 	public ReplayButton(Window window) {
