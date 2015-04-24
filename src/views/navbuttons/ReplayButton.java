@@ -1,6 +1,8 @@
-package views;
+package views.navbuttons;
 
 import java.awt.event.ActionEvent;
+
+import views.Window;
 
 /**
  * Replay Button allows user to replay game

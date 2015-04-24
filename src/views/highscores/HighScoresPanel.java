@@ -1,15 +1,23 @@
-package views;
+package views.highscores;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
 import java.util.ArrayList;
+
 import javax.swing.JButton;
+
 import utilities.DBUtility;
+import views.Window;
+import views.navbuttons.BackButton;
 import misc.Person;
+
 import java.awt.Font;
+
 import javax.swing.BoxLayout;
+
 import java.awt.Component;
 
 public class HighScoresPanel extends JPanel {

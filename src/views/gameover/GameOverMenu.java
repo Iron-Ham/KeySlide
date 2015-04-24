@@ -1,4 +1,4 @@
-package views;
+package views.gameover;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,6 +8,9 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import views.navbuttons.ReplayButton;
+import views.navbuttons.BackButton;
+import views.Window;
 
 /**
  * Game over screen.

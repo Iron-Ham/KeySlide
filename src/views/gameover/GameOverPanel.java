@@ -1,10 +1,12 @@
-package views;
+package views.gameover;
 
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
+import views.Window;
 
 /**
  * Displays game over image. 

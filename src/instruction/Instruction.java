@@ -1,7 +1,6 @@
 package instruction;
 
 import java.util.logging.Level;
-
 import utilities.GameLog;
 
 /**

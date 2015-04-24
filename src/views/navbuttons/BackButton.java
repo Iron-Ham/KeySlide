@@ -1,6 +1,8 @@
-package views;
+package views.navbuttons;
 
 import java.awt.event.ActionEvent;
+
+import views.Window;
 
 /**
  * Back Button allows user to go back to home page when clicked. 

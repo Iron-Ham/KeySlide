@@ -1,10 +1,13 @@
-package views;
+package views.home;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
+import views.Window;
 
 /**
  * The Home Screen for the game.

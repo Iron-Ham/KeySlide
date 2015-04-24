@@ -1,4 +1,4 @@
-package views;
+package views.game;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.logging.Level;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -18,7 +19,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
+
 import utilities.GameLog;
+import views.Window;
 
 /**
  * GamePanel class: Contains all game elements

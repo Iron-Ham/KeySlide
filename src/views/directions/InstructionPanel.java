@@ -1,13 +1,17 @@
-package views;
+package views.directions;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.io.File;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import views.navbuttons.BackButton;
+import views.Window;
 
 /**
  * The panel which contains instructions for the user.

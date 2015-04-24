@@ -2,10 +2,18 @@ package views;
 
 import java.awt.CardLayout;
 import java.util.logging.Level;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import utilities.DBUtility;
 import utilities.GameLog;
+import views.directions.InstructionPanel;
+import views.game.GamePanel;
+import views.gameover.GameOverPanel;
+import views.highscores.HighScoreDialogFrame;
+import views.highscores.HighScoresPanel;
+import views.home.HomePanel;
 
 /**
  * The main window for the program

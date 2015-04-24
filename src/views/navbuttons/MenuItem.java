@@ -1,12 +1,15 @@
-package views;
+package views.navbuttons;
 
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+
 import utilities.Colors;
+import views.Window;
 
 /**
  * Menu Items are JButtons that allow the user to go to different panels of the game. 

@@ -1,12 +1,15 @@
-package views;
+package views.navbuttons;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+
 import utilities.Colors;
+import views.Window;
 
 /**
  * The abstract class defining behavior for navigation buttons.

@@ -1,4 +1,4 @@
-package views;
+package views.highscores;
 
 import java.util.ArrayList;
 import javax.swing.JTable;
