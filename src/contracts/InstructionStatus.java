@@ -1,6 +1,7 @@
 package contracts;
 
 import java.util.Random;
+
 import models.DownISO;
 import models.LeftISO;
 import models.RightISO;
@@ -30,6 +31,8 @@ public enum InstructionStatus implements InstructionStatusOperations {
 	 */
 	@SuppressWarnings({ "unused" })
 	private final InstructionStatusOperations operations;
+	
+	
 	InstructionStatus(InstructionStatusOperations operations) {
 		  this.operations = operations;
 		 }

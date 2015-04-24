@@ -8,7 +8,7 @@ import utilities.DBUtility;
 import utilities.GameLog;
 
 /**
- * The window for the program. This is the *only* JFrame for our program.
+ * The main window for the program
  * @author heshamsalman
  *
  */

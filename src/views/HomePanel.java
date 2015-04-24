@@ -6,15 +6,19 @@ import java.awt.GridBagLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+/**
+ * The Home Screen for the game.
+ * @author heshamsalman
+ * 
+ * TODO: Should be default starting window.
+ * Refactor?
+ *
+ */
 public class HomePanel extends JPanel {
 	private static final long serialVersionUID = -137351898919773110L;
 	private Menu menu;
 	Window window;
-	
-	/**
-	 * The panel which the program starts with. Contains the navigation menu.
-	 * @param window
-	 */
+
 	public HomePanel(Window window) {
 		this.window = window;
 		setLayout(new GridBagLayout());
