@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 /**
  * Back Button allows user to go back to home page when clicked. 
- * Reacts to mouse hover.
  * @author heshamsalman
  *
  */

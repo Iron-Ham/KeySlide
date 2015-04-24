@@ -17,6 +17,20 @@ public abstract class NavigationButton extends JButton implements ActionListener
 	private static final long serialVersionUID = 8971973612959800330L;
 	Window window;
 	
+	/**
+	 * Should be ran at initialization of the concrete class.
+	 * Initializes all components of the abstract class.
+	 */
+	protected void initializeComponents() {
+		addListeners();
+		setupLookAndFeel();
+	}
+	
+	private void addListeners() {
+		addActionListener(this);
+		addMouseListener(this);
+	}
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {}
 
@@ -32,20 +46,6 @@ public abstract class NavigationButton extends JButton implements ActionListener
 			this.setForeground(Colors.orange());
 		}
 		this.updateUI();
-	}
-	
-	/**
-	 * Should be ran at initialization of the concrete class.
-	 * Initializes all components of the abstract class.
-	 */
-	protected void initializeComponents() {
-		addListeners();
-		setupLookAndFeel();
-	}
-	
-	private void addListeners() {
-		addActionListener(this);
-		addMouseListener(this);
 	}
 
 	@Override
