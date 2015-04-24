@@ -7,16 +7,15 @@ import models.Instruction;
 
 /**
  * A developer-friendly wrapper of an instruction.
- * Allows generation of the next instruction state, provides access to the instruction instance, 
- * gets the status of the current instruction, and can define a "reversed" state to allow for 
- * reverse input images. 
- * 
- * TODO: 
- * 	- Add more instructions?
- * 		- Rewind: Perform the last instruction
- * 		- Stop: Let the timer run out.
- * 
- * 
+ * Allows generation of the next instruction state, provides access to the instruction instance,
+ * gets the status of the current instruction, and can define a "reversed" state to allow for
+ * reverse input images.
+ *
+ * TODO: Add more instructions?
+ * 	- Rewind: Perform the last instruction
+ * 	- Stop: Let the timer run out.
+ *
+ *
  * @author heshamsalman
  */
 public class InstructionController {
@@ -29,7 +28,7 @@ public class InstructionController {
 		InstructionStatus p = InstructionStatus.getRandomStatus();
 		instr = new Instruction(p);
 	}
-	
+
 	public static synchronized InstructionController getInstance() {
 		return instance;
 	}
@@ -48,7 +47,7 @@ public class InstructionController {
 	}
 
 	/**
-	 * Generates next instruction by switching the instruction state. 
+	 * Generates next instruction by switching the instruction state.
 	 * Currently does not support getting the same instruction twice.
 	 */
 	public void nextInstruction() {

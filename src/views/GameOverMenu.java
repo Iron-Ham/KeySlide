@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Game over screen. 
+ * Game over screen.
  * Displays GameOver message, shows user score, and has navigation buttons.
  * @author heshamsalman
  *
@@ -23,13 +23,13 @@ public class GameOverMenu extends JPanel {
 	private BackButton backButton;
 	Window window;
 	int points;
-	
+
 	public GameOverMenu(Window window, int points) {
 		this.window = window;
 		this.points = points;
 		setupGUI();
 	}
-	
+
 	/**
 	 * subcomponent layout and text
 	 */
@@ -38,7 +38,7 @@ public class GameOverMenu extends JPanel {
 		setOpaque(false);
 		gameOver.setFont(new Font("Arial", Font.PLAIN, 40));
 		gameOver.setForeground(Color.WHITE);
-		score = new JLabel("Score: " + points); //TODO: Connect with database for actual score, or pass score to menu.
+		score = new JLabel("Score: " + points); 
 		score.setFont(new Font("Arial", Font.PLAIN, 40));
 		score.setForeground(Color.WHITE);
 		replayButton = new ReplayButton(window);
@@ -62,10 +62,10 @@ public class GameOverMenu extends JPanel {
 		add(Box.createRigidArea(new Dimension(5, 25)));
 		add(backButton);
 	}
-	
+
 	public void setScore(int points) {
 		score.setText("Score: " + points);
 		score.updateUI();
 	}
-	
+
 }

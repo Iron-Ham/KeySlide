@@ -15,7 +15,7 @@ public class DBUtility {
 
 	/**
 	 * Inserts record into database of user how achieved a high score
-	 * 
+	 *
 	 * @param name
 	 *            Username of user who achieved high score
 	 * @param date
@@ -37,7 +37,6 @@ public class DBUtility {
 				stmt.close();
 				c.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
@@ -82,7 +81,7 @@ public class DBUtility {
 	/**
 	 * Attempts to connects to the sqlite lite database called hiscores.db that
 	 * contains information on the hi score.
-	 * 
+	 *
 	 * @return Returns true if successfully connects to the database, false
 	 *         otherwise.
 	 */
@@ -101,7 +100,7 @@ public class DBUtility {
 	/**
 	 * Checks score value passed in against database to see if score is within
 	 * the top 10 highest scores so far obtained for the game.
-	 * 
+	 *
 	 * @return Returns true score is a high score, false returned otherwise.
 	 */
 
