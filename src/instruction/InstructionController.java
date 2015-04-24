@@ -1,9 +1,7 @@
-package controllers;
+package instruction;
 
 import java.util.Random;
 import utilities.GameLog;
-import contracts.InstructionStatus;
-import models.Instruction;
 
 /**
  * A developer-friendly wrapper of an instruction.

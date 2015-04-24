@@ -1,9 +1,9 @@
 package utilities;
 
+import instruction.Instruction;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import models.Instruction;
 /**
  * A global logger class. Useful for debugging.
  * When debugging, make sure to have the appropriate level set. 

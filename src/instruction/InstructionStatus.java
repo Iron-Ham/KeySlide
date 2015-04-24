@@ -1,11 +1,6 @@
-package contracts;
+package instruction;
 
 import java.util.Random;
-
-import models.DownISO;
-import models.LeftISO;
-import models.RightISO;
-import models.UpISO;
 
 /**
  * This class is an enumerable interface for the InstructionStatus. This is a really cool design pattern that is a modified version 

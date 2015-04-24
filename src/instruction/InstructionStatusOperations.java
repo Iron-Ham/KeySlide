@@ -1,7 +1,5 @@
-package contracts;
+package instruction;
 
-import misc.UnsupportedStatusTransitionException;
-import models.Instruction;
 
 /**
  * The defined operations for an instruction status. This interface defines state transitions. 

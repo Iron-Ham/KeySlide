@@ -1,11 +1,13 @@
 package views;
 
+import instruction.InstructionController;
+import instruction.InstructionStatus;
+
 import java.awt.event.KeyEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import contracts.InstructionStatus;
-import controllers.InstructionController;
 
 /**
  * DirectionPanel is the panel that has the direction image.

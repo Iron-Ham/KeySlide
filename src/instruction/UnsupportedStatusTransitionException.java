@@ -1,4 +1,4 @@
-package misc;
+package instruction;
 
 /**
  * An exception to be thrown by InstructionStatus or Instruction. This Exception is called whenever an illegal 

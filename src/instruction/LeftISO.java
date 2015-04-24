@@ -1,8 +1,5 @@
-package models;
+package instruction;
 
-import misc.UnsupportedStatusTransitionException;
-import contracts.InstructionStatus;
-import contracts.InstructionStatusOperations;
 /**
  * The concrete implementation of InstructionStatusOperation. This state is "LEFT"
  * @author heshamsalman
