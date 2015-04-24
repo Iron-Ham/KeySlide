@@ -53,15 +53,15 @@ public class GamePanel extends JPanel implements KeyListener {
 		timePanel.setBackground(Color.WHITE);
 		timeBar = new JProgressBar();
 		timeBar.setPreferredSize(new Dimension(1280, 50));
-	    timeBar.setMaximum(maxTime());
+	    timeBar.setMaximum(setTime());
 	    timeBar.setMinimum(0);
 	    timer = new Timer(20, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			    timeBar.setMaximum(maxTime());
+			    timeBar.setMaximum(setTime());
 				timeBar.setValue(timePosition);
 				timePosition += 20;
-				if (timeBar.getValue() >= maxTime()) {
+				if (timeBar.getValue() >= setTime()) {
 					gameOver();
 					window.switchToGameOver();
 				}
@@ -154,7 +154,11 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 
-	private int maxTime() {
+	/**
+	 * Sets time per round
+	 * @return
+	 */
+	private int setTime() {
 		int time = 1500 - (30 * score);
 		if (time < 500) {
 			return 500;

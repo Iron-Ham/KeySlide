@@ -9,9 +9,6 @@ import javax.swing.JPanel;
 /**
  * The Home Screen for the game.
  * @author heshamsalman
- * 
- * TODO: Should be default starting window.
- * Refactor?
  *
  */
 public class HomePanel extends JPanel {
@@ -30,7 +27,7 @@ public class HomePanel extends JPanel {
 		setSize(1280, 720);
 		add(menu);
 	}
-	
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
