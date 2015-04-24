@@ -1,11 +1,11 @@
 /bin/
-
 *.iml
 Assets/PSD
 Assets/PXM
-
 *.prefs_
-
 *.prefs
+.classpath
+.metadata
+RemoteSystemsTempFiles
 
 .settings/org.eclipse.jdt.core.prefs
