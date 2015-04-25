@@ -2,29 +2,41 @@ package views.game;
 
 import instruction.InstructionController;
 import instruction.InstructionStatus;
-
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
-
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import utilities.Colors;
 
 /**
- * DirectionPanel is the panel that has the direction image.
+ * DirectionPanel is the abstract class. At base implementation, it is a SimpleDirectionPanel
  * @author heshamsalman
  *
  */
-public class DirectionPanel extends JPanel {
+public abstract class DirectionPanel extends JPanel {
 	private static final long serialVersionUID = -2473781340553160448L;
 	InstructionController instrControl = InstructionController.getInstance();
-	private JLabel image;
+	private JLabel symbol;
 	private int internalKey;
+	protected Color[] colors = new Color[5];
 	
 	/**
 	 * Constructor.
 	 */
 	public DirectionPanel() {
+		setLayout(new BorderLayout());
 		resolveInstructions();
+		setColors();
+	}
+	
+	/**
+	 * Sets background color of the panel and of the symbol.
+	 */
+	private void setColors() {
+		colors = Colors.getRandomColorFamily();
+		setBackground(colors[2]);
+		symbol.setForeground(colors[0]);	
 	}
 	
 	/**
@@ -47,15 +59,6 @@ public class DirectionPanel extends JPanel {
 	public InstructionStatus getStatus() {
 		return instrControl.getStatus();
 	}
-	
-	/**
-	 * Switches to the next instruction and updates this panel.
-	 */
-	public void updateDirection() {
-		instrControl.nextInstruction();
-		resolveInstructions();
-		updateUI();
-	}
 
 	/**
 	 * Constructor helper, also helps with updating panel
@@ -64,44 +67,24 @@ public class DirectionPanel extends JPanel {
 		InstructionStatus status = instrControl.getStatus();
 		if (status == InstructionStatus.LEFT)  {
 			internalKey = KeyEvent.VK_LEFT;
-			ImageIcon icon;
-			if (instrControl.isReversed()) {
-				icon = new ImageIcon("images/8.png");
-			} else {
-				icon = new ImageIcon("images/4.png");
-			}
-			image = new JLabel(icon);
+			symbol = new LeftLabel();
 		}
 		else if (status == InstructionStatus.RIGHT) {
 			internalKey = KeyEvent.VK_RIGHT;
-			ImageIcon icon;
-			if (instrControl.isReversed()) {
-				icon = new ImageIcon("images/7.png");
-			} else {
-				icon = new ImageIcon("images/3.png");
-			}
-			image = new JLabel(icon);
+			symbol = new RightLabel();
 		}
 		else if (status == InstructionStatus.UP) {
 			internalKey = KeyEvent.VK_UP;
-			ImageIcon icon;
-			if (instrControl.isReversed()) {
-				icon = new ImageIcon("images/5.png");
-			} else {
-				icon = new ImageIcon("images/1.png");
-			}
-			image = new JLabel(icon);
+			symbol = new UpLabel();
+			symbol.setVerticalAlignment(JLabel.CENTER);
+
 		} else {
 			internalKey = KeyEvent.VK_DOWN;
-			ImageIcon icon;
-			if (instrControl.isReversed()) {
-				icon = new ImageIcon("images/6.png");
-			} else {
-				icon = new ImageIcon("images/2.png");
-			}
-			image = new JLabel(icon);
+			symbol = new DownLabel();
+			symbol.setVerticalAlignment(JLabel.CENTER);
 		}
+		symbol.setHorizontalAlignment(JLabel.CENTER);
 		removeAll();
-		add(image);
+		add(symbol, BorderLayout.CENTER);
 	}
 }
