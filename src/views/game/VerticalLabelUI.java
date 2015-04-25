@@ -31,8 +31,6 @@ import javax.swing.JLabel;
 import javax.swing.plaf.basic.BasicLabelUI;
 
 /**
- * <p>This is the template for Classes.</p>
- *
  *
  * @since carbon 1.0
  * @author Greg Hinkle, January 2002

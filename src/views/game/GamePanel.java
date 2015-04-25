@@ -1,7 +1,5 @@
 package views.game;
 
-import instruction.InstructionController;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -137,11 +135,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private void gameOver() {
 		GameLog.log.entering(getClass().getName(), "gameOver");
 		stopPlay();
-		InstructionController instrControl = InstructionController.getInstance();
-		instrControl.nextInstruction();
-		remove (directionPanel);
-		directionPanel = DirectionPanelFactory.getNextPanel();
-		add(directionPanel);
+		updateGUI();
 		timePosition = 0;
 		timer.stop();
 		timeBar.setValue(timePosition);
