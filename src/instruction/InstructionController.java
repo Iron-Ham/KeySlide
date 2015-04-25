@@ -46,14 +46,10 @@ public class InstructionController {
 
 	/**
 	 * Generates next instruction by switching the instruction state.
-	 * Currently does not support getting the same instruction twice.
 	 */
 	public void nextInstruction() {
 		GameLog.log.entering(getClass().getName(), "nextInstruction");
 		InstructionStatus p = InstructionStatus.getRandomStatus();
-		while (p == instr.getStatus()) {
-			p = InstructionStatus.getRandomStatus();
-		}
 		instr.setStatus(p);
 		reverse = r.nextBoolean();
 		GameLog.log.exiting(getClass().getName(), "nextInstruction");
