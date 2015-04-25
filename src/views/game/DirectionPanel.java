@@ -3,11 +3,14 @@ package views.game;
 import instruction.InstructionController;
 import instruction.InstructionStatus;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import utilities.Colors;
 
 /**
  * DirectionPanel is the panel that has the direction image.
@@ -17,13 +20,14 @@ import javax.swing.JPanel;
 public class DirectionPanel extends JPanel {
 	private static final long serialVersionUID = -2473781340553160448L;
 	InstructionController instrControl = InstructionController.getInstance();
-	private JLabel image;
+	private JLabel symbol;
 	private int internalKey;
 	
 	/**
 	 * Constructor.
 	 */
 	public DirectionPanel() {
+		setLayout(new BorderLayout());
 		resolveInstructions();
 	}
 	
@@ -54,7 +58,6 @@ public class DirectionPanel extends JPanel {
 	public void updateDirection() {
 		instrControl.nextInstruction();
 		resolveInstructions();
-		updateUI();
 	}
 
 	/**
@@ -62,46 +65,33 @@ public class DirectionPanel extends JPanel {
 	 */
 	private void resolveInstructions() {
 		InstructionStatus status = instrControl.getStatus();
+		Color[] colors = Colors.getRandomColorFamily();
 		if (status == InstructionStatus.LEFT)  {
 			internalKey = KeyEvent.VK_LEFT;
-			ImageIcon icon;
-			if (instrControl.isReversed()) {
-				icon = new ImageIcon("images/8.png");
-			} else {
-				icon = new ImageIcon("images/4.png");
-			}
-			image = new JLabel(icon);
+			symbol = new LeftLabel();
+			symbol.setHorizontalAlignment(JLabel.CENTER);
 		}
 		else if (status == InstructionStatus.RIGHT) {
 			internalKey = KeyEvent.VK_RIGHT;
-			ImageIcon icon;
-			if (instrControl.isReversed()) {
-				icon = new ImageIcon("images/7.png");
-			} else {
-				icon = new ImageIcon("images/3.png");
-			}
-			image = new JLabel(icon);
+			symbol = new RightLabel();
+			symbol.setHorizontalAlignment(JLabel.CENTER);
 		}
 		else if (status == InstructionStatus.UP) {
 			internalKey = KeyEvent.VK_UP;
-			ImageIcon icon;
-			if (instrControl.isReversed()) {
-				icon = new ImageIcon("images/5.png");
-			} else {
-				icon = new ImageIcon("images/1.png");
-			}
-			image = new JLabel(icon);
+			symbol = new UpLabel();
+			symbol.setVerticalAlignment(JLabel.CENTER);
+			symbol.setHorizontalAlignment(JLabel.CENTER);
+
 		} else {
 			internalKey = KeyEvent.VK_DOWN;
-			ImageIcon icon;
-			if (instrControl.isReversed()) {
-				icon = new ImageIcon("images/6.png");
-			} else {
-				icon = new ImageIcon("images/2.png");
-			}
-			image = new JLabel(icon);
+			symbol = new DownLabel();
+			symbol.setVerticalAlignment(JLabel.CENTER);
+			symbol.setHorizontalAlignment(JLabel.CENTER);
 		}
 		removeAll();
-		add(image);
+		symbol.setForeground(colors[1]);
+		setBackground(colors[3]);
+		add(symbol, BorderLayout.CENTER);
+		updateUI();
 	}
 }
