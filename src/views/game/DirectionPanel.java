@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import utilities.Colors;
 
 /**
- * DirectionPanel is the panel that has the direction image.
+ * DirectionPanel is the abstract class. At base implementation, it is a SimpleDirectionPanel
  * @author heshamsalman
  *
  */
