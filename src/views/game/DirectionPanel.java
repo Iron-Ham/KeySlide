@@ -17,8 +17,8 @@ import utilities.Colors;
 public abstract class DirectionPanel extends JPanel {
 	private static final long serialVersionUID = -2473781340553160448L;
 	InstructionController instrControl = InstructionController.getInstance();
-	private JLabel symbol;
-	private int internalKey;
+	protected JLabel symbol;
+	protected int internalKey;
 	protected Color[] colors = new Color[5];
 	
 	/**
@@ -67,7 +67,7 @@ public abstract class DirectionPanel extends JPanel {
 	/**
 	 * Constructor helper, also helps with updating panel
 	 */
-	private void resolveInstructions() {
+	protected void resolveInstructions() {
 		InstructionStatus status = instrControl.getStatus();
 		if (status == InstructionStatus.LEFT)  {
 			internalKey = KeyEvent.VK_LEFT;

@@ -51,6 +51,7 @@ public class GamePanel extends JPanel implements KeyListener {
 		setSize(1280, 720);
 		setFocusable(true);
 		setLayout(new BorderLayout());
+		
 		timePanel = new JPanel();
 		timeBar = new JProgressBar();
 		timeBar.setPreferredSize(new Dimension(1280, 50));
@@ -68,16 +69,18 @@ public class GamePanel extends JPanel implements KeyListener {
 				}
 			}
 	    });
+	    
 	    scoreButton = new JLabel("0");
 	    scoreButton.setFont(new Font("Arial", Font.PLAIN, 40));
 	    scoreButton.setForeground(Color.WHITE);
 	    scoreButton.setOpaque(true);
 		scoreButton.setBorder(BorderFactory.createEmptyBorder());
+		
 	    timePanel.add(timeBar);
 	    add(scoreButton, BorderLayout.NORTH);
 	    add(timePanel, BorderLayout.SOUTH);
-	    directionPanel = DirectionPanelFactory.getNextPanel();
 	    addKeyListener(this);
+	    directionPanel = DirectionPanelFactory.getNextPanel();
 	    add(directionPanel, BorderLayout.CENTER);
 	    updateGUI();
 	}
@@ -203,8 +206,6 @@ public class GamePanel extends JPanel implements KeyListener {
     	scoreButton.setText("" +score);
     	add(timePanel, BorderLayout.SOUTH);
 	}
-	
-	
 	
 	public int getScore() {
 		return score;

@@ -1,8 +1,14 @@
 package views.game;
 
+import instruction.InstructionStatus;
+
+import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JLabel;
 
 /**
  * The Reverse Direction Panel
@@ -35,6 +41,32 @@ public class ReverseDirectionPanel extends DirectionPanel {
 			}
 		}
 	} 
+	
+	@Override
+	protected void resolveInstructions() {
+		InstructionStatus status = instrControl.getStatus();
+		if (status == InstructionStatus.LEFT)  {
+			internalKey = KeyEvent.VK_RIGHT;
+			symbol = new LeftLabel();
+		}
+		else if (status == InstructionStatus.RIGHT) {
+			internalKey = KeyEvent.VK_LEFT;
+			symbol = new RightLabel();
+		}
+		else if (status == InstructionStatus.UP) {
+			internalKey = KeyEvent.VK_DOWN;
+			symbol = new UpLabel();
+			symbol.setVerticalAlignment(JLabel.CENTER);
+
+		} else {
+			internalKey = KeyEvent.VK_UP;
+			symbol = new DownLabel();
+			symbol.setVerticalAlignment(JLabel.CENTER);
+		}
+		symbol.setHorizontalAlignment(JLabel.CENTER);
+		removeAll();
+		add(symbol, BorderLayout.CENTER);
+	}
 
 	@Override
 	public void paintComponent(Graphics g) {
