@@ -48,6 +48,8 @@ public class Colors {
 	
 	/** 
 	 * Family colors return from lightest to darkest. Middle array value is the "base" color.
+	 * Color families are derived from Paletton.com 
+	 * To add a new family, please generate it from Paletton.
 	 * @return
 	 */
 	private static Color[] redFamily() {

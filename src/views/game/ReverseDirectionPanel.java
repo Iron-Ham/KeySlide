@@ -19,7 +19,7 @@ public class ReverseDirectionPanel extends DirectionPanel {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Draws the alternating background.
+	 * Defines the alternating background.
 	 * @param g
 	 */
 	private void doDrawing(Graphics g) {	
