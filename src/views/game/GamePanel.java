@@ -79,7 +79,6 @@ public class GamePanel extends JPanel implements KeyListener {
 	    add(scoreButton, BorderLayout.NORTH);
 	    add(timePanel, BorderLayout.SOUTH);
 	    directionPanel = new DirectionPanel();
-		directionPanel.setBackground(Color.WHITE);
 	    addKeyListener(this);
 	    add(directionPanel, BorderLayout.CENTER);
 	}

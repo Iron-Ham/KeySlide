@@ -10,6 +10,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.sun.prism.Graphics;
+
 import utilities.Colors;
 
 /**
@@ -29,6 +31,16 @@ public class DirectionPanel extends JPanel {
 	public DirectionPanel() {
 		setLayout(new BorderLayout());
 		resolveInstructions();
+		setColors();
+	}
+	
+	/**
+	 * Sets background color of the panel and of the symbol.
+	 */
+	private void setColors() {
+		Color[] colors = Colors.getRandomColorFamily();
+		setBackground(colors[2]);
+		symbol.setForeground(colors[0]);	
 	}
 	
 	/**
@@ -58,6 +70,7 @@ public class DirectionPanel extends JPanel {
 	public void updateDirection() {
 		instrControl.nextInstruction();
 		resolveInstructions();
+		setColors();
 	}
 
 	/**
@@ -65,33 +78,26 @@ public class DirectionPanel extends JPanel {
 	 */
 	private void resolveInstructions() {
 		InstructionStatus status = instrControl.getStatus();
-		Color[] colors = Colors.getRandomColorFamily();
 		if (status == InstructionStatus.LEFT)  {
 			internalKey = KeyEvent.VK_LEFT;
 			symbol = new LeftLabel();
-			symbol.setHorizontalAlignment(JLabel.CENTER);
 		}
 		else if (status == InstructionStatus.RIGHT) {
 			internalKey = KeyEvent.VK_RIGHT;
 			symbol = new RightLabel();
-			symbol.setHorizontalAlignment(JLabel.CENTER);
 		}
 		else if (status == InstructionStatus.UP) {
 			internalKey = KeyEvent.VK_UP;
 			symbol = new UpLabel();
 			symbol.setVerticalAlignment(JLabel.CENTER);
-			symbol.setHorizontalAlignment(JLabel.CENTER);
 
 		} else {
 			internalKey = KeyEvent.VK_DOWN;
 			symbol = new DownLabel();
 			symbol.setVerticalAlignment(JLabel.CENTER);
-			symbol.setHorizontalAlignment(JLabel.CENTER);
 		}
+		symbol.setHorizontalAlignment(JLabel.CENTER);
 		removeAll();
-		symbol.setForeground(colors[1]);
-		setBackground(colors[3]);
 		add(symbol, BorderLayout.CENTER);
-		updateUI();
 	}
 }
