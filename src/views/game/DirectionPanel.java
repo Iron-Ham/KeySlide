@@ -59,6 +59,10 @@ public abstract class DirectionPanel extends JPanel {
 	public InstructionStatus getStatus() {
 		return instrControl.getStatus();
 	}
+	
+	public Color[] getColors() {
+		return colors;
+	}
 
 	/**
 	 * Constructor helper, also helps with updating panel

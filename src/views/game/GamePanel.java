@@ -18,6 +18,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
@@ -40,7 +41,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private int timePosition = 0;
 	private int score = 0;
 	Timer timer;
-	JButton scoreButton;
+	JLabel scoreButton;
 	
 	public GamePanel(final Window window) {
 		this.window = window;
@@ -55,7 +56,6 @@ public class GamePanel extends JPanel implements KeyListener {
 		setFocusable(true);
 		setLayout(new BorderLayout());
 		timePanel = new JPanel();
-		timePanel.setBackground(Color.WHITE);
 		timeBar = new JProgressBar();
 		timeBar.setPreferredSize(new Dimension(1280, 50));
 	    timeBar.setMaximum(setTime());
@@ -72,9 +72,9 @@ public class GamePanel extends JPanel implements KeyListener {
 				}
 			}
 	    });
-	    scoreButton = new JButton("Score: " + score);
+	    scoreButton = new JLabel("0");
 	    scoreButton.setFont(new Font("Arial", Font.PLAIN, 40));
-	    scoreButton.setBackground(Color.WHITE);
+	    scoreButton.setForeground(Color.WHITE);
 	    scoreButton.setOpaque(true);
 		scoreButton.setBorder(BorderFactory.createEmptyBorder());
 	    timePanel.add(timeBar);
@@ -83,6 +83,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	    directionPanel = DirectionPanelFactory.getNextPanel();
 	    addKeyListener(this);
 	    add(directionPanel, BorderLayout.CENTER);
+	    updateGUI();
 	}
 
 	/**
@@ -185,12 +186,9 @@ public class GamePanel extends JPanel implements KeyListener {
 
 		}
 		else if(e.getKeyCode() == directionPanel.getInternalKey()){
-			remove(directionPanel);
-	    	directionPanel = DirectionPanelFactory.getNextPanel();
 	    	restartTimer();
 	    	score+=1;
-	    	scoreButton.setText("Score: " + score);
-	    	add(directionPanel);
+	    	updateGUI();
 	    }
 	    else {
 	    	gameOver();
@@ -199,10 +197,30 @@ public class GamePanel extends JPanel implements KeyListener {
 		GameLog.log.exiting(getClass().getName(), "keyPressed");
 	}
 
+	
+	private void updateGUI() {
+		remove(directionPanel);
+    	directionPanel = DirectionPanelFactory.getNextPanel();
+    	add(directionPanel, BorderLayout.CENTER);
+    	remove (timePanel);
+    	timePanel.remove(timeBar);
+    	timeBar.setForeground(directionPanel.getColors()[0]);
+    	timePanel.add(timeBar);
+    	timePanel.setBackground(directionPanel.getColors()[2]);
+    	scoreButton.setBackground(directionPanel.getColors()[2]);
+    	scoreButton.setText("" +score);
+    	add(timePanel, BorderLayout.SOUTH);
+	}
+	
+	
+	
 	public int getScore() {
 		return score;
 	}
 
+	
+	
+	
 	@Override
 	public void keyReleased(KeyEvent e) {}
 
