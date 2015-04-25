@@ -1,7 +1,5 @@
 package views.game;
 
-import instruction.InstructionController;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,12 +10,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.logging.Level;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
@@ -139,11 +135,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private void gameOver() {
 		GameLog.log.entering(getClass().getName(), "gameOver");
 		stopPlay();
-		InstructionController instrControl = InstructionController.getInstance();
-		instrControl.nextInstruction();
-		remove (directionPanel);
-		directionPanel = DirectionPanelFactory.getNextPanel();
-		add(directionPanel);
+		updateGUI();
 		timePosition = 0;
 		timer.stop();
 		timeBar.setValue(timePosition);
