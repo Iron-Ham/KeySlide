@@ -174,18 +174,18 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		GameLog.log.entering(getClass().getName(), "keyPressed");
-		if (e.getKeyCode() == KeyEvent.VK_F24) {
-
+		if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_RIGHT
+											   || e.getKeyCode() == KeyEvent.VK_UP
+											   || e.getKeyCode() == KeyEvent.VK_DOWN) {
+			if(e.getKeyCode() == directionPanel.getInternalKey()){
+		    	restartTimer();
+		    	score+=1;
+		    	updateGUI();
+		    } else {
+		    	gameOver();
+		    }
+			updateUI();
 		}
-		else if(e.getKeyCode() == directionPanel.getInternalKey()){
-	    	restartTimer();
-	    	score+=1;
-	    	updateGUI();
-	    }
-	    else {
-	    	gameOver();
-	    }
-		updateUI();
 		GameLog.log.exiting(getClass().getName(), "keyPressed");
 	}
 
