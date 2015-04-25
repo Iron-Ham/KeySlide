@@ -78,7 +78,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	    timePanel.add(timeBar);
 	    add(scoreButton, BorderLayout.NORTH);
 	    add(timePanel, BorderLayout.SOUTH);
-	    directionPanel = new DirectionPanel();
+	    directionPanel = DirectionPanelFactory.getNextPanel();
 	    addKeyListener(this);
 	    add(directionPanel, BorderLayout.CENTER);
 	}
@@ -134,7 +134,6 @@ public class GamePanel extends JPanel implements KeyListener {
 	 * Ends game. Disposes of all game resources & performs operations to setup for next game.
 	 */
 	private void gameOver() {
-		directionPanel.getInstructionController().nextInstruction();
 		GameLog.log.entering(getClass().getName(), "gameOver");
 		stopPlay();
 		timePosition = 0;
@@ -179,14 +178,17 @@ public class GamePanel extends JPanel implements KeyListener {
 
 		}
 		else if(e.getKeyCode() == directionPanel.getInternalKey()){
-	    	directionPanel.updateDirection();
+			remove(directionPanel);
+	    	directionPanel = DirectionPanelFactory.getNextPanel();
 	    	restartTimer();
 	    	score+=1;
 	    	scoreButton.setText("Score: " + score);
+	    	add(directionPanel);
 	    }
 	    else {
 	    	gameOver();
 	    }
+		updateUI();
 		GameLog.log.exiting(getClass().getName(), "keyPressed");
 	}
 

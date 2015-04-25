@@ -5,6 +5,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 
 public class LeftLabel extends JLabel {
+	private static final long serialVersionUID = -1759791089118720507L;
 
 	public LeftLabel() {
 		super();

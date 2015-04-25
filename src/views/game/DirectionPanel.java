@@ -2,16 +2,11 @@ package views.game;
 
 import instruction.InstructionController;
 import instruction.InstructionStatus;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import com.sun.prism.Graphics;
-
 import utilities.Colors;
 
 /**
@@ -19,11 +14,12 @@ import utilities.Colors;
  * @author heshamsalman
  *
  */
-public class DirectionPanel extends JPanel {
+public abstract class DirectionPanel extends JPanel {
 	private static final long serialVersionUID = -2473781340553160448L;
 	InstructionController instrControl = InstructionController.getInstance();
 	private JLabel symbol;
 	private int internalKey;
+	protected Color[] colors = new Color[5];
 	
 	/**
 	 * Constructor.
@@ -38,7 +34,7 @@ public class DirectionPanel extends JPanel {
 	 * Sets background color of the panel and of the symbol.
 	 */
 	private void setColors() {
-		Color[] colors = Colors.getRandomColorFamily();
+		colors = Colors.getRandomColorFamily();
 		setBackground(colors[2]);
 		symbol.setForeground(colors[0]);	
 	}
@@ -62,15 +58,6 @@ public class DirectionPanel extends JPanel {
 	 */
 	public InstructionStatus getStatus() {
 		return instrControl.getStatus();
-	}
-	
-	/**
-	 * Switches to the next instruction and updates this panel.
-	 */
-	public void updateDirection() {
-		instrControl.nextInstruction();
-		resolveInstructions();
-		setColors();
 	}
 
 	/**
