@@ -92,6 +92,7 @@ public class GamePanel extends JPanel implements KeyListener {
 		score = 0;
 		timePosition = 0;
 		timer.start();
+		updateGUI();
 	}
 
 	/**
