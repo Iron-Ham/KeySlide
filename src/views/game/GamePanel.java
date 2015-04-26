@@ -16,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
-
 import instruction.InstructionController;
 import instruction.InstructionStatus;
 import utilities.GameLog;
@@ -63,13 +62,10 @@ public class GamePanel extends JPanel implements KeyListener {
             timeBar.setValue(timePosition);
             timePosition += 20;
 			if (controller.getStatus() == InstructionStatus.STOP && timeBar.getValue() >= setTime()) {
-				score +=1;
-				restartTimer();
-				updateGUI();
+				nextRound();
 			}
             else if (timeBar.getValue() >= setTime()) {
                 gameOver();
-                window.switchToGameOver();
             }
         });
 	    
@@ -147,6 +143,17 @@ public class GamePanel extends JPanel implements KeyListener {
 		timeBar.setValue(timePosition);
 		window.switchToGameOver();
 		GameLog.log.exiting(getClass().getName(), "gameOver");
+		updateUI();
+	}
+
+	/**
+	 * The actions to be carried out for next round
+	 */
+	private void nextRound() {
+    	restartTimer();
+    	score+=1;
+    	updateGUI();
+		updateUI();
 	}
 
 	/**
@@ -177,6 +184,10 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {}
 
+	/**
+	 * Handles key presses
+	 * @param e caller
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
 		GameLog.log.entering(getClass().getName(), "keyPressed");
@@ -186,18 +197,17 @@ public class GamePanel extends JPanel implements KeyListener {
 			if (controller.getStatus() == InstructionStatus.STOP)
 				gameOver();
 			else if(e.getKeyCode() == directionPanel.getInternalKey()){
-		    	restartTimer();
-		    	score+=1;
-		    	updateGUI();
+				nextRound();
 		    } else {
 		    	gameOver();
 		    }
-			updateUI();
 		}
 		GameLog.log.exiting(getClass().getName(), "keyPressed");
 	}
 
-	
+	/**
+	 * Updates the gui between rounds
+	 */
 	private void updateGUI() {
 		remove(directionPanel);
     	directionPanel = DirectionPanelFactory.getNextPanel();
@@ -211,13 +221,14 @@ public class GamePanel extends JPanel implements KeyListener {
     	scoreButton.setText("" +score);
     	add(timePanel, BorderLayout.SOUTH);
 	}
-	
+
+	/**
+	 *
+	 * @return score -- value of points
+	 */
 	public int getScore() {
 		return score;
 	}
-
-	
-	
 	
 	@Override
 	public void keyReleased(KeyEvent e) {}
