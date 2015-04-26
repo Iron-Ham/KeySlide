@@ -20,7 +20,8 @@ public class Colors {
 		PURPLE,
 		LAVENDAR,
 		YELLOW,
-		ORANGE;
+		ORANGE, 
+		BLUE;
 	}
 	
 	public static Color[] getRandomColorFamily() {
@@ -40,6 +41,8 @@ public class Colors {
 			return yellowFamily();
 		case ORANGE:
 			return orangeFamily();
+		case BLUE:
+			return blueFamily();
 		default:
 			System.out.println("ERROR!");
 			return tealFamily();
@@ -78,6 +81,10 @@ public class Colors {
 	
 	private static Color[] orangeFamily() {
 		return new Color[] {new Color(0xFFD77B), new Color(0xFFCA50), new Color(0xFFBE28), new Color(0xF8AC00), new Color(0xBD8300)};
+	}
+	
+	private static Color[] blueFamily() {
+		return new Color[] {new Color(0x3D71C9), new Color(0x2E61B9), new Color(0x1E52AA), new Color(0x154495), new Color(0x143A7A)};
 	}
 	
 	//Blue (V. Dark)
