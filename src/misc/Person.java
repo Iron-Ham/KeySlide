@@ -4,7 +4,7 @@ package misc;
  * Java representation of model for "Person"
  * Allows for easy data entry into the database. 
  * @author troyjohnson
- * Refactored & Documented: heshamsalman 04/23/15
+ * Refactored and Documented: heshamsalman 04/23/15
  * 
  */
 public class Person {

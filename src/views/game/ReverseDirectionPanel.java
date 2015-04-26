@@ -19,8 +19,8 @@ public class ReverseDirectionPanel extends DirectionPanel {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Defines the alternating background.
-	 * @param g
+	 * Draws alternating bg
+	 * @param g the bg to draw on
 	 */
 	private void doDrawing(Graphics g) {	
 		Graphics2D g2d = (Graphics2D) g;
@@ -40,8 +40,9 @@ public class ReverseDirectionPanel extends DirectionPanel {
 				g2d.fillRect(0, y, getWidth(), ROW_SIZE);
 			}
 		}
-	} 
-	
+	}
+
+
 	@Override
 	protected void resolveInstructions() {
 		InstructionStatus status = instrControl.getStatus();

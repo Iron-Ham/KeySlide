@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
@@ -57,18 +55,15 @@ public class GamePanel extends JPanel implements KeyListener {
 		timeBar.setPreferredSize(new Dimension(1280, 50));
 	    timeBar.setMaximum(setTime());
 	    timeBar.setMinimum(0);
-	    timer = new Timer(20, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-			    timeBar.setMaximum(setTime());
-				timeBar.setValue(timePosition);
-				timePosition += 20;
-				if (timeBar.getValue() >= setTime()) {
-					gameOver();
-					window.switchToGameOver();
-				}
-			}
-	    });
+	    timer = new Timer(20, e -> {
+            timeBar.setMaximum(setTime());
+            timeBar.setValue(timePosition);
+            timePosition += 20;
+            if (timeBar.getValue() >= setTime()) {
+                gameOver();
+                window.switchToGameOver();
+            }
+        });
 	    
 	    scoreButton = new JLabel("0");
 	    scoreButton.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -133,7 +128,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
 
 	/**
-	 * Ends game. Disposes of all game resources & performs operations to setup for next game.
+	 * Ends game. Disposes of all game resources and performs operations to setup for next game.
 	 */
 	private void gameOver() {
 		GameLog.log.entering(getClass().getName(), "gameOver");
@@ -160,7 +155,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	/**
 	 * Sets time per round
-	 * @return
+	 * @return time, the maximum value of time for that round
 	 */
 	private int setTime() {
 		int time = 1500 - (30 * score);

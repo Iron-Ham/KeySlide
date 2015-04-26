@@ -27,6 +27,10 @@ public class GameOverMenu extends JPanel {
 	Window window;
 	int points;
 
+	/**
+	 * @param window the window
+	 * @param points number of points earned in game
+	 */
 	public GameOverMenu(Window window, int points) {
 		this.window = window;
 		this.points = points;

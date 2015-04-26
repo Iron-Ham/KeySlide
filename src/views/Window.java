@@ -39,6 +39,7 @@ public class Window extends JFrame {
 	 * switchTo method for it.
 	 */
 	public Window() {
+		//noinspection MagicConstant
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1280, 720);
 		setResizable(false);

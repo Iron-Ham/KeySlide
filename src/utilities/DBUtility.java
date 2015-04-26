@@ -22,8 +22,6 @@ public class DBUtility {
 	 *            Date high score was achieved
 	 * @param score
 	 *            Score user achieved
-	 * @param time
-	 *            Total time user lasted (another measure of high score?)
 	 */
 	public static void insertNewHighScore(String name, String date, int score) {
 		if (connectToDb()) { // Change in case connection to db fails
@@ -101,6 +99,7 @@ public class DBUtility {
 	 * Checks score value passed in against database to see if score is within
 	 * the top 10 highest scores so far obtained for the game.
 	 *
+	 * @param score game score
 	 * @return Returns true score is a high score, false returned otherwise.
 	 */
 

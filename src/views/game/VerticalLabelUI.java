@@ -35,7 +35,6 @@ import javax.swing.plaf.basic.BasicLabelUI;
  * @since carbon 1.0
  * @author Greg Hinkle, January 2002
  * @version $Revision: 1.4 $($Author: dvoet $ / $Date: 2003/05/05 21:21:27 $)
- * @copyright 2002 Sapient
  */
 public class VerticalLabelUI extends BasicLabelUI {
     static {

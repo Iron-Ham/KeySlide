@@ -12,8 +12,8 @@ import javax.swing.ImageIcon;
 public class ImageHelper {
 	/**
 	 * Formats an image to be the size of the window.
-	 * @param icon
-	 * @return
+	 * @param icon image to be reformatted
+	 * @return formatted icon
 	 */
 	public static ImageIcon PrepareFullScreenImageIcon(ImageIcon icon) {
 		double imageWidth = icon.getIconWidth();

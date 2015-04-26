@@ -63,24 +63,9 @@ public class Menu extends JPanel {
 	 */
 	private void attachListeners() {
 		GameLog.log.entering(getClass().getName(), "attachListeners");
-		start.addActionListener(new ActionListener() {
-			@Override
-            public void actionPerformed(ActionEvent e) {
-                window.switchToGame();
-            }
-        });
-		hiScores.addActionListener(new ActionListener() {
-			@Override 
-			public void actionPerformed(ActionEvent e) {
-				window.switchToHiScores();
-			}
-		});
-		instructions.addActionListener(new ActionListener() {
-			@Override 
-			public void actionPerformed(ActionEvent e) {
-				window.switchToInstructions();
-			}
-		});
+		start.addActionListener(e -> window.switchToGame());
+		hiScores.addActionListener(e -> window.switchToHiScores());
+		instructions.addActionListener(e -> window.switchToInstructions());
 		GameLog.log.exiting(getClass().getName(), "attachListeners");
 
 	}

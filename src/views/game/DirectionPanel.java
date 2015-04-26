@@ -33,7 +33,7 @@ public abstract class DirectionPanel extends JPanel {
 	/**
 	 * Sets background color of the panel and of the symbol.
 	 */
-	private void setColors() {
+	protected void setColors() {
 		colors = Colors.getRandomColorFamily();
 		setBackground(colors[2]);
 		symbol.setForeground(colors[0]);	
@@ -45,21 +45,7 @@ public abstract class DirectionPanel extends JPanel {
 	public int getInternalKey() {
 		return internalKey;
 	}
-	
-	/**
-	 * @return instrControl is the controller for the instruction.
-	 */
-	public InstructionController getInstructionController() {
-		return instrControl;
-	}
-	
-	/**
-	 * @return returns instructionstatus type
-	 */
-	public InstructionStatus getStatus() {
-		return instrControl.getStatus();
-	}
-	
+
 	public Color[] getColors() {
 		return colors;
 	}

@@ -31,9 +31,6 @@ public class InstructionController {
 		return instance;
 	}
 
-	public Instruction getInstr() {
-		return instr;
-	}
 
 	public InstructionStatus getStatus() {
 		return instr.getStatus();
