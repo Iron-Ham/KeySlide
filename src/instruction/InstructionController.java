@@ -1,7 +1,8 @@
 package instruction;
 
-import java.util.Random;
 import utilities.GameLog;
+
+import java.util.Random;
 
 /**
  * A developer-friendly wrapper of an instruction.
@@ -31,7 +32,6 @@ public class InstructionController {
 		return instance;
 	}
 
-
 	public InstructionStatus getStatus() {
 		return instr.getStatus();
 	}
@@ -48,7 +48,10 @@ public class InstructionController {
 		GameLog.log.entering(getClass().getName(), "nextInstruction");
 		InstructionStatus p = InstructionStatus.getRandomStatus();
 		instr.setStatus(p);
-		reverse = r.nextBoolean();
+		if (p == InstructionStatus.STOP)
+			reverse = false;
+		else
+			reverse = r.nextBoolean();
 		GameLog.log.exiting(getClass().getName(), "nextInstruction");
 	}
 }

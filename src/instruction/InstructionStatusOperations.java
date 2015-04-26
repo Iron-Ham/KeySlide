@@ -27,6 +27,10 @@ public interface InstructionStatusOperations {
 	default InstructionStatus down(Instruction instruction) throws UnsupportedStatusTransitionException {
 		return InstructionStatus.DOWN;
 	}
+
+	default InstructionStatus stop(Instruction instruction) throws UnsupportedStatusTransitionException {
+		return InstructionStatus.STOP;
+	}
 	
 
 }

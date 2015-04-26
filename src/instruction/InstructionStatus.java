@@ -18,7 +18,8 @@ public enum InstructionStatus implements InstructionStatusOperations {
 	LEFT(new LeftISO()),
 	RIGHT(new RightISO()),
 	UP(new UpISO()),
-	DOWN(new DownISO());	
+	DOWN(new DownISO()),
+	STOP(new StopISO());
 
 	/**
 	 * The "state" variable. It is an implementation of the InstructionStatusOperations interface. This interface defines the shared 

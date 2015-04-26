@@ -17,6 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
 
+import instruction.InstructionController;
+import instruction.InstructionStatus;
 import utilities.GameLog;
 import views.Window;
 
@@ -29,6 +31,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private static final long serialVersionUID = 1L;
 	DirectionPanel directionPanel;
 	Clip clip;
+	InstructionController controller = InstructionController.getInstance();
 	Window window;
 	private JPanel timePanel;
 	private JProgressBar timeBar;
@@ -59,7 +62,12 @@ public class GamePanel extends JPanel implements KeyListener {
             timeBar.setMaximum(setTime());
             timeBar.setValue(timePosition);
             timePosition += 20;
-            if (timeBar.getValue() >= setTime()) {
+			if (controller.getStatus() == InstructionStatus.STOP && timeBar.getValue() >= setTime()) {
+				score +=1;
+				restartTimer();
+				updateGUI();
+			}
+            else if (timeBar.getValue() >= setTime()) {
                 gameOver();
                 window.switchToGameOver();
             }
@@ -175,7 +183,9 @@ public class GamePanel extends JPanel implements KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_RIGHT
 											   || e.getKeyCode() == KeyEvent.VK_UP
 											   || e.getKeyCode() == KeyEvent.VK_DOWN) {
-			if(e.getKeyCode() == directionPanel.getInternalKey()){
+			if (controller.getStatus() == InstructionStatus.STOP)
+				gameOver();
+			else if(e.getKeyCode() == directionPanel.getInternalKey()){
 		    	restartTimer();
 		    	score+=1;
 		    	updateGUI();
