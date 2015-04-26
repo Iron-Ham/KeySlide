@@ -37,7 +37,7 @@ public class ReverseDirectionPanel extends DirectionPanel {
 		for (int i = 0; i < NUM_ROWS; i++) {
 			if (i % 2 == 0) {
 				int y = ROW_SIZE * i;
-				g2d.fillRect(0, y, getWidth(), 36);
+				g2d.fillRect(0, y, getWidth(), ROW_SIZE);
 			}
 		}
 	} 
