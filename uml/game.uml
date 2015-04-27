@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>views.game</OriginalElement>
+  <nodes>
+    <node x="981.0" y="302.0">views.game.SimpleDirectionPanel</node>
+    <node x="228.0" y="1003.0">views.game.DownLabel</node>
+    <node x="713.0" y="280.0">views.game.ReverseDirectionPanel</node>
+    <node x="456.0" y="1003.0">views.game.UpLabel</node>
+    <node x="684.0" y="1003.0">views.game.LeftLabel</node>
+    <node x="0.0" y="0.0">views.game.GamePanel</node>
+    <node x="0.0" y="627.0">views.game.VerticalLabelUI</node>
+    <node x="787.0" y="0.0">views.game.DirectionPanel</node>
+    <node x="342.0" y="879.0">views.game.InstructionLabel</node>
+    <node x="0.0" y="1003.0">views.game.RightLabel</node>
+    <node x="0.0" y="1122.0">views.game.DirectionPanelFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="views.game.LeftLabel" target="views.game.InstructionLabel">
+      <point x="0.0" y="-37.0" />
+      <point x="788.0" y="973.0" />
+      <point x="524.0" y="973.0" />
+      <point x="78.0" y="37.0" />
+    </edge>
+    <edge source="views.game.DownLabel" target="views.game.InstructionLabel">
+      <point x="0.0" y="-37.0" />
+      <point x="332.0" y="983.0" />
+      <point x="420.0" y="983.0" />
+      <point x="-26.0" y="37.0" />
+    </edge>
+    <edge source="views.game.RightLabel" target="views.game.InstructionLabel">
+      <point x="0.0" y="-37.0" />
+      <point x="104.0" y="973.0" />
+      <point x="368.0" y="973.0" />
+      <point x="-78.0" y="37.0" />
+    </edge>
+    <edge source="views.game.UpLabel" target="views.game.InstructionLabel">
+      <point x="0.0" y="-37.0" />
+      <point x="560.0" y="983.0" />
+      <point x="472.0" y="983.0" />
+      <point x="26.0" y="37.0" />
+    </edge>
+    <edge source="views.game.ReverseDirectionPanel" target="views.game.DirectionPanel">
+      <point x="0.0" y="-59.0" />
+      <point x="837.0" y="255.0" />
+      <point x="874.0" y="255.0" />
+      <point x="-87.0" y="115.0" />
+    </edge>
+    <edge source="views.game.SimpleDirectionPanel" target="views.game.DirectionPanel">
+      <point x="0.0" y="-37.0" />
+      <point x="1085.0" y="255.0" />
+      <point x="1048.0" y="255.0" />
+      <point x="87.0" y="115.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7203947368421053" x="594.5" y="598.0" />
+  <SelectedNodes>
+    <node>views.game.DirectionPanel</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

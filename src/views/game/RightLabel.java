@@ -2,14 +2,14 @@ package views.game;
 
 /**
  * Label for right direction
- * @author heshamsalman
  *
+ * @author heshamsalman
  */
 public class RightLabel extends InstructionLabel {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public RightLabel() {
-		super();
-		setText(">");
-	}
+    public RightLabel() {
+        super();
+        setText(">");
+    }
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>instruction</OriginalElement>
+  <nodes>
+    <node x="426.0" y="428.0">instruction.Instruction</node>
+    <node x="291.0" y="265.5">instruction.UpISO</node>
+    <node x="568.0" y="265.5">instruction.StopISO</node>
+    <node x="0.0" y="428.0">instruction.InstructionController</node>
+    <node x="0.0" y="680.0">instruction.UnsupportedStatusTransitionException</node>
+    <node x="1152.0" y="199.0">instruction.InstructionStatus</node>
+    <node x="1359.0" y="265.5">instruction.LeftISO</node>
+    <node x="857.0" y="265.5">instruction.DownISO</node>
+    <node x="677.5" y="0.0">instruction.InstructionStatusOperations</node>
+    <node x="0.0" y="265.5">instruction.RightISO</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="instruction.RightISO" target="instruction.InstructionStatusOperations">
+      <point x="0.0" y="-25.5" />
+      <point x="135.5" y="159.0" />
+      <point x="706.0" y="159.0" />
+      <point x="-142.5" y="69.5" />
+    </edge>
+    <edge source="instruction.InstructionStatus" target="instruction.InstructionStatusOperations">
+      <point x="0.0" y="-92.0" />
+      <point x="1245.5" y="169.0" />
+      <point x="934.0" y="169.0" />
+      <point x="85.5" y="69.5" />
+    </edge>
+    <edge source="instruction.UpISO" target="instruction.InstructionStatusOperations">
+      <point x="0.0" y="-25.5" />
+      <point x="419.5" y="169.0" />
+      <point x="763.0" y="169.0" />
+      <point x="-85.5" y="69.5" />
+    </edge>
+    <edge source="instruction.LeftISO" target="instruction.InstructionStatusOperations">
+      <point x="0.0" y="-25.5" />
+      <point x="1490.0" y="159.0" />
+      <point x="991.0" y="159.0" />
+      <point x="142.5" y="69.5" />
+    </edge>
+    <edge source="instruction.StopISO" target="instruction.InstructionStatusOperations">
+      <point x="0.0" y="-25.5" />
+      <point x="702.5" y="179.0" />
+      <point x="820.0" y="179.0" />
+      <point x="-28.5" y="69.5" />
+    </edge>
+    <edge source="instruction.DownISO" target="instruction.InstructionStatusOperations">
+      <point x="0.0" y="-25.5" />
+      <point x="994.5" y="179.0" />
+      <point x="877.0" y="179.0" />
+      <point x="28.5" y="69.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6733870967741935" x="858.0" y="243.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

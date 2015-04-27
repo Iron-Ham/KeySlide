@@ -1,7 +1,6 @@
 package views.game;
 
-import javax.swing.JLabel;
-
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -9,9 +8,9 @@ import java.awt.*;
  * Created by heshamsalman on 4/26/15.
  */
 public abstract class InstructionLabel extends JLabel {
-	private static final long serialVersionUID = 1L;
-	
-	/**
+    private static final long serialVersionUID = 1L;
+
+    /**
      * Default constructor.
      */
     public InstructionLabel() {
