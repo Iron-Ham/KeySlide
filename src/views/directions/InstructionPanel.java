@@ -18,11 +18,18 @@ public class InstructionPanel extends JPanel {
     private JLabel image;
     private JScrollPane imageView;
 
+    /**
+     * Constructor
+     * @param window the main window
+     */
     public InstructionPanel(Window window) {
         this.window = window;
         setupGui();
     }
 
+    /**
+     * Sets up the GUI for this Panel
+     */
     private void setupGui() {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);

@@ -27,6 +27,9 @@ public abstract class NavigationButton extends JButton implements ActionListener
         setupLookAndFeel();
     }
 
+    /**
+     * Adds appropriate listeners
+     */
     private void addListeners() {
         addActionListener(this);
         addMouseListener(this);

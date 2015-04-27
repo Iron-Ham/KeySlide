@@ -40,6 +40,9 @@ public class ReverseDirectionPanel extends DirectionPanel {
     }
 
 
+    /**
+     * Sets the instruction internal key to the reverse of the instruction
+     */
     @Override
     protected void resolveInstructions() {
         InstructionStatus status = instrControl.getStatus();

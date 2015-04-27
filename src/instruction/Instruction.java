@@ -16,10 +16,18 @@ public class Instruction {
         this.status = status;
     }
 
+    /**
+     * Getter method for status.
+     * @return status
+     */
     public InstructionStatus getStatus() {
         return status;
     }
 
+    /**
+     * Setter method for status
+     * @param status the new value for the attribute status
+     */
     public void setStatus(InstructionStatus status) {
         GameLog.log.entering(getClass().getName(), "setStatus");
         if (status != null && status != this.status) {

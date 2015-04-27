@@ -34,6 +34,10 @@ public class GameOverPanel extends JPanel {
         add(menu);
     }
 
+    /**
+     * setter method for score
+     * @param score the new value for score
+     */
     public void setScore(int score) {
         this.score = score;
         menu.setScore(score);

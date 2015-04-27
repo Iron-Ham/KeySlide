@@ -10,6 +10,10 @@ import instruction.InstructionController;
 public class DirectionPanelFactory {
     private static InstructionController instrControl = InstructionController.getInstance();
 
+    /**
+     * Returns the next panel based on the value of reverse
+     * @return DirectionPanel
+     */
     public static DirectionPanel getNextPanel() {
         instrControl.nextInstruction();
         if (instrControl.isReversed())

@@ -1,6 +1,7 @@
 package instruction;
 
 /**
+ * Concrete implementation of InstructionStatusOperations. This state is "STOP".
  * Created by heshamsalman on 4/26/15.
  */
 public class StopISO implements InstructionStatusOperations {

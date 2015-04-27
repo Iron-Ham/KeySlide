@@ -45,6 +45,9 @@ public class Window extends JFrame {
         setupGui();
     }
 
+    /**
+     * Sets up the GUI for this Frame
+     */
     private void setupGui() {
         homePanel = new HomePanel(this);
         gameOverPanel = new GameOverPanel(this);

@@ -13,6 +13,10 @@ public class BackButton extends NavigationButton {
     private static final long serialVersionUID = 45768139147924018L;
     Window window;
 
+    /**
+     * Constructor
+     * @param window the main window
+     */
     public BackButton(Window window) {
         this.window = window;
         setText("Home");

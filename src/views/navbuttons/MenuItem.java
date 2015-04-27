@@ -17,6 +17,11 @@ public class MenuItem extends JButton implements MouseListener {
     private static final long serialVersionUID = 3699142395262583263L;
     Window window;
 
+    /**
+     * Constructor
+     * @param window the main window
+     * @param text the display text of this menu item
+     */
     public MenuItem(Window window, String text) {
         this.window = window;
         setText(text);
@@ -25,6 +30,9 @@ public class MenuItem extends JButton implements MouseListener {
         setupGui();
     }
 
+    /**
+     * Sets up the GUI for this element
+     */
     private void setupGui() {
         setFont(new Font("Arial", Font.PLAIN, 40));
         setMaximumSize(new Dimension(400, 100));

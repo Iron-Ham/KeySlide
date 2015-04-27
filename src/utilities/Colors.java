@@ -12,6 +12,10 @@ public class Colors {
 
     private static Random r = new Random();
 
+    /**
+     * Picks a random color family from the enumerable.
+     * @return [color]family: a random color family
+     */
     public static Color[] getRandomColorFamily() {
         colorFamily c = colorFamily.values()[r.nextInt(colorFamily.values().length)];
         switch (c) {
@@ -88,16 +92,28 @@ public class Colors {
         return new Color[]{new Color(0xFACFE6), new Color(0xF09FCB), new Color(0xE274B0), new Color(0xD35098), new Color(0xBC317D)};
     }
 
+    /**
+     * The unselected color
+     * @return color
+     */
     //Blue (V. Dark)
     public static Color unselected() {
         return new Color(0x454951);
     }
 
+    /**
+     * The on-hover color
+     * @return color
+     */
     //White
     public static Color selected() {
         return new Color(0xFFFFFF);
     }
 
+    /**
+     * The color orange
+     * @return color orange
+     */
     //Orange
     public static Color orange() {
         return new Color(0xEB5D00);

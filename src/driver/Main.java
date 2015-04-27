@@ -7,6 +7,7 @@ import javax.swing.*;
 /**
  * Requirements: Java 1.8
  * - Uses interface default methods
+ * Main driver class. Run this to start the program.
  *
  * @author heshamsalman
  */

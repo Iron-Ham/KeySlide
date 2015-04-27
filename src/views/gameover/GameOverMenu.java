@@ -67,6 +67,10 @@ public class GameOverMenu extends JPanel {
         add(backButton);
     }
 
+    /**
+     * setter method for score
+     * @param points new value for score
+     */
     public void setScore(int points) {
         score.setText("Score: " + points);
         score.updateUI();
