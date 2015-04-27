@@ -17,7 +17,5 @@ public class DirectionPanelFactory {
         else {
             return new SimpleDirectionPanel();
         }
-
     }
-
 }
