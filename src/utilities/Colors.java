@@ -23,14 +23,16 @@ public class Colors {
                 return greenFamily();
             case PURPLE:
                 return purpleFamily();
-            case LAVENDAR:
-                return lavendarFamily();
+            case LAVENDER:
+                return lavenderFamily();
             case YELLOW:
                 return yellowFamily();
             case ORANGE:
                 return orangeFamily();
             case BLUE:
                 return blueFamily();
+            case PINK:
+                return pinkFamily();
             default:
                 System.out.println("ERROR!");
                 return tealFamily();
@@ -60,7 +62,7 @@ public class Colors {
         return new Color[]{new Color(0x8F78AD), new Color(0x6B4E90), new Color(0x4C2D73), new Color(0x321456), new Color(0x1C053A)};
     }
 
-    private static Color[] lavendarFamily() {
+    private static Color[] lavenderFamily() {
         return new Color[]{new Color(0xAA71A7), new Color(0x8D478A), new Color(0x71266E), new Color(0x550E52), new Color(0x390036)};
     }
 
@@ -74,6 +76,10 @@ public class Colors {
 
     private static Color[] blueFamily() {
         return new Color[]{new Color(0x3D71C9), new Color(0x2E61B9), new Color(0x1E52AA), new Color(0x154495), new Color(0x143A7A)};
+    }
+
+    private static Color[] pinkFamily() {
+        return new Color[]{new Color(0xFACFE6), new Color(0xF09FCB), new Color(0xE274B0), new Color(0xD35098), new Color(0xBC317D)};
     }
 
     //Blue (V. Dark)
@@ -97,9 +103,10 @@ public class Colors {
         TEAL,
         GREEN,
         PURPLE,
-        LAVENDAR,
+        LAVENDER,
         YELLOW,
         ORANGE,
-        BLUE;
+        BLUE,
+        PINK
     }
 }
