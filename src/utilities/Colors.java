@@ -33,6 +33,8 @@ public class Colors {
                 return blueFamily();
             case PINK:
                 return pinkFamily();
+            case SEAFOAM:
+                return seafoamFamily();
             default:
                 System.out.println("ERROR!");
                 return tealFamily();
@@ -56,6 +58,10 @@ public class Colors {
 
     private static Color[] greenFamily() {
         return new Color[]{new Color(0x88CC88), new Color(0x55AA55), new Color(0x2D882D), new Color(0x116611), new Color(0x004400)};
+    }
+
+    private static Color[] seafoamFamily() {
+        return new Color[]{new Color(0xCDF8DC), new Color(0x9AE9B5), new Color(0x6ED792), new Color(0x49C172), new Color(0x2CAA57)};
     }
 
     private static Color[] purpleFamily() {
@@ -107,6 +113,7 @@ public class Colors {
         YELLOW,
         ORANGE,
         BLUE,
-        PINK
+        PINK,
+        SEAFOAM
     }
 }
