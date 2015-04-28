@@ -4,9 +4,9 @@ import misc.Person;
 import utilities.DBUtility;
 import views.Window;
 import views.navbuttons.BackButton;
-
 import javax.swing.*;
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Font;
 import java.util.ArrayList;
 
 public class HighScoresPanel extends JPanel {

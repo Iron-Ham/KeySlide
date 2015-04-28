@@ -1,9 +1,11 @@
 package views.home;
 
+import utilities.Colors;
 import views.Window;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.GridBagLayout;
+import java.awt.Color;
 
 /**
  * The Home Screen for the game.
@@ -13,7 +15,6 @@ import java.awt.*;
 public class HomePanel extends JPanel {
     private static final long serialVersionUID = -137351898919773110L;
     Window window;
-    private Menu menu;
 
     /**
      * Constructor
@@ -23,18 +24,12 @@ public class HomePanel extends JPanel {
         this.window = window;
         setLayout(new GridBagLayout());
         setBackground(Color.WHITE);
-        menu = new Menu(window);
+        Menu menu = new Menu(window);
+        setBackground(Colors.getRandomColorFamily()[2]);
         menu.setBackground(Color.WHITE);
         menu.setAlignmentY(0.5f);
         menu.setAlignmentX(0.5f);
         setSize(1280, 720);
         add(menu);
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        ImageIcon icon = new ImageIcon("Assets/PNG/Blue_Abstract.png");
-        g.drawImage(utilities.ImageHelper.PrepareFullScreenImageIcon(icon).getImage(), 0, 0, null);
     }
 }

@@ -33,6 +33,10 @@ public class GamePanel extends JPanel implements KeyListener {
     private int timePosition = 0;
     private int score = 0;
     AudioInputStream inputStream;
+    /**
+     * Constructor
+     * @param window primary screen for the game
+     */
     public GamePanel(final Window window) {
         this.window = window;
         setupGui();
@@ -45,11 +49,13 @@ public class GamePanel extends JPanel implements KeyListener {
         setSize(1280, 720);
         setFocusable(true);
         setLayout(new BorderLayout());
+        scoreButton = new JLabel("0");
+        scoreButton.setFont(new Font("Arial", Font.PLAIN, 40));
+        scoreButton.setForeground(Color.WHITE);
+        scoreButton.setOpaque(true);
+        scoreButton.setBorder(BorderFactory.createEmptyBorder());
         timePanel = new JPanel();
         timeBar = new JProgressBar();
-        timeBar.setPreferredSize(new Dimension(1280, 50));
-        timeBar.setMaximum(setTime());
-        timeBar.setMinimum(0);
         timer = new Timer(20, e -> {
             timeBar.setMaximum(setTime());
             timeBar.setValue(timePosition);
@@ -60,12 +66,9 @@ public class GamePanel extends JPanel implements KeyListener {
                 gameOver();
             }
         });
-
-        scoreButton = new JLabel("0");
-        scoreButton.setFont(new Font("Arial", Font.PLAIN, 40));
-        scoreButton.setForeground(Color.WHITE);
-        scoreButton.setOpaque(true);
-        scoreButton.setBorder(BorderFactory.createEmptyBorder());
+        timeBar.setPreferredSize(new Dimension(1280, 50));
+        timeBar.setMaximum(setTime());
+        timeBar.setMinimum(0);
         timePanel.add(timeBar);
         add(scoreButton, BorderLayout.NORTH);
         add(timePanel, BorderLayout.SOUTH);
@@ -91,13 +94,13 @@ public class GamePanel extends JPanel implements KeyListener {
     /**
      * Plays audio.
      *
-     * @param url TODO: Clean up this code. Shouldn't have to re-instantiate
+     * @param url Location of the file
      */
     private void doPlay(final File url) {
         GameLog.log.entering(getClass().getName(), "doPlay");
         try {
             stopPlay();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(url);
+            inputStream = AudioSystem.getAudioInputStream(url);
             GameLog.log.log(Level.INFO, "Playing Audio");
             clip = AudioSystem.getClip();
             clip.open(inputStream);
@@ -137,7 +140,6 @@ public class GamePanel extends JPanel implements KeyListener {
     private void gameOver() {
         GameLog.log.entering(getClass().getName(), "gameOver");
         stopPlay();
-        updateGUI();
         timePosition = 0;
         timer.stop();
         timeBar.setValue(timePosition);
@@ -149,7 +151,7 @@ public class GamePanel extends JPanel implements KeyListener {
     /**
      * The actions to be carried out for next round
      */
-    private void nextRound() {
+    private synchronized void nextRound() {
         restartTimer();
         score += 1;
         updateGUI();
@@ -159,7 +161,7 @@ public class GamePanel extends JPanel implements KeyListener {
     /**
      * Restarts timer.
      */
-    private void restartTimer() {
+    private synchronized void restartTimer() {
         GameLog.log.entering(getClass().getName(), "restartTimer");
         timePosition = 0;
         timeBar.setValue(timePosition);
@@ -211,15 +213,17 @@ public class GamePanel extends JPanel implements KeyListener {
     /**
      * Updates the gui between rounds
      */
-    private void updateGUI() {
+    private synchronized void updateGUI() {
         remove(directionPanel);
         directionPanel = null;
-        directionPanel = DirectionPanelFactory.getNextPanel();
-        add(directionPanel, BorderLayout.CENTER);
         remove(timePanel);
         timePanel.remove(timeBar);
+        timePanel = null;
         timeBar = null;
+        timePanel = new JPanel();
         timeBar = new JProgressBar();
+        directionPanel = DirectionPanelFactory.getNextPanel();
+        add(directionPanel, BorderLayout.CENTER);
         timePanel.add(timeBar);
         timeBar.setForeground(directionPanel.getColors()[0]);
         timeBar.setPreferredSize(new Dimension(1280, 50));

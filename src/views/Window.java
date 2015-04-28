@@ -22,11 +22,8 @@ public class Window extends JFrame {
     private static final long serialVersionUID = -8731966412182953292L;
     private JPanel basePanel;
     private CardLayout cardLayout = new CardLayout();
-    private HomePanel homePanel;
-    private HighScoreDialogFrame highScoreDialog;
     private GameOverPanel gameOverPanel;
     private GamePanel gamePanel;
-    private InstructionPanel instructionPanel;
     private HighScoresPanel scorePanel;
 
 
@@ -37,8 +34,7 @@ public class Window extends JFrame {
      * switchTo method for it.
      */
     public Window() {
-        //noinspection MagicConstant
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1280, 720);
         setResizable(false);
         setTitle("KeySlide");
@@ -49,10 +45,10 @@ public class Window extends JFrame {
      * Sets up the GUI for this Frame
      */
     private void setupGui() {
-        homePanel = new HomePanel(this);
+        HomePanel homePanel = new HomePanel(this);
         gameOverPanel = new GameOverPanel(this);
         basePanel = new JPanel();
-        instructionPanel = new InstructionPanel(this);
+        InstructionPanel instructionPanel = new InstructionPanel(this);
         gamePanel = new GamePanel(this);
         gamePanel.setFocusable(true);
         scorePanel = new HighScoresPanel(this);
@@ -84,7 +80,7 @@ public class Window extends JFrame {
         int score = gamePanel.getScore();
         if (DBUtility.isHighScore(score)) {
             GameLog.log.log(Level.INFO, "New High Score: " + score);
-            highScoreDialog = new HighScoreDialogFrame(score);
+            HighScoreDialogFrame highScoreDialog = new HighScoreDialogFrame(score);
             highScoreDialog.setVisible(true);
         }
         gameOverPanel.setScore(score);

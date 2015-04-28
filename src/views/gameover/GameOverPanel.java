@@ -1,5 +1,6 @@
 package views.gameover;
 
+import utilities.Colors;
 import views.Window;
 
 import javax.swing.*;
@@ -32,6 +33,8 @@ public class GameOverPanel extends JPanel {
         menu.setAlignmentX(0.5f);
         setSize(1280, 720);
         add(menu);
+        setBackground(Colors.getRandomColorFamily()[2]);
+
     }
 
     /**
@@ -41,16 +44,5 @@ public class GameOverPanel extends JPanel {
     public void setScore(int score) {
         this.score = score;
         menu.setScore(score);
-    }
-
-
-    /**
-     * Sets background.
-     */
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        ImageIcon icon = new ImageIcon("Assets/PNG/bg.jpg");
-        g.drawImage(utilities.ImageHelper.PrepareFullScreenImageIcon(icon).getImage(), 0, 0, null);
     }
 }
