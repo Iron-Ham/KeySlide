@@ -8,11 +8,22 @@ import views.Window;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.*;
-import java.awt.*;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.Timer;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
 import java.io.File;
+
 import java.util.logging.Level;
 
 /**
@@ -32,7 +43,6 @@ public class GamePanel extends JPanel implements KeyListener {
     private JProgressBar timeBar;
     private int timePosition = 0;
     private int score = 0;
-    AudioInputStream inputStream;
     /**
      * Constructor
      * @param window primary screen for the game
@@ -77,7 +87,6 @@ public class GamePanel extends JPanel implements KeyListener {
         add(directionPanel, BorderLayout.CENTER);
         updateGUI();
         doPlay(new File("Assets/Audio/Chiptune.wav"));
-        stopPlay();
     }
 
     /**
@@ -100,10 +109,10 @@ public class GamePanel extends JPanel implements KeyListener {
         GameLog.log.entering(getClass().getName(), "doPlay");
         try {
             stopPlay();
-            inputStream = AudioSystem.getAudioInputStream(url);
-            GameLog.log.log(Level.INFO, "Playing Audio");
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(url);
             clip = AudioSystem.getClip();
             clip.open(inputStream);
+            GameLog.log.log(Level.INFO, "Audio Initialized");
         } catch (Exception e) {
             stopPlay();
             System.err.println(e.getMessage());
@@ -113,7 +122,10 @@ public class GamePanel extends JPanel implements KeyListener {
     
     private void startAudio() {
     	try {
+            GameLog.log.log(Level.INFO, "Rewinding Audio");
+    		clip.setFramePosition(0);
     		clip.start();
+            GameLog.log.log(Level.INFO, "Playing Audio");
     	} catch (Exception e) {
             System.err.println(e.getMessage());
     	}
@@ -126,11 +138,9 @@ public class GamePanel extends JPanel implements KeyListener {
         GameLog.log.entering(getClass().getName(), "stopPlay");
         if (clip != null) {
             clip.stop();
-            clip.close();
             GameLog.log.log(Level.INFO, "Stopping Audio");
-            clip = null;
         }
-        GameLog.log.exiting(getClass().getName(), "doPlay");
+        GameLog.log.exiting(getClass().getName(), "stopPlay");
     }
 
 

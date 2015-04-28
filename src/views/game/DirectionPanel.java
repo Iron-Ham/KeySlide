@@ -58,6 +58,7 @@ public abstract class DirectionPanel extends JPanel {
      * Constructor helper, also helps with updating panel
      */
     protected synchronized void resolveInstructions() {
+    	boolean happenedOnce = false;
         //Because we want to give two opportunities to generate an instruction.
         for (int i = 0; i < 2; i++) {
         	instrControl.nextInstruction();
@@ -79,7 +80,7 @@ public abstract class DirectionPanel extends JPanel {
             } else if (instrControl.getStatus() == InstructionStatus.STOP) {
             	int random = r.nextInt(10);
             	//We want to make random appear at 1/2 the rate as the other instructions. 
-            	if (random < 5 ) {
+            	if (random < 5 || happenedOnce) {
             		internalKey = -1;
                     label l = label.values()[r.nextInt(label.values().length)];
                     //Generates a Random Label for the stop instruction
@@ -102,6 +103,8 @@ public abstract class DirectionPanel extends JPanel {
                             System.out.println("Unexpected value!?");
                     }
                     break;
+            	} else {
+            		happenedOnce = true;
             	}
             }
         }
