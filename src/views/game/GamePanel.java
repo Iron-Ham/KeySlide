@@ -87,7 +87,6 @@ public class GamePanel extends JPanel implements KeyListener {
         add(directionPanel, BorderLayout.CENTER);
         updateGUI();
         doPlay(new File("Assets/Audio/Chiptune.wav"));
-        stopPlay();
     }
 
     /**
@@ -111,9 +110,9 @@ public class GamePanel extends JPanel implements KeyListener {
         try {
             stopPlay();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(url);
-            GameLog.log.log(Level.INFO, "Playing Audio");
             clip = AudioSystem.getClip();
             clip.open(inputStream);
+            GameLog.log.log(Level.INFO, "Audio Initialized");
         } catch (Exception e) {
             stopPlay();
             System.err.println(e.getMessage());
@@ -123,8 +122,10 @@ public class GamePanel extends JPanel implements KeyListener {
     
     private void startAudio() {
     	try {
+            GameLog.log.log(Level.INFO, "Rewinding Audio");
     		clip.setFramePosition(0);
     		clip.start();
+            GameLog.log.log(Level.INFO, "Playing Audio");
     	} catch (Exception e) {
             System.err.println(e.getMessage());
     	}
@@ -139,7 +140,7 @@ public class GamePanel extends JPanel implements KeyListener {
             clip.stop();
             GameLog.log.log(Level.INFO, "Stopping Audio");
         }
-        GameLog.log.exiting(getClass().getName(), "doPlay");
+        GameLog.log.exiting(getClass().getName(), "stopPlay");
     }
 
 
