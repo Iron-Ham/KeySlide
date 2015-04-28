@@ -23,7 +23,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import java.io.File;
-
 import java.util.logging.Level;
 
 /**
@@ -38,7 +37,7 @@ public class GamePanel extends JPanel implements KeyListener {
     InstructionController controller = InstructionController.getInstance();
     Window window;
     Timer timer;
-    JLabel scoreButton;
+    JLabel scoreLabel;
     private JPanel timePanel;
     private JProgressBar timeBar;
     private int timePosition = 0;
@@ -59,11 +58,11 @@ public class GamePanel extends JPanel implements KeyListener {
         setSize(1280, 720);
         setFocusable(true);
         setLayout(new BorderLayout());
-        scoreButton = new JLabel("0");
-        scoreButton.setFont(new Font("Arial", Font.PLAIN, 40));
-        scoreButton.setForeground(Color.WHITE);
-        scoreButton.setOpaque(true);
-        scoreButton.setBorder(BorderFactory.createEmptyBorder());
+        scoreLabel = new JLabel("0");
+        scoreLabel.setFont(new Font("Arial", Font.PLAIN, 40));
+        scoreLabel.setForeground(Color.WHITE);
+        scoreLabel.setOpaque(true);
+        scoreLabel.setBorder(BorderFactory.createEmptyBorder());
         timePanel = new JPanel();
         timeBar = new JProgressBar();
         timer = new Timer(20, e -> {
@@ -80,13 +79,13 @@ public class GamePanel extends JPanel implements KeyListener {
         timeBar.setMaximum(setTime());
         timeBar.setMinimum(0);
         timePanel.add(timeBar);
-        add(scoreButton, BorderLayout.NORTH);
+        add(scoreLabel, BorderLayout.NORTH);
         add(timePanel, BorderLayout.SOUTH);
         addKeyListener(this);
         directionPanel = DirectionPanelFactory.getNextPanel();
         add(directionPanel, BorderLayout.CENTER);
         updateGUI();
-        doPlay(new File("Assets/Audio/Chiptune.wav"));
+        initializeAudio(new File("Assets/Audio/Chiptune.wav"));
     }
 
     /**
@@ -105,8 +104,8 @@ public class GamePanel extends JPanel implements KeyListener {
      *
      * @param url Location of the file
      */
-    private void doPlay(final File url) {
-        GameLog.log.entering(getClass().getName(), "doPlay");
+    private void initializeAudio(final File url) {
+        GameLog.log.entering(getClass().getName(), "initializeAudio");
         try {
             stopPlay();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(url);
@@ -117,7 +116,7 @@ public class GamePanel extends JPanel implements KeyListener {
             stopPlay();
             System.err.println(e.getMessage());
         }
-        GameLog.log.exiting(getClass().getName(), "doPlay");
+        GameLog.log.exiting(getClass().getName(), "initializeAudio");
     }
     
     private void startAudio() {
@@ -230,6 +229,7 @@ public class GamePanel extends JPanel implements KeyListener {
         timePanel.remove(timeBar);
         timePanel = null;
         timeBar = null;
+        System.gc();
         timePanel = new JPanel();
         timeBar = new JProgressBar();
         directionPanel = DirectionPanelFactory.getNextPanel();
@@ -240,8 +240,8 @@ public class GamePanel extends JPanel implements KeyListener {
         timeBar.setMaximum(setTime());
         timeBar.setMinimum(0);
         timePanel.setBackground(directionPanel.getColors()[2]);
-        scoreButton.setBackground(directionPanel.getColors()[2]);
-        scoreButton.setText("" + score);
+        scoreLabel.setBackground(directionPanel.getColors()[2]);
+        scoreLabel.setText("" + score);
         add(timePanel, BorderLayout.SOUTH);
     }
 

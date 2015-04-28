@@ -59,6 +59,7 @@ public abstract class DirectionPanel extends JPanel {
      */
     protected synchronized void resolveInstructions() {
     	boolean happenedOnce = false;
+        symbol = null;
         //Because we want to give two opportunities to generate an instruction.
         for (int i = 0; i < 2; i++) {
         	instrControl.nextInstruction();
@@ -113,7 +114,7 @@ public abstract class DirectionPanel extends JPanel {
         add(symbol, BorderLayout.CENTER);
     }
 
-    private enum label {
+    protected enum label {
         LEFT,
         RIGHT,
         UP,
