@@ -12,7 +12,7 @@ public interface InstructionStatusOperations {
     /**
      * Switches state to LEFT
      * @param instruction the instruction to switch
-     * @return new instruction status
+     * @return InstructionStatus.LEFT
      * @throws UnsupportedStatusTransitionException
      */
     default InstructionStatus left(Instruction instruction) throws UnsupportedStatusTransitionException {
@@ -22,7 +22,7 @@ public interface InstructionStatusOperations {
     /**
      * Switches state to RIGHT
      * @param instruction the instruction to switch
-     * @return new instruction status
+     * @return InstructionStatus.RIGHT
      * @throws UnsupportedStatusTransitionException
      */
     default InstructionStatus right(Instruction instruction) throws UnsupportedStatusTransitionException {
@@ -32,7 +32,7 @@ public interface InstructionStatusOperations {
     /**
      * Switches state to UP
      * @param instruction the instruction to switch
-     * @return new instruction status
+     * @return InstructionStatus.UP
      * @throws UnsupportedStatusTransitionException
      */
     default InstructionStatus up(Instruction instruction) throws UnsupportedStatusTransitionException {
@@ -42,7 +42,7 @@ public interface InstructionStatusOperations {
     /**
      * Switches state to DOWN
      * @param instruction the instruction to switch
-     * @return new instruction status
+     * @return InstructionStatus.DOWN
      * @throws UnsupportedStatusTransitionException
      */
     default InstructionStatus down(Instruction instruction) throws UnsupportedStatusTransitionException {
@@ -52,7 +52,7 @@ public interface InstructionStatusOperations {
     /**
      * Switches state to STOP
      * @param instruction the instruction to switch
-     * @return new instruction status
+     * @return InstructionStatus.STOP
      * @throws UnsupportedStatusTransitionException
      */
     default InstructionStatus stop(Instruction instruction) throws UnsupportedStatusTransitionException {

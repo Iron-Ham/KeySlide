@@ -16,7 +16,6 @@ import java.awt.event.MouseListener;
  */
 public abstract class NavigationButton extends JButton implements ActionListener, MouseListener {
     private static final long serialVersionUID = 8971973612959800330L;
-    Window window;
 
     /**
      * Should be ran at initialization of the concrete class.
@@ -50,7 +49,7 @@ public abstract class NavigationButton extends JButton implements ActionListener
     @Override
     public void mouseEntered(MouseEvent e) {
         if (e.getSource() == this) {
-            this.setForeground(Colors.orange());
+            this.setForeground(Colors.selected());
         }
         this.updateUI();
     }

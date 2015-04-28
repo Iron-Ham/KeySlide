@@ -2,11 +2,14 @@ package views.highscores;
 
 import utilities.DBUtility;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 import java.awt.event.WindowEvent;
+import java.awt.Insets;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JButton;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -50,13 +53,10 @@ public class HighScoresPromptPanel extends JPanel {
         txtName.setColumns(10);
 
         JButton btnSubmitHighScore = new JButton("Submit High Score");
-        btnSubmitHighScore.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
-                DBUtility.insertNewHighScore(txtName.getText(), DATE_FORMAT.format(Calendar.getInstance().getTime()), score);
-                window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
-            }
+        btnSubmitHighScore.addActionListener(e -> {
+            SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
+            DBUtility.insertNewHighScore(txtName.getText(), DATE_FORMAT.format(Calendar.getInstance().getTime()), score);
+            window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
         });
         GridBagConstraints gbc_btnSubmitHighScore = new GridBagConstraints();
         gbc_btnSubmitHighScore.insets = new Insets(0, 0, 0, 5);

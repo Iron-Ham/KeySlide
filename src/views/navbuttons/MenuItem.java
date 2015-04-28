@@ -39,7 +39,7 @@ public class MenuItem extends JButton implements MouseListener {
         setContentAreaFilled(false);
         setFocusPainted(false);
         setBorder(BorderFactory.createEmptyBorder());
-        setForeground(Colors.orange());
+        setForeground(Colors.unselected());
     }
 
     @Override
@@ -61,7 +61,7 @@ public class MenuItem extends JButton implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
         if (e.getSource() == this) {
-            setForeground(Colors.orange());
+            setForeground(Colors.unselected());
         }
         updateUI();
     }

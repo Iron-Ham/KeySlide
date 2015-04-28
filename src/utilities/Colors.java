@@ -104,9 +104,9 @@ public class Colors {
      * The unselected color
      * @return color
      */
-    //Blue (V. Dark)
+    //Black
     public static Color unselected() {
-        return new Color(0x454951);
+        return new Color(0x000000);
     }
 
     /**
@@ -118,14 +118,7 @@ public class Colors {
         return new Color(0xFFFFFF);
     }
 
-    /**
-     * The color orange
-     * @return color orange
-     */
-    //Orange
-    public static Color orange() {
-        return new Color(0xEB5D00);
-    }
+
 
 
     private enum colorFamily {

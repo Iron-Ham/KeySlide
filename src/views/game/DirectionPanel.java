@@ -57,38 +57,31 @@ public abstract class DirectionPanel extends JPanel {
     /**
      * Constructor helper, also helps with updating panel
      */
-    protected void resolveInstructions() {
-        InstructionStatus status = instrControl.getStatus();
-        
+    protected synchronized void resolveInstructions() {
         //Because we want to give two opportunities to generate an instruction.
         for (int i = 0; i < 2; i++) {
         	instrControl.nextInstruction();
-        	status = instrControl.getStatus();
-        	
-        	if (status == InstructionStatus.LEFT) {
+        	if (instrControl.getStatus() == InstructionStatus.LEFT) {
                 internalKey = KeyEvent.VK_LEFT;
                 symbol = new LeftLabel();
-            } else if (status == InstructionStatus.RIGHT) {
+            } else if (instrControl.getStatus() == InstructionStatus.RIGHT) {
                 internalKey = KeyEvent.VK_RIGHT;
                 symbol = new RightLabel();
-            } else if (status == InstructionStatus.UP) {
+            } else if (instrControl.getStatus() == InstructionStatus.UP) {
                 internalKey = KeyEvent.VK_UP;
                 symbol = new UpLabel();
                 symbol.setVerticalAlignment(JLabel.CENTER);
 
-            } else if (status == InstructionStatus.DOWN) {
+            } else if (instrControl.getStatus() == InstructionStatus.DOWN) {
                 internalKey = KeyEvent.VK_DOWN;
                 symbol = new DownLabel();
                 symbol.setVerticalAlignment(JLabel.CENTER);
-            } else if (status == InstructionStatus.STOP) {
+            } else if (instrControl.getStatus() == InstructionStatus.STOP) {
             	int random = r.nextInt(10);
             	//We want to make random appear at 1/2 the rate as the other instructions. 
-            	if (random > 5 ) {
-            		continue;
-            	} else {
+            	if (random < 5 ) {
             		internalKey = -1;
                     label l = label.values()[r.nextInt(label.values().length)];
-
                     //Generates a Random Label for the stop instruction
                     switch (l) {
                         case UP:
@@ -112,7 +105,6 @@ public abstract class DirectionPanel extends JPanel {
             	}
             }
         }
-		
         symbol.setHorizontalAlignment(JLabel.CENTER);
         removeAll();
         add(symbol, BorderLayout.CENTER);
