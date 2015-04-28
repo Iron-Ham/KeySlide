@@ -64,8 +64,12 @@ public class Colors {
         return new Color[]{new Color(0x88CC88), new Color(0x55AA55), new Color(0x2D882D), new Color(0x116611), new Color(0x004400)};
     }
 
+//    private static Color[] seafoamFamily() {
+//        return new Color[]{new Color(0xCDF8DC), new Color(0x9AE9B5), new Color(0x6ED792), new Color(0x49C172), new Color(0x2CAA57)};
+//    }
+    
     private static Color[] seafoamFamily() {
-        return new Color[]{new Color(0xCDF8DC), new Color(0x9AE9B5), new Color(0x6ED792), new Color(0x49C172), new Color(0x2CAA57)};
+        return new Color[]{new Color(0x9AE9B5), new Color(0x9AE9B5), new Color(0x49C172), new Color(0x49C172), new Color(0x2CAA57)};
     }
 
     private static Color[] purpleFamily() {
@@ -88,8 +92,12 @@ public class Colors {
         return new Color[]{new Color(0x3D71C9), new Color(0x2E61B9), new Color(0x1E52AA), new Color(0x154495), new Color(0x143A7A)};
     }
 
+//    private static Color[] pinkFamily() {
+//        return new Color[]{new Color(0xFACFE6), new Color(0xF09FCB), new Color(0xE274B0), new Color(0xD35098), new Color(0xBC317D)};
+//    }
+    
     private static Color[] pinkFamily() {
-        return new Color[]{new Color(0xFACFE6), new Color(0xF09FCB), new Color(0xE274B0), new Color(0xD35098), new Color(0xBC317D)};
+        return new Color[]{new Color(0xF09FCB), new Color(0xF09FCB), new Color(0xD35098), new Color(0xD35098), new Color(0xBC317D)};
     }
 
     /**

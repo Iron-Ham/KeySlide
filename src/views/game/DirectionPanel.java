@@ -59,45 +59,60 @@ public abstract class DirectionPanel extends JPanel {
      */
     protected void resolveInstructions() {
         InstructionStatus status = instrControl.getStatus();
-        if (status == InstructionStatus.LEFT) {
-            internalKey = KeyEvent.VK_LEFT;
-            symbol = new LeftLabel();
-        } else if (status == InstructionStatus.RIGHT) {
-            internalKey = KeyEvent.VK_RIGHT;
-            symbol = new RightLabel();
-        } else if (status == InstructionStatus.UP) {
-            internalKey = KeyEvent.VK_UP;
-            symbol = new UpLabel();
-            symbol.setVerticalAlignment(JLabel.CENTER);
+        
+        //Because we want to give two opportunities to generate an instruction.
+        for (int i = 0; i < 2; i++) {
+        	instrControl.nextInstruction();
+        	status = instrControl.getStatus();
+        	
+        	if (status == InstructionStatus.LEFT) {
+                internalKey = KeyEvent.VK_LEFT;
+                symbol = new LeftLabel();
+            } else if (status == InstructionStatus.RIGHT) {
+                internalKey = KeyEvent.VK_RIGHT;
+                symbol = new RightLabel();
+            } else if (status == InstructionStatus.UP) {
+                internalKey = KeyEvent.VK_UP;
+                symbol = new UpLabel();
+                symbol.setVerticalAlignment(JLabel.CENTER);
 
-        } else if (status == InstructionStatus.DOWN) {
-            internalKey = KeyEvent.VK_DOWN;
-            symbol = new DownLabel();
-            symbol.setVerticalAlignment(JLabel.CENTER);
-        } else if (status == InstructionStatus.STOP) {
-            internalKey = -1;
-            label l = label.values()[r.nextInt(label.values().length)];
+            } else if (status == InstructionStatus.DOWN) {
+                internalKey = KeyEvent.VK_DOWN;
+                symbol = new DownLabel();
+                symbol.setVerticalAlignment(JLabel.CENTER);
+            } else if (status == InstructionStatus.STOP) {
+            	int random = r.nextInt(10);
+            	//We want to make random appear at 1/2 the rate as the other instructions. 
+            	if (random > 5 ) {
+            		continue;
+            	} else {
+            		internalKey = -1;
+                    label l = label.values()[r.nextInt(label.values().length)];
 
-            //Generates a Random Label for the stop instruction
-            switch (l) {
-                case UP:
-                    symbol = new UpLabel();
-                    symbol.setVerticalAlignment(JLabel.CENTER);
+                    //Generates a Random Label for the stop instruction
+                    switch (l) {
+                        case UP:
+                            symbol = new UpLabel();
+                            symbol.setVerticalAlignment(JLabel.CENTER);
+                            break;
+                        case DOWN:
+                            symbol = new DownLabel();
+                            symbol.setVerticalAlignment(JLabel.CENTER);
+                            break;
+                        case LEFT:
+                            symbol = new LeftLabel();
+                            break;
+                        case RIGHT:
+                            symbol = new RightLabel();
+                            break;
+                        default:
+                            System.out.println("Unexpected value!?");
+                    }
                     break;
-                case DOWN:
-                    symbol = new DownLabel();
-                    symbol.setVerticalAlignment(JLabel.CENTER);
-                    break;
-                case LEFT:
-                    symbol = new LeftLabel();
-                    break;
-                case RIGHT:
-                    symbol = new RightLabel();
-                    break;
-                default:
-                    System.out.println("Unexpected value!?");
+            	}
             }
         }
+		
         symbol.setHorizontalAlignment(JLabel.CENTER);
         removeAll();
         add(symbol, BorderLayout.CENTER);
