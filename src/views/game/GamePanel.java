@@ -119,6 +119,9 @@ public class GamePanel extends JPanel implements KeyListener {
         GameLog.log.exiting(getClass().getName(), "initializeAudio");
     }
 
+    /**
+     * Starts audio
+     */
     private void startAudio() {
     	try {
             GameLog.log.log(Level.INFO, "Rewinding Audio");
