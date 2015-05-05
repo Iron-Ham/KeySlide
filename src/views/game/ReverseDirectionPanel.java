@@ -48,13 +48,13 @@ public class ReverseDirectionPanel extends DirectionPanel {
         InstructionStatus status = instrControl.getStatus();
         if (status == InstructionStatus.LEFT) {
             internalKey = KeyEvent.VK_RIGHT;
-            symbol = new LeftLabel();
+            symbol = left;
         } else if (status == InstructionStatus.RIGHT) {
             internalKey = KeyEvent.VK_LEFT;
-            symbol = new RightLabel();
+            symbol = right;
         } else if (status == InstructionStatus.UP) {
             internalKey = KeyEvent.VK_DOWN;
-            symbol = new UpLabel();
+            symbol = up;
             symbol.setVerticalAlignment(JLabel.CENTER);
 
         } else {

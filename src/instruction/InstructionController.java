@@ -57,7 +57,10 @@ public class InstructionController {
      */
     public void nextInstruction() {
         GameLog.log.entering(getClass().getName(), "nextInstruction");
+        instr.setStatus(null);
         InstructionStatus p = InstructionStatus.getRandomStatus();
+        if (p == InstructionStatus.STOP)
+            p = InstructionStatus.getRandomStatus();
         instr.setStatus(p);
         reverse = r.nextBoolean();
         GameLog.log.exiting(getClass().getName(), "nextInstruction");

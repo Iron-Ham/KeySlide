@@ -166,6 +166,7 @@ public class GamePanel extends JPanel implements KeyListener {
         score += 1;
         updateGUI();
         updateUI();
+        System.gc();
     }
 
     /**
@@ -225,24 +226,13 @@ public class GamePanel extends JPanel implements KeyListener {
      */
     private synchronized void updateGUI() {
         remove(directionPanel);
-        directionPanel = null;
-        remove(timePanel);
-        timePanel.remove(timeBar);
-        timePanel = null;
-        timeBar = null;
-        timePanel = new JPanel();
-        timeBar = new JProgressBar();
         directionPanel = DirectionPanelFactory.getNextPanel();
-        add(directionPanel, BorderLayout.CENTER);
-        timePanel.add(timeBar);
+        directionPanel.updateSelf();
+        add(directionPanel);
         timeBar.setForeground(directionPanel.getColors()[0]);
-        timeBar.setPreferredSize(new Dimension(1280, 50));
-        timeBar.setMaximum(setTime());
-        timeBar.setMinimum(0);
         timePanel.setBackground(directionPanel.getColors()[2]);
         scoreButton.setBackground(directionPanel.getColors()[2]);
         scoreButton.setText("" + score);
-        add(timePanel, BorderLayout.SOUTH);
     }
 
     /**
