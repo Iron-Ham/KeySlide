@@ -233,8 +233,8 @@ public class GamePanel extends JPanel implements KeyListener {
         add(directionPanel);
         timeBar.setForeground(directionPanel.getColors()[0]);
         timePanel.setBackground(directionPanel.getColors()[2]);
-        scoreButton.setBackground(directionPanel.getColors()[2]);
-        scoreButton.setText("" + score);
+        scoreLabel.setBackground(directionPanel.getColors()[2]);
+        scoreLabel.setText("" + score);
     }
 
     /**

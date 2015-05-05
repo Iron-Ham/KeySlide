@@ -9,3 +9,5 @@ Assets/PXM
 RemoteSystemsTempFiles
 
 .settings/org.eclipse.jdt.core.prefs
+
+*.xml
