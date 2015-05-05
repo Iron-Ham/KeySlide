@@ -9,6 +9,8 @@ import instruction.InstructionController;
  */
 public class DirectionPanelFactory {
     private static InstructionController instrControl = InstructionController.getInstance();
+    private static ReverseDirectionPanel rp = new ReverseDirectionPanel();
+    private static SimpleDirectionPanel sp = new SimpleDirectionPanel();
 
     /**
      * Returns the next panel based on the value of reverse
@@ -17,9 +19,9 @@ public class DirectionPanelFactory {
     public static DirectionPanel getNextPanel() {
         instrControl.nextInstruction();
         if (instrControl.isReversed())
-            return new ReverseDirectionPanel();
+            return rp;
         else {
-            return new SimpleDirectionPanel();
+            return sp;
         }
     }
 }

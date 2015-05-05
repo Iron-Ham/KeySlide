@@ -21,6 +21,11 @@ public abstract class DirectionPanel extends JPanel {
     protected Color[] colors = new Color[5];
     InstructionController instrControl = InstructionController.getInstance();
     Random r = new Random();
+    protected UpLabel up = new UpLabel();
+    protected LeftLabel left = new LeftLabel();
+    protected DownLabel down = new DownLabel();
+    protected RightLabel right = new RightLabel();
+
 
     /**
      * Constructor.
@@ -43,6 +48,11 @@ public abstract class DirectionPanel extends JPanel {
             symbol.setForeground(colors[0]);
     }
 
+    public void updateSelf() {
+        resolveInstructions();
+        setColors();
+    }
+
     /**
      * @return internalKey, the KeyEvent code required of it per panel type
      */
@@ -58,55 +68,43 @@ public abstract class DirectionPanel extends JPanel {
      * Constructor helper, also helps with updating panel
      */
     protected synchronized void resolveInstructions() {
-    	boolean happenedOnce = false;
         symbol = null;
-        //Because we want to give two opportunities to generate an instruction.
-        for (int i = 0; i < 2; i++) {
-        	instrControl.nextInstruction();
-        	if (instrControl.getStatus() == InstructionStatus.LEFT) {
-                internalKey = KeyEvent.VK_LEFT;
-                symbol = new LeftLabel();
-            } else if (instrControl.getStatus() == InstructionStatus.RIGHT) {
-                internalKey = KeyEvent.VK_RIGHT;
-                symbol = new RightLabel();
-            } else if (instrControl.getStatus() == InstructionStatus.UP) {
-                internalKey = KeyEvent.VK_UP;
-                symbol = new UpLabel();
-                symbol.setVerticalAlignment(JLabel.CENTER);
+        if (instrControl.getStatus() == InstructionStatus.LEFT) {
+            internalKey = KeyEvent.VK_LEFT;
+            symbol = left;
+        } else if (instrControl.getStatus() == InstructionStatus.RIGHT) {
+            internalKey = KeyEvent.VK_RIGHT;
+            symbol = right;
+        } else if (instrControl.getStatus() == InstructionStatus.UP) {
+            internalKey = KeyEvent.VK_UP;
+            symbol = up;
+            symbol.setVerticalAlignment(JLabel.CENTER);
 
-            } else if (instrControl.getStatus() == InstructionStatus.DOWN) {
-                internalKey = KeyEvent.VK_DOWN;
-                symbol = new DownLabel();
-                symbol.setVerticalAlignment(JLabel.CENTER);
-            } else if (instrControl.getStatus() == InstructionStatus.STOP) {
-            	int random = r.nextInt(10);
-            	//We want to make random appear at 1/2 the rate as the other instructions. 
-            	if (random < 5 || happenedOnce) {
-            		internalKey = -1;
-                    label l = label.values()[r.nextInt(label.values().length)];
-                    //Generates a Random Label for the stop instruction
-                    switch (l) {
-                        case UP:
-                            symbol = new UpLabel();
-                            symbol.setVerticalAlignment(JLabel.CENTER);
-                            break;
-                        case DOWN:
-                            symbol = new DownLabel();
-                            symbol.setVerticalAlignment(JLabel.CENTER);
-                            break;
-                        case LEFT:
-                            symbol = new LeftLabel();
-                            break;
-                        case RIGHT:
-                            symbol = new RightLabel();
-                            break;
-                        default:
-                            System.out.println("Unexpected value!?");
-                    }
+        } else if (instrControl.getStatus() == InstructionStatus.DOWN) {
+            internalKey = KeyEvent.VK_DOWN;
+            symbol = down;
+            symbol.setVerticalAlignment(JLabel.CENTER);
+        } else if (instrControl.getStatus() == InstructionStatus.STOP) {
+            internalKey = -1;
+            label l = label.values()[r.nextInt(label.values().length)];
+            //Generates a Random Label for the stop instruction
+            switch (l) {
+                case UP:
+                    symbol = up;
+                    symbol.setVerticalAlignment(JLabel.CENTER);
                     break;
-            	} else {
-            		happenedOnce = true;
-            	}
+                case DOWN:
+                    symbol = down;
+                    symbol.setVerticalAlignment(JLabel.CENTER);
+                    break;
+                case LEFT:
+                    symbol = left;
+                    break;
+                case RIGHT:
+                    symbol = right;
+                    break;
+                default:
+                    System.out.println("Unexpected value!?");
             }
         }
         symbol.setHorizontalAlignment(JLabel.CENTER);

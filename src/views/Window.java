@@ -77,6 +77,7 @@ public class Window extends JFrame {
      */
     public void switchToGameOver() {
         GameLog.log.entering(getClass().getName(), "switchToGameOver");
+        System.gc();
         int score = gamePanel.getScore();
         if (DBUtility.isHighScore(score)) {
             GameLog.log.log(Level.INFO, "New High Score: " + score);

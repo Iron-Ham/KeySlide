@@ -45,20 +45,17 @@ public class ReverseDirectionPanel extends DirectionPanel {
      */
     @Override
     protected void resolveInstructions() {
-        Boolean happenedOnce = false;
-        symbol = null;
-        for (int i = 0; i < 2; i++) {
-            instrControl.nextInstruction();
-            if (instrControl.getStatus() == InstructionStatus.LEFT) {
-                internalKey = KeyEvent.VK_RIGHT;
-                symbol = new LeftLabel();
-            } else if (instrControl.getStatus() == InstructionStatus.RIGHT) {
-                internalKey = KeyEvent.VK_LEFT;
-                symbol = new RightLabel();
-            } else if (instrControl.getStatus() == InstructionStatus.UP) {
-                internalKey = KeyEvent.VK_DOWN;
-                symbol = new UpLabel();
-                symbol.setVerticalAlignment(JLabel.CENTER);
+        InstructionStatus status = instrControl.getStatus();
+        if (status == InstructionStatus.LEFT) {
+            internalKey = KeyEvent.VK_RIGHT;
+            symbol = left;
+        } else if (status == InstructionStatus.RIGHT) {
+            internalKey = KeyEvent.VK_LEFT;
+            symbol = right;
+        } else if (status == InstructionStatus.UP) {
+            internalKey = KeyEvent.VK_DOWN;
+            symbol = up;
+            symbol.setVerticalAlignment(JLabel.CENTER);
 
             } else if (instrControl.getStatus() == InstructionStatus.DOWN) {
                 internalKey = KeyEvent.VK_UP;
@@ -106,4 +103,3 @@ public class ReverseDirectionPanel extends DirectionPanel {
         doDrawing(g);
     }
 }
-

@@ -118,7 +118,10 @@ public class GamePanel extends JPanel implements KeyListener {
         }
         GameLog.log.exiting(getClass().getName(), "initializeAudio");
     }
-    
+
+    /**
+     * Starts audio
+     */
     private void startAudio() {
     	try {
             GameLog.log.log(Level.INFO, "Rewinding Audio");
@@ -165,6 +168,7 @@ public class GamePanel extends JPanel implements KeyListener {
         score += 1;
         updateGUI();
         updateUI();
+        System.gc();
     }
 
     /**
@@ -224,25 +228,13 @@ public class GamePanel extends JPanel implements KeyListener {
      */
     private synchronized void updateGUI() {
         remove(directionPanel);
-        directionPanel = null;
-        remove(timePanel);
-        timePanel.remove(timeBar);
-        timePanel = null;
-        timeBar = null;
-        System.gc();
-        timePanel = new JPanel();
-        timeBar = new JProgressBar();
         directionPanel = DirectionPanelFactory.getNextPanel();
-        add(directionPanel, BorderLayout.CENTER);
-        timePanel.add(timeBar);
+        directionPanel.updateSelf();
+        add(directionPanel);
         timeBar.setForeground(directionPanel.getColors()[0]);
-        timeBar.setPreferredSize(new Dimension(1280, 50));
-        timeBar.setMaximum(setTime());
-        timeBar.setMinimum(0);
         timePanel.setBackground(directionPanel.getColors()[2]);
-        scoreLabel.setBackground(directionPanel.getColors()[2]);
-        scoreLabel.setText("" + score);
-        add(timePanel, BorderLayout.SOUTH);
+        scoreButton.setBackground(directionPanel.getColors()[2]);
+        scoreButton.setText("" + score);
     }
 
     /**
