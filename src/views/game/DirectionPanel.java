@@ -112,7 +112,7 @@ public abstract class DirectionPanel extends JPanel {
         add(symbol, BorderLayout.CENTER);
     }
 
-    private enum label {
+    protected enum label {
         LEFT,
         RIGHT,
         UP,

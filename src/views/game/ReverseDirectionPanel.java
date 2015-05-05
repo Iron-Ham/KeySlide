@@ -57,10 +57,40 @@ public class ReverseDirectionPanel extends DirectionPanel {
             symbol = up;
             symbol.setVerticalAlignment(JLabel.CENTER);
 
-        } else {
-            internalKey = KeyEvent.VK_UP;
-            symbol = new DownLabel();
-            symbol.setVerticalAlignment(JLabel.CENTER);
+            } else if (instrControl.getStatus() == InstructionStatus.DOWN) {
+                internalKey = KeyEvent.VK_UP;
+                symbol = new DownLabel();
+                symbol.setVerticalAlignment(JLabel.CENTER);
+            } else if (instrControl.getStatus() == InstructionStatus.STOP) {
+                int random = r.nextInt(10);
+                //We want to make random appear at 1/2 the rate as the other instructions.
+                if (random < 5 || happenedOnce) {
+                    internalKey = -1;
+                    label l = label.values()[r.nextInt(label.values().length)];
+                    //Generates a Random Label for the stop instruction
+                    switch (l) {
+                        case UP:
+                            symbol = new UpLabel();
+                            symbol.setVerticalAlignment(JLabel.CENTER);
+                            break;
+                        case DOWN:
+                            symbol = new DownLabel();
+                            symbol.setVerticalAlignment(JLabel.CENTER);
+                            break;
+                        case LEFT:
+                            symbol = new LeftLabel();
+                            break;
+                        case RIGHT:
+                            symbol = new RightLabel();
+                            break;
+                        default:
+                            System.out.println("Unexpected value!?");
+                    }
+                    break;
+                } else {
+                    happenedOnce = true;
+                }
+            }
         }
         symbol.setHorizontalAlignment(JLabel.CENTER);
         removeAll();
@@ -73,4 +103,3 @@ public class ReverseDirectionPanel extends DirectionPanel {
         doDrawing(g);
     }
 }
-
