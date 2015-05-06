@@ -18,7 +18,6 @@ public class MenuItem extends JButton implements MouseListener {
 
     /**
      * Constructor
-     * @param window the main window
      * @param text the display text of this menu item
      */
     public MenuItem(String text) {

@@ -14,7 +14,7 @@ public class Colors {
 
     /**
      * Picks a random color family from the enumerable.
-     * @return [color]family: a random color family
+     * @return a random color family
      */
     public static Color[] getRandomColorFamily() {
         colorFamily c = colorFamily.values()[r.nextInt(colorFamily.values().length)];

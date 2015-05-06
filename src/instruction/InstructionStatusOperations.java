@@ -13,7 +13,7 @@ public interface InstructionStatusOperations {
      * Switches state to LEFT
      * @param instruction the instruction to switch
      * @return InstructionStatus.LEFT
-     * @throws UnsupportedStatusTransitionException
+     * @throws UnsupportedStatusTransitionException won't allow instructions to change states to themselves.
      */
     default InstructionStatus left(Instruction instruction) throws UnsupportedStatusTransitionException {
         return InstructionStatus.LEFT;
@@ -23,7 +23,7 @@ public interface InstructionStatusOperations {
      * Switches state to RIGHT
      * @param instruction the instruction to switch
      * @return InstructionStatus.RIGHT
-     * @throws UnsupportedStatusTransitionException
+     * @throws UnsupportedStatusTransitionException won't allow instructions to change states to themselves.
      */
     default InstructionStatus right(Instruction instruction) throws UnsupportedStatusTransitionException {
         return InstructionStatus.RIGHT;
@@ -33,7 +33,7 @@ public interface InstructionStatusOperations {
      * Switches state to UP
      * @param instruction the instruction to switch
      * @return InstructionStatus.UP
-     * @throws UnsupportedStatusTransitionException
+     * @throws UnsupportedStatusTransitionException won't allow instructions to change states to themselves.
      */
     default InstructionStatus up(Instruction instruction) throws UnsupportedStatusTransitionException {
         return InstructionStatus.UP;
@@ -43,7 +43,7 @@ public interface InstructionStatusOperations {
      * Switches state to DOWN
      * @param instruction the instruction to switch
      * @return InstructionStatus.DOWN
-     * @throws UnsupportedStatusTransitionException
+     * @throws UnsupportedStatusTransitionException won't allow instructions to change states to themselves.
      */
     default InstructionStatus down(Instruction instruction) throws UnsupportedStatusTransitionException {
         return InstructionStatus.DOWN;
@@ -53,7 +53,7 @@ public interface InstructionStatusOperations {
      * Switches state to STOP
      * @param instruction the instruction to switch
      * @return InstructionStatus.STOP
-     * @throws UnsupportedStatusTransitionException
+     * @throws UnsupportedStatusTransitionException won't allow instructions to change states to themselves. 
      */
     default InstructionStatus stop(Instruction instruction) throws UnsupportedStatusTransitionException {
         return InstructionStatus.STOP;

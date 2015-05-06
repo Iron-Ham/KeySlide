@@ -21,7 +21,6 @@ public class GameOverMenu extends JPanel {
     private BackButton backButton;
 
     /**
-     * @param window the window
      * @param points number of points earned in game
      */
     public GameOverMenu(int points) {
