@@ -2,7 +2,6 @@ package views.highscores;
 
 import misc.Person;
 import utilities.DBUtility;
-import views.Window;
 import views.navbuttons.BackButton;
 import javax.swing.*;
 import java.awt.Component;
@@ -12,11 +11,9 @@ import java.util.ArrayList;
 public class HighScoresPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    Window window;
     ArrayList<Person> people;
 
-    public HighScoresPanel(Window window) {
-        this.window = window;
+    public HighScoresPanel() {
         people = DBUtility.getHighScores();
         setUpGui(people);
     }
@@ -48,7 +45,7 @@ public class HighScoresPanel extends JPanel {
         table.setFont(new Font("Tahoma", Font.BOLD, 24));
         add(new JScrollPane(table));
 
-        JButton btnMainMenu = new BackButton(window);
+        JButton btnMainMenu = new BackButton();
         btnMainMenu.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(btnMainMenu);
 

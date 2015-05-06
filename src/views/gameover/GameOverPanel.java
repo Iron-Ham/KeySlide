@@ -1,8 +1,6 @@
 package views.gameover;
 
 import utilities.Colors;
-import views.Window;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,12 +11,10 @@ import java.awt.*;
  */
 public class GameOverPanel extends JPanel {
     private static final long serialVersionUID = 3157367815312662841L;
-    Window window;
     int score;
     private GameOverMenu menu;
 
-    public GameOverPanel(Window window) {
-        this.window = window;
+    public GameOverPanel() {
         score = 999;
         setupGUI();
     }
@@ -28,7 +24,7 @@ public class GameOverPanel extends JPanel {
      */
     private void setupGUI() {
         setLayout(new GridBagLayout());
-        menu = new GameOverMenu(window, score);
+        menu = new GameOverMenu(score);
         menu.setAlignmentY(0.5f);
         menu.setAlignmentX(0.5f);
         setSize(1280, 720);

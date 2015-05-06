@@ -20,11 +20,11 @@ import java.util.logging.Level;
  */
 public class Window extends JFrame {
     private static final long serialVersionUID = -8731966412182953292L;
-    private JPanel basePanel;
-    private CardLayout cardLayout = new CardLayout();
-    private GameOverPanel gameOverPanel;
-    private GamePanel gamePanel;
-    private HighScoresPanel scorePanel;
+    private static JPanel basePanel;
+    private static CardLayout cardLayout = new CardLayout();
+    private static GameOverPanel gameOverPanel;
+    private static GamePanel gamePanel;
+    private static HighScoresPanel scorePanel;
 
 
     /**
@@ -46,12 +46,12 @@ public class Window extends JFrame {
      */
     private void setupGui() {
         HomePanel homePanel = new HomePanel(this);
-        gameOverPanel = new GameOverPanel(this);
+        gameOverPanel = new GameOverPanel();
         basePanel = new JPanel();
-        InstructionPanel instructionPanel = new InstructionPanel(this);
-        gamePanel = new GamePanel(this);
+        InstructionPanel instructionPanel = new InstructionPanel();
+        gamePanel = new GamePanel();
         gamePanel.setFocusable(true);
-        scorePanel = new HighScoresPanel(this);
+        scorePanel = new HighScoresPanel();
         basePanel.setLayout(cardLayout);
         basePanel.add(homePanel, "home");
         basePanel.add(instructionPanel, "instructions");
@@ -64,19 +64,16 @@ public class Window extends JFrame {
     /**
      * Switches to game panel
      */
-    public void switchToGame() {
-        GameLog.log.entering(getClass().getName(), "switchToGame");
+    public synchronized static void switchToGame() {
         gamePanel.start();
         cardLayout.show(basePanel, "game");
         gamePanel.requestFocusInWindow();
-        GameLog.log.exiting(getClass().getName(), "switchToGame");
     }
 
     /**
      * Switches to game over panel
      */
-    public void switchToGameOver() {
-        GameLog.log.entering(getClass().getName(), "switchToGameOver");
+    public synchronized static void switchToGameOver() {
         System.gc();
         int score = gamePanel.getScore();
         if (DBUtility.isHighScore(score)) {
@@ -86,34 +83,27 @@ public class Window extends JFrame {
         }
         gameOverPanel.setScore(score);
         cardLayout.show(basePanel, "game over");
-        GameLog.log.exiting(getClass().getName(), "setStatus");
     }
 
     /**
      * Switches to instruction panel
      */
-    public void switchToInstructions() {
-        GameLog.log.entering(getClass().getName(), "switchToInstructions");
+    public synchronized static void switchToInstructions() {
         cardLayout.show(basePanel, "instructions");
-        GameLog.log.exiting(getClass().getName(), "switchToInstructions");
     }
 
     /**
      * Switches to home panel
      */
-    public void switchToHome() {
-        GameLog.log.entering(getClass().getName(), "switchToHome");
+    public synchronized static void switchToHome() {
         cardLayout.show(basePanel, "home");
-        GameLog.log.exiting(getClass().getName(), "switchToHome");
     }
 
     /**
      * Switches to high-score panel;
      */
-    public void switchToHiScores() {
-        GameLog.log.entering(getClass().getName(), "switchToHiScores");
+    public synchronized static void switchToHiScores() {
         scorePanel.updateSelf();
         cardLayout.show(basePanel, "scores");
-        GameLog.log.exiting(getClass().getName(), "switchToHiScores");
     }
 }

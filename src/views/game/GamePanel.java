@@ -35,7 +35,6 @@ public class GamePanel extends JPanel implements KeyListener {
     DirectionPanel directionPanel;
     Clip clip;
     InstructionController controller = InstructionController.getInstance();
-    Window window;
     Timer timer;
     JLabel scoreLabel;
     private JPanel timePanel;
@@ -44,10 +43,8 @@ public class GamePanel extends JPanel implements KeyListener {
     private int score = 0;
     /**
      * Constructor
-     * @param window primary screen for the game
      */
-    public GamePanel(final Window window) {
-        this.window = window;
+    public GamePanel() {
         setupGui();
     }
 
@@ -155,7 +152,7 @@ public class GamePanel extends JPanel implements KeyListener {
         timePosition = 0;
         timer.stop();
         timeBar.setValue(timePosition);
-        window.switchToGameOver();
+        Window.switchToGameOver();
         GameLog.log.exiting(getClass().getName(), "gameOver");
         updateUI();
     }

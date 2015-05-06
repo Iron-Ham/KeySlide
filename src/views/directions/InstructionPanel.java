@@ -1,8 +1,6 @@
 package views.directions;
 
-import views.Window;
 import views.navbuttons.BackButton;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -14,14 +12,11 @@ import java.io.File;
  */
 public class InstructionPanel extends JPanel {
     private static final long serialVersionUID = 8337054250198837572L;
-    Window window;
 
     /**
      * Constructor
-     * @param window the main window
      */
-    public InstructionPanel(Window window) {
-        this.window = window;
+    public InstructionPanel() {
         setupGui();
     }
 
@@ -40,7 +35,7 @@ public class InstructionPanel extends JPanel {
         imageView.setViewportView(image);
         imageView.setSize(1280, 720);
         imageView.setPreferredSize(new Dimension(1280, 720));
-        BackButton back = new BackButton(window);
+        BackButton back = new BackButton();
         add(imageView, BorderLayout.CENTER);
         add(back, BorderLayout.NORTH);
     }

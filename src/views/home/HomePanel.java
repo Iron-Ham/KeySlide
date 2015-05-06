@@ -24,7 +24,7 @@ public class HomePanel extends JPanel {
         this.window = window;
         setLayout(new GridBagLayout());
         setBackground(Color.WHITE);
-        Menu menu = new Menu(window);
+        Menu menu = new Menu();
         setBackground(Colors.getRandomColorFamily()[2]);
         menu.setBackground(Color.WHITE);
         menu.setAlignmentY(0.5f);

@@ -1,9 +1,7 @@
 package views.gameover;
 
-import views.Window;
 import views.navbuttons.BackButton;
 import views.navbuttons.ReplayButton;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -16,7 +14,6 @@ import java.awt.event.MouseEvent;
  */
 public class GameOverMenu extends JPanel {
     private static final long serialVersionUID = 3752554785961368904L;
-    Window window;
     int points;
     private JLabel gameOver;
     private JLabel score;
@@ -27,8 +24,7 @@ public class GameOverMenu extends JPanel {
      * @param window the window
      * @param points number of points earned in game
      */
-    public GameOverMenu(Window window, int points) {
-        this.window = window;
+    public GameOverMenu(int points) {
         this.points = points;
         setupGUI();
     }
@@ -44,8 +40,8 @@ public class GameOverMenu extends JPanel {
         score = new JLabel("Score: " + points);
         score.setFont(new Font("Arial", Font.PLAIN, 40));
         score.setForeground(Color.WHITE);
-        replayButton = new ReplayButton(window);
-        backButton = new BackButton(window) {
+        replayButton = new ReplayButton();
+        backButton = new BackButton() {
             private static final long serialVersionUID = 6516006810869991726L;
 
             @Override

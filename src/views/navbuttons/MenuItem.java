@@ -15,15 +15,13 @@ import java.awt.event.MouseListener;
  */
 public class MenuItem extends JButton implements MouseListener {
     private static final long serialVersionUID = 3699142395262583263L;
-    Window window;
 
     /**
      * Constructor
      * @param window the main window
      * @param text the display text of this menu item
      */
-    public MenuItem(Window window, String text) {
-        this.window = window;
+    public MenuItem(String text) {
         setText(text);
         setActionCommand(text);
         addMouseListener(this);

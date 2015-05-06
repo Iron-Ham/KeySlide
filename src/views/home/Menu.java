@@ -14,13 +14,11 @@ import java.awt.*;
  */
 public class Menu extends JPanel {
     private static final long serialVersionUID = -6758351920150177724L;
-    Window window;
     private MenuItem start;
     private MenuItem hiScores;
     private MenuItem instructions;
 
-    public Menu(Window window) {
-        this.window = window;
+    public Menu() {
         setupGui();
     }
 
@@ -30,11 +28,11 @@ public class Menu extends JPanel {
     private void setupGui() {
         setOpaque(false);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        start = new MenuItem(window, "Start");
+        start = new MenuItem("Start");
         start.setSize(150, 120);
-        hiScores = new MenuItem(window, "Hi-Scores");
+        hiScores = new MenuItem("Hi-Scores");
         hiScores.setSize(150, 120);
-        instructions = new MenuItem(window, "Instructions");
+        instructions = new MenuItem("Instructions");
         instructions.setSize(150, 120);
         attachListeners();
         JLabel title = new JLabel("Key Slide");
@@ -55,9 +53,9 @@ public class Menu extends JPanel {
      */
     private void attachListeners() {
         GameLog.log.entering(getClass().getName(), "attachListeners");
-        start.addActionListener(e -> window.switchToGame());
-        hiScores.addActionListener(e -> window.switchToHiScores());
-        instructions.addActionListener(e -> window.switchToInstructions());
+        start.addActionListener(e -> Window.switchToGame());
+        hiScores.addActionListener(e -> Window.switchToHiScores());
+        instructions.addActionListener(e -> Window.switchToInstructions());
         GameLog.log.exiting(getClass().getName(), "attachListeners");
 
     }
